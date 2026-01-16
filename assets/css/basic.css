@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1440px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+body {
+    header {
+        background-color: black;
+    }
+}
+
+/* Font Family Hellix  */
+@font-face {
+    font-family: 'hellix';
+    src: url('../fonts/Hellix-Regular.ttf');
+}
+
+.header-btn {
+    padding: 8px 14px;
+    border-radius: 9px;
+    border: 1px solid black;
+    transition: all .3s ease;
+
+    &:hover {
+        border: 1px solid gray;
+        cursor: pointer;
+        background-color: rgb(194, 179, 179);
+    }
+}
+
+.header-btn {
+    padding: 8px 14px;
+    border-radius: 9px;
+    border: 1px solid black;
+    transition: all .3s ease;
+
+    &:hover {
+        border: 1px solid gray;
+        cursor: pointer;
+        background-color: rgb(194, 179, 179);
+    }
+}
