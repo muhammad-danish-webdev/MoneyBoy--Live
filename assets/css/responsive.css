@@ -1,0 +1,180 @@
+/* Media Query At :: 992px  */
+@media (max-width:992px) {
+    .hero-section {
+        .container {
+            .hero-container {
+                .hero-container-content {
+                    h1 {
+                        font-size: 56px;
+                        line-height: 66px;
+                        max-width: 400px;
+
+                        span {
+                            font-size: 56px;
+                            line-height: 66px;
+                        }
+                    }
+
+                    .hero-container-desc {
+                        font-size: 18px;
+                        line-height: 24px;
+                        max-width: 258px;
+                        font-weight: 300;
+                    }
+
+                    .content-filter-dropdown-container {
+                        .find-money-boy-btn {
+                            &:hover {}
+                        }
+
+                        >p {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Media Query At :: 768px  */
+@media (max-width:768px) {
+    .header-section {
+        .container {
+            .header-container {
+                .header-logo {
+                    width: 180px;
+
+                    img {}
+                }
+
+                .header-cta-buttons {
+                    gap: 15px;
+
+                    .cta-login-btn {
+                        svg {
+                            path {}
+                        }
+
+                        span {}
+
+                        &:hover {
+                            svg {
+                                path {}
+                            }
+                        }
+                    }
+
+                    .cta-signup-btn {
+                        span {}
+                    }
+                }
+            }
+        }
+    }
+
+    .hero-section {
+        .container {
+            .hero-container {
+                .hero-container-content {
+                    h1 {
+                        font-size: 46px;
+                        line-height: 56px;
+                        max-width: 350px;
+
+                        span {
+                            font-size: 46px;
+                            line-height: 56px;
+                        }
+                    }
+
+                    .hero-container-desc {
+                        font-size: 16px;
+                        line-height: 21px;
+                        max-width: 240px;
+                    }
+
+                    .content-filter-dropdown-container {
+                        .find-money-boy-btn {
+                            &:hover {}
+                        }
+
+                        >p {}
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .header-section {
+        .container {
+            .header-container {
+                position: relative;
+
+                .header-logo {
+                    width: 130px;
+
+                    img {}
+                }
+
+                .header-cta-button-container {
+                    .header-cta-buttons {
+                        position: fixed;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        inset: 0;
+                        top: 80px;
+                        right: -100%;
+                        background-color: #000000;
+                        flex-direction: column;
+                        transition: all .3s ease;
+                        gap: 16px;
+
+                        .cta-login-btn,
+                        .cta-signup-btn {
+                            width: 90%;
+                            border: 1px solid white;
+                        }
+                    }
+                }
+
+                .menu-icon {
+                    display: block;
+                    position: relative;
+                    transition: all 3s ease;
+
+                    i {
+                        position: absolute;
+                        color: white;
+                        right: 0;
+                        top: -10px;
+                        font-size: 20px;
+                        transition: all .3s ease;
+                    }
+
+                    .fa-xmark {
+                        display: none;
+                    }
+                }
+            }
+
+            .header-container:has(input:checked) .header-cta-button-container .header-cta-buttons {
+                right: 0;
+            }
+
+            .header-container:has(input:checked) .menu-icon .fa-bars {
+                display: none;
+            }
+
+            .header-container:has(input:checked) .menu-icon .fa-xmark {
+                display: block;
+            }
+        }
+    }
+
+    /* ############################  */
+    /* ############################  */
+}

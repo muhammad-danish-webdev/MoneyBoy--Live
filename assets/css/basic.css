@@ -10,12 +10,6 @@
     margin: 0 auto;
 }
 
-body {
-    header {
-        background-color: black;
-    }
-}
-
 /* Font Family Hellix  */
 @font-face {
     font-family: 'hellix';
@@ -28,24 +22,7 @@ body {
     src: url('../fonts/Bambino.otf');
 }
 
-/* 
-.header-btn {
-    padding: 8px 14px;
-    border-radius: 9px;
-    border: 1px solid black;
-    transition: all .3s ease;
-
-    &:hover {
-        border: 1px solid gray;
-        cursor: pointer;
-        background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
-        color: black;
-
-        span {
-            color: black;
-        }
-    }
-} */
+/* Header Button  */
 .header-btn {
     padding: 8px 14px;
     border-radius: 9px;
