@@ -20,18 +20,19 @@
                 gap: 30px;
 
                 .cta-login-btn {
-                    background-color: black;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     gap: 8px;
+                    transition: all .3s ease;
+                    color: black;
 
-                    .login-placeholder-icon {
-                        display: flex;
-                        width: 20px;
+                    svg {
+                        transition: all .3s ease;
 
-                        img {
-                            width: 20px;
+                        path {
+                            transition: all .3s ease;
+                            fill: white;
                         }
                     }
 
@@ -41,16 +42,28 @@
                         font-size: 16px;
                         line-height: 24px;
                         color: white;
+                        transition: all .3s ease;
+                    }
+
+                    &:hover {
+                        svg {
+                            path {
+                                fill: black;
+                            }
+                        }
                     }
                 }
 
                 .cta-signup-btn {
-                    background-color: black;
                     font-family: "Hellix";
                     font-weight: 600;
                     font-size: 16px;
                     line-height: 24px;
-                    color: white;
+
+                    span {
+                        color: white;
+                        transition: all .3s ease;
+                    }
                 }
             }
         }
@@ -63,30 +76,79 @@
 /* ########################  */
 /* ########################  */
 .hero-section {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     height: 100vh;
     background-image: url(../images/background-hero-image.png);
-    background-position: center;
+    background-position: 10% center;
     background-size: contain;
     background-repeat: no-repeat;
     background-color: black;
 
     .container {
         .hero-container {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+
             .hero-container-content {
                 h1 {
-                    span {}
+                    max-width: 500px;
+                    font-family: 'Bamboni';
+                    color: white;
+                    margin-top: 100px;
+                    font-weight: 700;
+                    font-size: 68px;
+                    line-height: 78px;
+
+                    span {
+                        color: #FE990B;
+                    }
                 }
 
-                .hero-container-desc {}
+                .hero-container-desc {
+                    font-family: "Bamboni";
+                    font-weight: 400;
+                    font-size: 22px;
+                    line-height: 30px;
+                    max-width: 316px;
+                    color: white;
+                    padding: 10px 0 20px;
+                }
 
-                .dropdown-container {
-                    .custom-select {
-                        select {
-                            option {}
+                .content-filter-dropdown-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    width: 350px;
+
+                    .find-money-boy-btn {
+                        padding: 14px 0;
+                        max-width: 350px;
+                        width: 100%;
+                        background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
+                        border: none;
+                        border-radius: 12px;
+                        font-family: "Bambino";
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 21px;
+                        font-family: "Bamboni";
+                        transition: all .3s ease;
+
+                        &:hover {
+                            cursor: pointer;
                         }
                     }
 
-                    .find-money-boy-btn {}
+                    >p {
+                        font-family: "Hellix";
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: white;
+                        line-height: 20px;
+                    }
                 }
             }
         }
