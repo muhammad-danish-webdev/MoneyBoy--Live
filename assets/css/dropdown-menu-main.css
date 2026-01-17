@@ -27,11 +27,13 @@
                                     span {
                                         font-family: "hellix";
                                     }
+                                }
 
-                                    .custom-select-label-chevron {
-                                        svg {
-                                            path {}
-                                        }
+                                .custom-select-label-chevron {
+                                    svg {
+                                        width: 12px;
+
+                                        path {}
                                     }
                                 }
                             }
