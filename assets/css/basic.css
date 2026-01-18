@@ -1,12 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
     box-sizing: border-box;
 }
 
 .container {
     max-width: 1440px;
-    width: 95%;
+    width: 92%;
     margin: 0 auto;
 }
 
@@ -16,9 +17,9 @@
     src: url('../fonts/Hellix-Regular.ttf');
 }
 
-/* Font Family Bamboni  */
+/* Font Family bambino  */
 @font-face {
-    font-family: 'Bamboni';
+    font-family: "bambino";
     src: url('../fonts/Bambino.otf');
 }
 
@@ -58,5 +59,14 @@
         span {
             color: black !important;
         }
+    }
+}
+
+button,
+i {
+    transition: all .3s ease;
+
+    &:hover {
+        cursor: pointer;
     }
 }

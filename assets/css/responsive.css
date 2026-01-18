@@ -3,31 +3,33 @@
     .hero-section {
         .container {
             .hero-container {
-                .hero-container-content {
-                    h1 {
-                        font-size: 56px;
-                        line-height: 66px;
-                        max-width: 400px;
-
-                        span {
+                .hero-main-content-container {
+                    .hero-container-content {
+                        h1 {
                             font-size: 56px;
                             line-height: 66px;
-                        }
-                    }
+                            max-width: 400px;
 
-                    .hero-container-desc {
-                        font-size: 18px;
-                        line-height: 24px;
-                        max-width: 258px;
-                        font-weight: 300;
-                    }
-
-                    .content-filter-dropdown-container {
-                        .find-money-boy-btn {
-                            &:hover {}
+                            span {
+                                font-size: 56px;
+                                line-height: 66px;
+                            }
                         }
 
-                        >p {}
+                        .hero-container-desc {
+                            font-size: 18px;
+                            line-height: 24px;
+                            max-width: 258px;
+                            font-weight: 300;
+                        }
+
+                        .content-filter-dropdown-container {
+                            .find-money-boy-btn {
+                                &:hover {}
+                            }
+
+                            >p {}
+                        }
                     }
                 }
             }
@@ -74,30 +76,32 @@
     .hero-section {
         .container {
             .hero-container {
-                .hero-container-content {
-                    h1 {
-                        font-size: 46px;
-                        line-height: 56px;
-                        max-width: 350px;
-
-                        span {
+                .hero-main-content-container {
+                    .hero-container-content {
+                        h1 {
                             font-size: 46px;
                             line-height: 56px;
-                        }
-                    }
+                            max-width: 350px;
 
-                    .hero-container-desc {
-                        font-size: 16px;
-                        line-height: 21px;
-                        max-width: 240px;
-                    }
-
-                    .content-filter-dropdown-container {
-                        .find-money-boy-btn {
-                            &:hover {}
+                            span {
+                                font-size: 46px;
+                                line-height: 56px;
+                            }
                         }
 
-                        >p {}
+                        .hero-container-desc {
+                            font-size: 16px;
+                            line-height: 21px;
+                            max-width: 240px;
+                        }
+
+                        .content-filter-dropdown-container {
+                            .find-money-boy-btn {
+                                &:hover {}
+                            }
+
+                            >p {}
+                        }
                     }
                 }
             }

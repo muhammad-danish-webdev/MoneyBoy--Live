@@ -1,108 +1,331 @@
-<div
-  class="custom-select-element"
-  data-custom-select-element=""
-  data-custom-select-value="">
-  <div class="custom-select-label-wrapper" data-custom-select-triger="">
-    <div class="custom-select-icon-txt">
-      <span class="custom-select-label-txt"> countries </span>
-    </div>
-
-    <!-- Chevron Icon  -->
-    <div class="custom-select-chevron">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="24"
-        viewBox="0 0 25 24"
-        fill="none">
-        <path
-          d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
-          stroke="none"
-          stroke-width="1.5"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-      </svg>
-    </div>
-  </div>
-
-  <!-- Dropdown Menu  -->
-  <div
-    class="custom-select-options-dropdown-wrapper"
-    data-custom-select-dropdown=""
-    style="
-      translate: none;
-      rotate: none;
-      scale: none;
-      overflow: hidden;
-      display: none;
-      opacity: 0;
-      transform: translate(0px, -10px);
-      height: 0px;
-    ">
-    <!-- Options Container  -->
-    <div
-      class="custom-select-options-dropdown-container"
-      style="background-color: red">
-      <div
-        class="custom-select-options-search"
-        data-custom-select-options-search="">
-        <div class="label-input">
-          <!-- Placeholder Icon -->
-          <div class="input-placeholder-icon">
-            <svg
-              class="svg-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none">
-              <path
-                d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <path
-                d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <path
-                d="M14 5H20"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-              <path
-                d="M14 8H17"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"></path>
-            </svg>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elegant Lace - Premium Lace for Fashion</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #f9f9f9;
+        line-height: 1.6;
+      }
+      header {
+        background-color: #fff;
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+      }
+      nav h1 {
+        margin: 0;
+        color: #d4a574; /* Soft gold accent */
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      nav li {
+        margin: 0 1rem;
+      }
+      nav a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s;
+      }
+      nav a:hover {
+        color: #d4a574;
+      }
+      .hero {
+        background-image: url("https://via.placeholder.com/1200x600?text=Lace+Fabric+Pattern"); /* Replace with Google lace image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        animation: fadeIn 2s ease-in;
+      }
+      .hero h2 {
+        font-size: 3rem;
+        margin: 0;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+      }
+      .btn {
+        background-color: #d4a574;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition:
+          background-color 0.3s,
+          transform 0.3s;
+      }
+      .btn:hover {
+        background-color: #b8955e;
+        transform: scale(1.05);
+      }
+      section {
+        padding: 4rem 2rem;
+        max-width: 1200px;
+        margin: auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition:
+          opacity 0.6s,
+          transform 0.6s;
+      }
+      section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+      .product {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .product:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      .product img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+      .product:hover img {
+        transform: scale(1.1);
+      }
+      .product .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(212, 165, 116, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+        color: white;
+        font-weight: bold;
+      }
+      .product:hover .overlay {
+        opacity: 1;
+      }
+      .product-content {
+        padding: 1rem;
+        position: relative;
+      }
+      form {
+        display: grid;
+        gap: 1rem;
+        max-width: 500px;
+        margin: auto;
+      }
+      input,
+      textarea {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: #d4a574;
+        outline: none;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 768px) {
+        .hero h2 {
+          font-size: 2rem;
+        }
+        nav ul {
+          display: none;
+        } /* Simple mobile nav; add hamburger if needed */
+        .products {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Elegant Lace</h1>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h2>Timeless Lace for Every Occasion</h2>
+        <p
+          >Discover premium lace fabrics for dresses, accessories, and more.
+          Handcrafted elegance since [Year].</p
+        >
+        <a href="#products" class="btn">Explore Our Collection</a>
+      </div>
+    </section>
+    <section id="about">
+      <h2>About Elegant Lace</h2>
+      <p
+        >We specialize in high-quality lace for fashion designers and
+        enthusiasts. From delicate motifs to bold patterns, our collection adds
+        sophistication to any garment. Established in [Year], we've served
+        clients worldwide with sustainable, ethically sourced materials.</p
+      >
+    </section>
+    <section id="products">
+      <h2>Our Lace Collection</h2>
+      <div class="products">
+        <div class="product">
+          <img
+            src="https://via.placeholder.com/300x200?text=Delicate+Lace"
+            alt="Delicate Lace" />
+          <!-- Replace with Google lace image -->
+          <div class="overlay">View Details</div>
+          <div class="product-content">
+            <h3>Delicate Floral Lace</h3>
+            <p
+              >Perfect for wedding dresses and evening wear. Soft and
+              breathable.</p
+            >
           </div>
-          <input type="text" placeholder="Search here" />
+        </div>
+        <div class="product">
+          <img
+            src="https://via.placeholder.com/300x200?text=Bold+Lace"
+            alt="Bold Lace" />
+          <!-- Replace -->
+          <div class="overlay">View Details</div>
+          <div class="product-content">
+            <h3>Bold Geometric Lace</h3>
+            <p
+              >Modern designs for contemporary fashion. Durable and
+              versatile.</p
+            >
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://via.placeholder.com/300x200?text=Vintage+Lace"
+            alt="Vintage Lace" />
+          <!-- Replace -->
+          <div class="overlay">View Details</div>
+          <div class="product-content">
+            <h3>Vintage-Inspired Lace</h3>
+            <p
+              >Timeless patterns for heirloom pieces. Intricate
+              craftsmanship.</p
+            >
+          </div>
         </div>
       </div>
-      <div class="custom-select-options-lists-container">
-        <ul
-          class="custom-select-options-list"
-          data-custom-select-options-list="">
-          <li class="custom-select-option">
-            <span>Option 1</span>
-          </li>
-          <li class="custom-select-option">
-            <span>Option 2</span>
-          </li>
-          <li class="custom-select-option">
-            <span>Option 3</span>
-          </li>
-          <li class="custom-select-option">
-            <span>Option 4</span>
-          </li>
-          <li class="custom-select-option">
-            <span>Option 5</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST">
+        <!-- Replace with your Formspree ID -->
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea
+          name="message"
+          placeholder="Tell us about your project"
+          rows="5"
+          required></textarea>
+        <button type="submit" class="btn">Send Inquiry</button>
+      </form>
+    </section>
+    <footer>
+      <p
+        >&copy; 2023 Elegant Lace. All rights reserved. | Follow us on [Social
+        Links]</p
+      >
+    </footer>
+    <script>
+      // Smooth scrolling for nav links
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // Fade-in animation on scroll
+      const sections = document.querySelectorAll("section");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      });
+      sections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>
