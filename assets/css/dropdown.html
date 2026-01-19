@@ -3,329 +3,103 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elegant Lace - Premium Lace for Fashion</title>
+    <title>Perfect Gradient Border Card</title>
     <style>
+      /* Screen ke beech mein lane ke liye */
       body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #333;
-        background-color: #f9f9f9;
-        line-height: 1.6;
-      }
-      header {
-        background-color: #fff;
-        padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 100;
-      }
-      nav {
+        background-color: #0f0f0f;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        max-width: 1200px;
-        margin: auto;
-      }
-      nav h1 {
+        height: 100vh;
         margin: 0;
-        color: #d4a574; /* Soft gold accent */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-      nav ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-      }
-      nav li {
-        margin: 0 1rem;
-      }
-      nav a {
-        text-decoration: none;
-        color: #333;
-        transition: color 0.3s;
-      }
-      nav a:hover {
-        color: #d4a574;
-      }
-      .hero {
-        background-image: url("https://via.placeholder.com/1200x600?text=Lace+Fabric+Pattern"); /* Replace with Google lace image */
+
+      .card {
+        width: 500px;
+        height: 700px;
+        position: relative;
+        border-radius: 10px;
+
+        /* Background Nature Image */
+        background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80");
         background-size: cover;
         background-position: center;
-        height: 100vh;
+
         display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        position: relative;
+        flex-direction: column;
+        justify-content: flex-end;
+        overflow: hidden; /* Taake content corners se bahar na nikle */
       }
-      .hero::before {
+
+      /* Yahan Gradient Border ka Magic hai */
+      .card::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.4);
-      }
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        animation: fadeIn 2s ease-in;
-      }
-      .hero h2 {
-        font-size: 3rem;
-        margin: 0;
-      }
-      .hero p {
-        font-size: 1.2rem;
-        margin: 1rem 0;
-      }
-      .btn {
-        background-color: #d4a574;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        text-decoration: none;
-        border-radius: 5px;
-        transition:
-          background-color 0.3s,
-          transform 0.3s;
-      }
-      .btn:hover {
-        background-color: #b8955e;
-        transform: scale(1.05);
-      }
-      section {
-        padding: 4rem 2rem;
-        max-width: 1200px;
-        margin: auto;
-        opacity: 0;
-        transform: translateY(20px);
-        transition:
-          opacity 0.6s,
-          transform 0.6s;
-      }
-      section.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .products {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
-      .product {
-        background: white;
+
+        /* 10px Radius jo aapne manga tha */
         border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
+
+        /* Border ki thickness */
+        padding: 1px;
+
+        /* Top to bottom: White (50%) then Transparent (50%) */
+        background: linear-gradient(
+          to bottom,
+          white 0%,
+          white 50%,
+          transparent 50%,
+          transparent 100%
+        );
+
+        /* Masking: Ye beech ka area 'punch out' kar deta hai taake sirf border nazar aaye */
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+
+        pointer-events: none; /* Taake clicks image/text tak pohnch saken */
       }
-      .product:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-      .product img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.3s;
-      }
-      .product:hover img {
-        transform: scale(1.1);
-      }
-      .product .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(212, 165, 116, 0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s;
+
+      .content {
+        background: rgba(0, 0, 0, 0.5);
         color: white;
-        font-weight: bold;
+        padding: 30px;
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
       }
-      .product:hover .overlay {
-        opacity: 1;
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: 24px;
       }
-      .product-content {
-        padding: 1rem;
-        position: relative;
-      }
-      form {
-        display: grid;
-        gap: 1rem;
-        max-width: 500px;
-        margin: auto;
-      }
-      input,
-      textarea {
-        padding: 0.75rem;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        transition: border-color 0.3s;
-      }
-      input:focus,
-      textarea:focus {
-        border-color: #d4a574;
-        outline: none;
-      }
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 2rem;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      @media (max-width: 768px) {
-        .hero h2 {
-          font-size: 2rem;
-        }
-        nav ul {
-          display: none;
-        } /* Simple mobile nav; add hamburger if needed */
-        .products {
-          grid-template-columns: 1fr;
-        }
+      p {
+        margin: 0;
+        font-size: 15px;
+        opacity: 0.8;
+        line-height: 1.6;
       }
     </style>
   </head>
   <body>
-    <header>
-      <nav>
-        <h1>Elegant Lace</h1>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h2>Timeless Lace for Every Occasion</h2>
+    <div class="card">
+      <div class="content">
+        <h1>Nature's Beauty</h1>
         <p
-          >Discover premium lace fabrics for dresses, accessories, and more.
-          Handcrafted elegance since [Year].</p
+          >Yeh card 500x700px ka hai. Iska border-radius 10px hai aur iska
+          border top se center tak white hai, aur neechay wala half bilkul
+          transparent hai.</p
         >
-        <a href="#products" class="btn">Explore Our Collection</a>
       </div>
-    </section>
-    <section id="about">
-      <h2>About Elegant Lace</h2>
-      <p
-        >We specialize in high-quality lace for fashion designers and
-        enthusiasts. From delicate motifs to bold patterns, our collection adds
-        sophistication to any garment. Established in [Year], we've served
-        clients worldwide with sustainable, ethically sourced materials.</p
-      >
-    </section>
-    <section id="products">
-      <h2>Our Lace Collection</h2>
-      <div class="products">
-        <div class="product">
-          <img
-            src="https://via.placeholder.com/300x200?text=Delicate+Lace"
-            alt="Delicate Lace" />
-          <!-- Replace with Google lace image -->
-          <div class="overlay">View Details</div>
-          <div class="product-content">
-            <h3>Delicate Floral Lace</h3>
-            <p
-              >Perfect for wedding dresses and evening wear. Soft and
-              breathable.</p
-            >
-          </div>
-        </div>
-        <div class="product">
-          <img
-            src="https://via.placeholder.com/300x200?text=Bold+Lace"
-            alt="Bold Lace" />
-          <!-- Replace -->
-          <div class="overlay">View Details</div>
-          <div class="product-content">
-            <h3>Bold Geometric Lace</h3>
-            <p
-              >Modern designs for contemporary fashion. Durable and
-              versatile.</p
-            >
-          </div>
-        </div>
-        <div class="product">
-          <img
-            src="https://via.placeholder.com/300x200?text=Vintage+Lace"
-            alt="Vintage Lace" />
-          <!-- Replace -->
-          <div class="overlay">View Details</div>
-          <div class="product-content">
-            <h3>Vintage-Inspired Lace</h3>
-            <p
-              >Timeless patterns for heirloom pieces. Intricate
-              craftsmanship.</p
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form action="https://formspree.io/f/yourformid" method="POST">
-        <!-- Replace with your Formspree ID -->
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea
-          name="message"
-          placeholder="Tell us about your project"
-          rows="5"
-          required></textarea>
-        <button type="submit" class="btn">Send Inquiry</button>
-      </form>
-    </section>
-    <footer>
-      <p
-        >&copy; 2023 Elegant Lace. All rights reserved. | Follow us on [Social
-        Links]</p
-      >
-    </footer>
-    <script>
-      // Smooth scrolling for nav links
-      document.querySelectorAll("nav a").forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          target.scrollIntoView({ behavior: "smooth" });
-        });
-      });
-
-      // Fade-in animation on scroll
-      const sections = document.querySelectorAll("section");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      });
-      sections.forEach((section) => observer.observe(section));
-    </script>
+    </div>
   </body>
 </html>

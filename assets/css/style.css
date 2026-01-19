@@ -1,6 +1,9 @@
 .header-section {
     padding: 22px 0;
     background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
 
     .container {
         .header-container {
@@ -86,23 +89,25 @@
 /* ########################  */
 /* ########################  */
 .hero-section {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    height: 100vh;
     background-image: url(../images/background-hero-image.png);
-    background-position: center;
+    background-position: -78px center;
     background-size: contain;
     background-repeat: no-repeat;
     background-color: black;
+    position: relative;
+    z-index: -1;
 
     .container {
         .hero-container {
             display: flex;
             align-items: center;
-            height: 100vh;
+            height: 900px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
 
             .hero-main-content-container {
+                position: relative;
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
@@ -173,6 +178,7 @@
                     display: flex;
                     flex-direction: column;
                     gap: 26px;
+                    margin-top: 100px;
 
                     .hero-own-boss-card {
                         background-image: url(../images/hero-container-boss-card.jpg);
@@ -253,15 +259,36 @@
                     }
 
                     .trending-featured-cards-wrapper {
+                        position: relative;
+
+                        /* ##############################  */
+                        /* ##############################  */
+                        /* ##############################  */
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            border-radius: 10px;
+                            padding: 1px;
+                            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.445) 0%, rgba(255, 255, 255, 0.253) 5%, transparent 90%, transparent 100%);
+                            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                            -webkit-mask-composite: xor;
+                        }
+
+                        /* ##############################  */
+                        /* ##############################  */
+                        /* ##############################  */
+                        /* ##############################  */
                         padding: 15px;
                         display: flex;
                         flex-direction: column;
                         border-radius: 10px;
                         backdrop-filter: blur(15px);
                         background-color: rgba(187, 176, 176, 0.13);
-                        border: 1px solid;
-                        border-image-source: linear-gradient(180deg, rgba(255, 255, 255, 0.31) 0%, rgba(255, 255, 255, 0) 100%);
-                        border-image-slice: 1;
 
                         h4 {
                             font-family: "Bambino";
@@ -296,8 +323,6 @@
                             margin-top: 20px;
 
                             .trending-featured-card {
-                                /* width: 370px; */
-                                display: flex;
                                 background-image: url(../images/Jonathan-image.png);
                                 background-repeat: no-repeat;
                                 background-position: left;
@@ -305,28 +330,41 @@
                                 height: 120px;
                                 position: relative;
                                 border-radius: 10px;
-                                max-width: 376px;
+                                width: 377px;
 
                                 &::after {
                                     content: "";
-                                    width: 100%;
+                                    width: 60px;
                                     height: 100%;
-                                    background-image: url(../images/featured-card-bg-image.png);
-                                    background-position: center;
-                                    background-repeat: no-repeat;
-                                    background-size: cover;
+                                    background: linear-gradient(to right,
+                                            transparent 0%,
+                                            black 90%,
+                                            black 100%);
                                     position: absolute;
-                                    border-radius: 10px;
-                                    display: inline-block;
+                                    top: 0;
+                                    right: 211px;
+                                }
+
+                                .featured-card-image {
+                                    height: 120px;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
                                 }
 
                                 .trending-featured-card-content {
-                                    margin-left: auto;
-                                    position: relative;
-                                    z-index: 1;
+                                    position: absolute;
+                                    inset: 0;
                                     display: flex;
+                                    left: 158px;
+                                    ;
+                                    background: #000;
                                     flex-direction: column;
                                     padding: 10px;
+                                    border-top-right-radius: 10px;
+                                    border-bottom-right-radius: 10px;
 
                                     .top-rated-badge {
                                         margin-left: auto;
@@ -354,7 +392,6 @@
                                     .card-profile-title {
                                         display: flex;
                                         align-items: center;
-                                        justify-content: center;
                                         gap: 4px;
                                         padding: 8px 44px 6px 0;
 
@@ -405,10 +442,6 @@
                                     }
                                 }
                             }
-
-                            :nth-child(2).trending-featured-card {
-                                background-image: url(../images/ota-reichmann-image.png);
-                            }
                         }
                     }
                 }
@@ -423,13 +456,13 @@
 /* ########################  */
 /* ########################  */
 .footer-section {
-    position: absolute;
-    bottom: 0;
-    background: rgba(29, 29, 29, 0.562);
+    background: rgba(29, 29, 29, 0.349);
     backdrop-filter: blur(15px);
     color: white;
     width: 100%;
-    padding: 6px 12px;
+    padding: 8px 12px;
+    position: fixed;
+    bottom: 0;
 
     .footer-container {
         display: flex;
@@ -459,6 +492,8 @@
                     line-height: 16px;
 
                     svg {
+                        display: flex;
+
                         path {}
                     }
                 }
