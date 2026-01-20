@@ -441,6 +441,10 @@
                                     }
                                 }
                             }
+
+                            & :nth-child(2).trending-featured-card {
+                                background-image: url(../images/ota-reichmann-image.png);
+                            }
                         }
                     }
                 }
