@@ -4,6 +4,7 @@
     position: fixed;
     left: 0;
     right: 0;
+    z-index: 1;
 
     .container {
         .header-container {
@@ -94,8 +95,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: black;
-    position: relative;
-    z-index: -1;
 
     .container {
         .hero-container {
@@ -506,12 +505,15 @@
             border-radius: 12px;
             display: flex;
             gap: 10px;
+            position: relative;
 
             .lang-filter-wrapper {
                 display: flex;
                 align-items: center;
                 gap: 5px;
+                cursor: pointer;
 
+                /* Taake dropdown sahi jagah dikhe */
                 svg {
                     path {}
                 }
@@ -521,6 +523,41 @@
                     font-weight: 400;
                     font-size: 12px;
                     line-height: 16px;
+                }
+
+                .custom-select-list-container {
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                    top: -117px;
+                    height: 300px;
+                    overflow: hidden;
+                    transition: height 0.3s ease-in-out;
+
+                    /* display: inline-table; */
+                    /* Optional: Rotate the chevron when open */
+                    .content-filter-card.active .custom-select-label-chevron {
+                        transform: rotate(180deg);
+                        transition: transform 0.3s ease;
+                    }
+
+                    .custom-select-options-list {
+                        list-style: none;
+                        background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.089) 13.36%, rgba(221, 229, 255, 0.27) 114.95%);
+                        background-color: black;
+                        width: 100%;
+                        border-radius: 14px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        padding: 10px 20px;
+                        z-index: 1;
+                        position: relative;
+
+                        .custom-select-item {
+                            font-family: "hellix";
+                        }
+                    }
                 }
             }
 

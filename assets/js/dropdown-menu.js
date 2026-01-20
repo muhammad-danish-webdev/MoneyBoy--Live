@@ -1,38 +1,68 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const dropdowns = document.querySelectorAll(".content-filter-card-wrapper");
+  const contentDropdowns = document.querySelectorAll(".content-filter-card");
+  const langWrapper = document.querySelector(".lang-filter-wrapper");
+  const langListContainer = langWrapper?.querySelector(
+    ".custom-select-list-container",
+  );
 
-  dropdowns.forEach((card) => {
-    const label = card.querySelector(".custom-select-label-wrapper");
+  // --- 1. Global Close Function (Sab kuch band karne ke liye) ---
+  function closeAllEverywhere() {
+    // Content filter cards band karein
+    contentDropdowns.forEach((card) => {
+      card.classList.remove("is-open");
+      const container = card.querySelector(".custom-select-list-container");
+      if (container) container.style.height = "0px";
+    });
+
+    // Language wrapper band karein
+    if (langWrapper) {
+      langWrapper.classList.remove("is-open");
+      if (langListContainer) langListContainer.style.height = "0px";
+    }
+  }
+
+  // --- 2. Content Filter Cards Logic ---
+  contentDropdowns.forEach((card) => {
     const listContainer = card.querySelector(".custom-select-list-container");
 
-    label.addEventListener("click", (e) => {
-      // Prevent the click from immediately triggering the "click outside" window listener
+    card.addEventListener("click", (e) => {
       e.stopPropagation();
-
       const isOpen = card.classList.contains("is-open");
 
-      // Close all other dropdowns first (Optional: remove if you want multiple open at once)
-      closeAllDropdowns();
+      // Pehle sab kuch band karein (Language wala bhi aur doosre cards bhi)
+      closeAllEverywhere();
 
+      // Agar ye pehle band tha, to ab ise khol dein
       if (!isOpen) {
         card.classList.add("is-open");
-        // Calculate the exact height of the content inside
-        listContainer.style.height = `${listContainer.scrollHeight}px`;
+        if (listContainer) {
+          listContainer.style.height = `${listContainer.scrollHeight}px`;
+        }
       }
     });
   });
 
-  // Helper to reset heights and classes
-  function closeAllDropdowns() {
-    dropdowns.forEach((card) => {
-      card.classList.remove("is-open");
-      const container = card.querySelector(".custom-select-list-container");
-      container.style.height = "0px";
+  // --- 3. Language Filter Logic ---
+  if (langWrapper) {
+    langWrapper.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = langWrapper.classList.contains("is-open");
+
+      // Pehle sab kuch band karein (Content cards bhi aur ye khud bhi)
+      closeAllEverywhere();
+
+      // Agar band tha to khol dein
+      if (!isOpen) {
+        langWrapper.classList.add("is-open");
+        if (langListContainer) {
+          langListContainer.style.height = `${langListContainer.scrollHeight}px`;
+        }
+      }
     });
   }
 
-  // Close dropdowns if user clicks anywhere else on the page
+  // --- 4. Window Click (Kahin bhi bahar click ho to sab band) ---
   window.addEventListener("click", () => {
-    closeAllDropdowns();
+    closeAllEverywhere();
   });
 });
