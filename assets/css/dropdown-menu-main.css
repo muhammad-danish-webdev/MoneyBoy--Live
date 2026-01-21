@@ -10,6 +10,8 @@
 
                 .content-filter-dropdown-container {
                     .content-filter-card-wrapper {
+                        -webkit-tap-highlight-color: transparent;
+
                         .content-filter-card {
                             position: relative;
                             background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.089) 13.36%, rgba(221, 229, 255, 0.27) 114.95%);

@@ -1,29 +1,109 @@
+@media (max-width:1230px) {
+    .footer-section {
+        .footer-container {
+            grid-template-columns: auto auto;
+            place-content: space-evenly;
+            gap: 8px;
+
+            .copy-right-notice {}
+
+            .navigation-list {
+                .navigation-item {
+                    a {
+                        svg {
+                            path {}
+                        }
+                    }
+                }
+            }
+
+            .utility-toggle-bar-wrapper {
+                .lang-filter-wrapper {
+                    svg {
+                        path {}
+                    }
+
+                    >p {}
+
+                    .custom-select-list-container {
+                        .content-filter-card.active .custom-select-label-chevron {}
+
+                        .custom-select-options-list {
+                            .custom-select-item {}
+                        }
+                    }
+                }
+
+                .units-filter-wrapper {
+                    .unit-label {}
+
+                    .unit-slector-dropdown {
+                        .unit-selector {}
+
+                        svg {
+                            path {}
+                        }
+                    }
+                }
+            }
+
+            .footer-legal-links-list {
+                .legal-links-item {
+                    a {}
+                }
+            }
+        }
+    }
+}
+
 /* Media Query At :: 992px  */
 @media (max-width:992px) {
+    .header-section {
+        position: relative;
+        /* top: 0; */
+    }
+
     .hero-section {
+        background-position: -265px top;
+        background-size: 113%;
+
         .container {
             .hero-container {
+                height: 100%;
+                min-height: 100%;
+                padding-bottom: 19%;
+
+                /* padding-top: 50px; */
                 .hero-main-content-container {
+                    flex-direction: column;
+
                     .hero-container-content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
                         h1 {
-                            font-size: 56px;
-                            line-height: 66px;
-                            max-width: 400px;
+                            font-size: 80px;
+                            line-height: 91px;
+                            margin-top: 37%;
+                            max-width: 600px;
+                            text-align: center;
 
                             span {
-                                font-size: 56px;
-                                line-height: 66px;
+                                font-size: inherit;
+                                line-height: inherit;
                             }
                         }
 
                         .hero-container-desc {
-                            font-size: 18px;
-                            line-height: 24px;
-                            max-width: 258px;
-                            font-weight: 300;
+                            font-size: 24px;
+                            max-width: 100%;
                         }
 
                         .content-filter-dropdown-container {
+                            max-width: 400px;
+                            width: 100%;
+
                             .find-money-boy-btn {
                                 &:hover {}
                             }
@@ -74,18 +154,22 @@
     }
 
     .hero-section {
+        background-position: -207px top;
+        background-size: 113%;
+
         .container {
             .hero-container {
                 .hero-main-content-container {
                     .hero-container-content {
                         h1 {
-                            font-size: 46px;
-                            line-height: 56px;
-                            max-width: 350px;
+                            font-size: 56px;
+                            line-height: 63px;
+                            max-width: 480px;
+                            margin-top: 66%;
 
                             span {
-                                font-size: 46px;
-                                line-height: 56px;
+                                font-size: 56px;
+                                line-height: 63px;
                             }
                         }
 
@@ -109,7 +193,7 @@
     }
 }
 
-@media (max-width:500px) {
+@media (max-width:576px) {
     .header-section {
         .container {
             .header-container {
@@ -175,6 +259,37 @@
 
             .header-container:has(input:checked) .menu-icon .fa-xmark {
                 display: block;
+            }
+        }
+    }
+
+    .hero-section {
+        background-position: -200px top;
+        background-size: 124%;
+
+        .container {
+            .hero-container {
+                .hero-main-content-container {
+                    .hero-container-content {
+                        h1 {
+                            margin-top: 57%;
+
+                            span {}
+                        }
+
+                        .hero-container-desc {}
+
+                        .content-filter-dropdown-container {
+                            max-width: 340px;
+
+                            .find-money-boy-btn {
+                                &:hover {}
+                            }
+
+                            >p {}
+                        }
+                    }
+                }
             }
         }
     }
