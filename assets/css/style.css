@@ -1,10 +1,10 @@
 .header-section {
     padding: 22px 0;
-    background-color: black;
     position: fixed;
     left: 0;
     right: 0;
     z-index: 1;
+    backdrop-filter: blur(22px);
 
     .container {
         .header-container {
@@ -113,6 +113,8 @@
                 align-items: center;
 
                 .hero-container-content {
+                    margin-bottom: 50px;
+
                     h1 {
                         max-width: 500px;
                         font-family: 'bambino';
@@ -394,7 +396,7 @@
                                         display: flex;
                                         align-items: center;
                                         gap: 4px;
-                                        padding: 8px 44px 6px 0;
+                                        padding: 8px 0 6px 0;
 
                                         .featured-card-profile-badge {
                                             width: 30px;

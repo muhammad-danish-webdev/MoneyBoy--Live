@@ -297,3 +297,66 @@
     /* ############################  */
     /* ############################  */
 }
+
+/* Media Query At ::430px  */
+@media (max-width:430px) {
+    .header-section {}
+
+    .hero-section {
+        .container {
+            .hero-container {
+                .hero-main-content-container {
+                    .hero-container-content {
+                        h1 {
+                            span {}
+                        }
+
+                        .hero-container-desc {}
+
+                        .content-filter-dropdown-container {
+                            .find-money-boy-btn {
+                                &:hover {}
+                            }
+
+                            >p {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .hero-section {
+        background-size: 153%;
+
+        .container {
+            .hero-container {
+                .hero-main-content-container {
+                    .hero-container-content {
+                        h1 {
+                            font-size: 40px;
+                            line-height: 50px;
+                            max-width: 330px;
+                            margin-top: 84%;
+
+                            span {
+                                font-size: 40px;
+                                line-height: 50px;
+                            }
+                        }
+
+                        .hero-container-desc {}
+
+                        .content-filter-dropdown-container {
+                            .find-money-boy-btn {
+                                &:hover {}
+                            }
+
+                            >p {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
