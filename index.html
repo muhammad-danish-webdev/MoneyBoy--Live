@@ -540,68 +540,143 @@
         </ul>
 
         <div class="utility-toggle-bar-wrapper">
-          <div class="lang-filter-wrapper">
-            <div class="custom-select-list-container">
-              <ul class="custom-select-options-list">
-                <li class="custom-select-item"> Option No. 1 </li>
-                <li class="custom-select-item"> Option No. 2 </li>
-                <li class="custom-select-item"> Option No. 3 </li>
-              </ul>
+          <div class="lang-filter-wrapper" data-custom-select-element>
+            <div
+              class="custom-select-options-dropdown-wrapper"
+              data-custom-select-dropdown>
+              <div class="custom-select-options-dropdown-container">
+                <div
+                  class="custom-select-options-search"
+                  data-custom-select-options-search>
+                  <div class="label-input">
+                    <!-- Placeholder Icon -->
+                    <div class="input-placeholder-icon">
+                      <svg
+                        class="svg-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none">
+                        <path
+                          d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                        <path
+                          d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                        <path
+                          d="M14 5H20"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                        <path
+                          d="M14 8H17"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                    <input type="text" placeholder="Search here" />
+                  </div>
+                </div>
+                <div class="custom-select-options-lists-container">
+                  <ul
+                    class="custom-select-options-list"
+                    data-custom-select-options-list>
+                    <li class="custom-select-option">
+                      <span>Option 1</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 2</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 3</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 4</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 5</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 6</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 7</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 8</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 9</span>
+                    </li>
+                    <li class="custom-select-option">
+                      <span>Option 10</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none">
-              <path
-                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M7.99961 3H8.99961C7.04961 8.84 7.04961 15.16 8.99961 21H7.99961"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M15 3C16.95 8.84 16.95 15.16 15 21"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M3 9.0001C8.84 7.0501 15.16 7.0501 21 9.0001"
-                stroke="white"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+            <div style="display: contents" data-custom-select-triger>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none">
+                <path
+                  d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M7.99961 3H8.99961C7.04961 8.84 7.04961 15.16 8.99961 21H7.99961"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M15 3C16.95 8.84 16.95 15.16 15 21"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M3 9.0001C8.84 7.0501 15.16 7.0501 21 9.0001"
+                  stroke="white"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
 
-            <p>EN</p>
+              <p>EN</p>
 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="12"
-              height="7"
-              viewBox="0 0 18 9"
-              fill="none">
-              <path
-                d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
-                stroke="#FECE26"
-                stroke-width="1.5"
-                stroke-miterlimit="10"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="7"
+                viewBox="0 0 18 9"
+                fill="none">
+                <path
+                  d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
+                  stroke="#FECE26"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
           </div>
 
           <div class="units-filter-wrapper">
