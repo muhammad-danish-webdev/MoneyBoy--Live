@@ -3,103 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfect Gradient Border Card</title>
+    <title>Perfect Gradient Rounded Button</title>
     <style>
-      /* Screen ke beech mein lane ke liye */
       body {
-        background-color: #0f0f0f;
+        background-color: #121212;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Poppins", sans-serif;
       }
 
-      .card {
-        width: 500px;
-        height: 700px;
-        position: relative;
-        border-radius: 10px;
+      .custom-btn {
+        /* Dimensions & Text */
+        padding: 15px 40px;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.4s ease;
 
-        /* Background Nature Image */
-        background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80");
-        background-size: cover;
-        background-position: center;
+        /* Border Radius jo hover pe bhi barqarar rahega */
+        border-radius: 50px;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        overflow: hidden; /* Taake content corners se bahar na nikle */
+        /* Initial State */
+        color: #000000;
+        border: 2px solid transparent; /* Transparent border zaroori hai */
+        background: linear-gradient(85.82deg, #fece26 3.6%, #fe990b 97.13%)
+          border-box;
+
+        /* Shadow for depth */
+        box-shadow: 0 4px 15px rgba(254, 206, 38, 0.2);
       }
 
-      /* Yahan Gradient Border ka Magic hai */
-      .card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+      .custom-btn:hover {
+        /* Hover logic for Gradient Border + Black Background + Border Radius */
+        background:
+          linear-gradient(#000, #000) padding-box,
+          linear-gradient(85.82deg, #fece26 3.6%, #fe990b 97.13%) border-box;
 
-        /* 10px Radius jo aapne manga tha */
-        border-radius: 10px;
+        /* Border ko dikhane ke liye transparent rakhna hai */
+        border: 2px solid transparent;
 
-        /* Border ki thickness */
-        padding: 1px;
+        /* Text Gradient Logic */
+        background-image:
+          linear-gradient(85.82deg, #fece26 3.6%, #fe990b 97.13%),
+          /* For text */ linear-gradient(#000, #000); /* Hidden background */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
-        /* Top to bottom: White (50%) then Transparent (50%) */
-        background: linear-gradient(
-          to bottom,
-          white 0%,
-          white 50%,
-          transparent 50%,
-          transparent 100%
-        );
-
-        /* Masking: Ye beech ka area 'punch out' kar deta hai taake sirf border nazar aaye */
-        -webkit-mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-
-        pointer-events: none; /* Taake clicks image/text tak pohnch saken */
+        /* Hover Shadow */
+        box-shadow: 0 6px 20px rgba(254, 206, 38, 0.1);
       }
 
-      .content {
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        padding: 30px;
-        backdrop-filter: blur(10px);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      h1 {
-        margin: 0 0 10px;
-        font-size: 24px;
-      }
-      p {
-        margin: 0;
-        font-size: 15px;
-        opacity: 0.8;
-        line-height: 1.6;
+      /* Click effect */
+      .custom-btn:active {
+        transform: scale(0.95);
       }
     </style>
   </head>
   <body>
-    <div class="card">
-      <div class="content">
-        <h1>Nature's Beauty</h1>
-        <p
-          >Yeh card 500x700px ka hai. Iska border-radius 10px hai aur iska
-          border top se center tak white hai, aur neechay wala half bilkul
-          transparent hai.</p
-        >
-      </div>
-    </div>
+    <button class="custom-btn"> Explore More </button>
   </body>
 </html>

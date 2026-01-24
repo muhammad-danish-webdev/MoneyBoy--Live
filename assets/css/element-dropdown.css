@@ -113,6 +113,7 @@
                         outline: none;
                         border-radius: 10px;
                         transition: all .3s ease;
+                        width: 100%;
 
                         &::placeholder {
                             font-family: 'hellix';
@@ -147,6 +148,7 @@
 
                             input {
                                 border-color: #2c2a2a;
+                                width: 100%;
 
                                 &::placeholder {
                                     color: #222020e3;
@@ -208,4 +210,13 @@
 
 .custom-select-element:has(.custom-select-options-dropdown-wrapper.active) .custom-select-chevron {
     transform: rotate(180deg);
+}
+
+.custom-select-element:hover {
+    background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.204) 13.36%, rgba(221, 229, 255, 0.374) 114.95%);
+    transition: all 0.3s ease;
+    /* Smoothness ke liye zaroori hai */
+    cursor: pointer;
+    /* Pointer lazmi hai click dikhane ke liye */
+    transition: all .3s ease;
 }
