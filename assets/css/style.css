@@ -1,12 +1,16 @@
+/* ############################# */
+/* START :: Header Section       */
+/* #############################*/
 .header-section {
     padding: 22px 0;
     position: fixed;
     left: 0;
     right: 0;
-    z-index: 1;
-    backdrop-filter: blur(22px);
+    z-index: 2;
 
     .container {
+
+        /* Header Container  */
         .header-container {
             display: flex;
             align-items: center;
@@ -20,6 +24,7 @@
                 }
             }
 
+            /* Header CTA Buttons  */
             .header-cta-button-container {
                 .header-cta-buttons {
                     display: flex;
@@ -84,11 +89,17 @@
     }
 }
 
+/* ############################# */
+/* END   :: Header Section       */
+/* #############################*/
 /* ########################  */
 /* ########################  */
 /* ########################  */
 /* ########################  */
 /* ########################  */
+/* ############################# */
+/* START :: Hero  Section       */
+/* #############################*/
 .hero-section {
     background-image: url(../images/background-hero-image.png);
     background-position: -160px center;
@@ -97,6 +108,8 @@
     background-color: black;
 
     .container {
+
+        /* Hero Container   */
         .hero-container {
             display: flex;
             align-items: center;
@@ -105,6 +118,7 @@
             display: flex;
             align-items: center;
 
+            /* Hero Container Content Container  */
             .hero-main-content-container {
                 position: relative;
                 display: flex;
@@ -112,6 +126,7 @@
                 width: 100%;
                 align-items: center;
 
+                /* Hero Container Left Side Content  */
                 .hero-container-content {
                     margin-bottom: 50px;
 
@@ -145,37 +160,52 @@
                         gap: 12px;
                         max-width: 350px;
 
-                        .find-money-boy-btn {
-                            padding: 14px 0;
-                            width: 100%;
-                            background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
-                            border: none;
-                            border-radius: 12px;
-                            font-family: "Bambino";
-                            font-weight: 400;
-                            font-size: 16px;
-                            line-height: 21px;
-                            font-family: "bambino";
-                            transition: all .3s ease;
-                            margin-top: 6px;
+                        .custom-select-element {
+                            border-radius: 18px;
+                            border-radius: 14px;
+                            display: flex;
                             position: relative;
+                            background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.089) 13.36%, rgba(221, 229, 255, 0.27) 114.95%);
+                            width: 100%;
+                            -webkit-tap-highlight-color: transparent;
 
-                            span {
-                                background-clip: text;
-                                color: transparent;
-                                z-index: -1;
-                            }
+                            .custom-select-label-wrapper {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                width: 100%;
+                                cursor: pointer;
+                                border-radius: inherit;
+                                gap: 6px;
+                                gap: 8px;
+                                padding: 16px 20px;
+                                width: 100%;
+                                user-select: none;
 
-                            &:hover {
-                                &::before {
-                                    background-color: black;
-                                    content: '';
-                                    inset: 1px;
-                                    display: block;
-                                    position: absolute;
-                                    border-radius: inherit;
+                                .custom-select-icon-txt {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+
+                                    .custom-select-label-txt {
+                                        font-family: 'hellix';
+                                        color: white;
+                                    }
+                                }
+
+                                .custom-select-chevron {
+                                    display: flex;
+                                    align-items: center;
                                     transition: all .3s ease;
-                                    cursor: pointer;
+
+                                    svg {
+                                        width: 18px;
+                                        height: 18px;
+
+                                        path {
+                                            stroke: white;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -191,6 +221,7 @@
                     }
                 }
 
+                /* Hero Container Right Sided Cards  */
                 .money-boy-hero-featured-cards-container {
                     display: flex;
                     flex-direction: column;
@@ -278,10 +309,14 @@
 
                     .trending-featured-cards-wrapper {
                         position: relative;
+                        margin-bottom: 175px;
+                        padding: 15px;
+                        display: flex;
+                        flex-direction: column;
+                        border-radius: 10px;
+                        backdrop-filter: blur(15px);
+                        background-color: rgba(187, 176, 176, 0.13);
 
-                        /* ##############################  */
-                        /* ##############################  */
-                        /* ##############################  */
                         &::before {
                             content: "";
                             position: absolute;
@@ -297,17 +332,6 @@
                             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
                             -webkit-mask-composite: xor;
                         }
-
-                        /* ##############################  */
-                        /* ##############################  */
-                        /* ##############################  */
-                        /* ##############################  */
-                        padding: 15px;
-                        display: flex;
-                        flex-direction: column;
-                        border-radius: 10px;
-                        backdrop-filter: blur(15px);
-                        background-color: rgba(187, 176, 176, 0.13);
 
                         h4 {
                             font-family: "Bambino";
@@ -344,6 +368,14 @@
                             .trending-featured-card {
                                 display: flex;
 
+                                .trending-featured-card-image {
+                                    img {
+                                        border-top-left-radius: 10px;
+                                        border-bottom-left-radius: 10px;
+                                        display: flex;
+                                    }
+                                }
+
                                 .trending-featured-card-content {
                                     display: flex;
                                     background: #000;
@@ -351,9 +383,8 @@
                                     padding: 10px;
                                     border-top-right-radius: 10px;
                                     border-bottom-right-radius: 10px;
-                                    max-width: 230px;
-                                    width: 100%;
                                     width: 230px;
+                                    position: relative;
 
                                     .top-rated-badge {
                                         margin-left: auto;
@@ -397,6 +428,7 @@
                                             font-size: 15px;
                                             line-height: 15px;
                                             color: white;
+                                            min-width: max-content;
                                         }
 
                                         .user-name-dot {
@@ -425,11 +457,21 @@
                                             color: #FFFFFFA6;
                                         }
                                     }
-                                }
-                            }
 
-                            & :nth-child(2).trending-featured-card {
-                                background-image: url(../images/ota-reichmann-image.png);
+                                    &::before {
+                                        content: "";
+                                        width: 40px;
+                                        height: 100%;
+                                        background: linear-gradient(to right,
+                                                rgba(0, 0, 0, 0) 0%,
+                                                rgba(0, 0, 0, 0.4) 20%,
+                                                rgba(0, 0, 0, 0.8) 50%,
+                                                rgba(0, 0, 0, 1) 100%);
+                                        position: absolute;
+                                        left: -40px;
+                                        top: 0;
+                                    }
+                                }
                             }
                         }
                     }
@@ -439,11 +481,17 @@
     }
 }
 
+/* ############################# */
+/* END  :: Hero  Section         */
+/* ############################# */
 /* ########################  */
 /* ########################  */
 /* ########################  */
 /* ########################  */
 /* ########################  */
+/* ############################# */
+/* START :: Footer  Section      */
+/* ############################# */
 .footer-section {
     background: rgba(29, 29, 29, 0.349);
     backdrop-filter: blur(15px);
@@ -453,6 +501,7 @@
     position: fixed;
     bottom: 0;
 
+    /* Footer Container  */
     .footer-container {
         width: 100%;
         display: flex;
@@ -468,6 +517,7 @@
             line-height: 24px;
         }
 
+        /* Navigation List  */
         .navigation-list {
             display: flex;
             align-items: center;
@@ -481,16 +531,26 @@
                     font-weight: 400;
                     font-size: 12px;
                     line-height: 16px;
+                    transition: all .3s ease;
 
                     svg {
                         display: flex;
 
-                        path {}
+                        &:hover {
+                            path {
+                                stroke: #FECE26;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        color: #FECE26;
                     }
                 }
             }
         }
 
+        /* Toggle Bar Wrapper  */
         .utility-toggle-bar-wrapper {
             background: #181B21;
             padding: 5px 5px 5px 12px;
@@ -498,14 +558,12 @@
             display: flex;
             gap: 10px;
             position: relative;
-            width: 100%;
 
             .lang-filter-wrapper {
                 display: flex;
                 align-items: center;
                 gap: 5px;
                 cursor: pointer;
-                width: 100%;
 
                 .custom-select-options-dropdown-wrapper {
                     position: absolute;
@@ -894,6 +952,7 @@
             }
         }
 
+        /* Footer Legal Links List  */
         .footer-legal-links-list {
             display: flex;
             gap: 20px;
@@ -906,8 +965,17 @@
                     font-weight: 400;
                     font-size: 12px;
                     line-height: 16px;
+                    transition: all .3s ease;
+
+                    &:hover {
+                        color: #FECE26;
+                    }
                 }
             }
         }
     }
 }
+
+/* ############################# */
+/* END   :: Footer  Section      */
+/* ############################# */

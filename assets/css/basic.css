@@ -31,8 +31,7 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
-    background: transparent;
-    color: black;
+    background: black;
     transition: all .3s ease;
 
     &::before {

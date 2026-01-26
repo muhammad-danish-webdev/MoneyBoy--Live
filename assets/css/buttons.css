@@ -1,0 +1,51 @@
+
+
+/* Find Money Boy Button  */
+.find-money-boy-btn {
+    padding: 14px 0;
+    width: 100%;
+    background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
+    border: none;
+    border-radius: 12px;
+    font-family: "Bambino";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    z-index: 1;
+    transition: all .3s ease;
+    margin-top: 6px;
+    position: relative;
+    overflow: hidden;
+
+    span {
+        transition: all .3s ease;
+        color: black;
+        z-index: 2;
+        position: relative;
+        display: inline-block;
+    }
+
+    &::before {
+        content: '';
+        inset: 1px;
+        display: block;
+        background-color: black;
+        position: absolute;
+        border-radius: inherit;
+        transition: all .3s ease;
+        opacity: 0;
+    }
+
+    &:hover {
+        span {
+            background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
