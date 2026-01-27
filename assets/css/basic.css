@@ -11,6 +11,13 @@
     margin: 0 auto;
 }
 
+:root {
+    --ff-hellix: 'hellix';
+    --ff-bambino: "bambino";
+    --white: white;
+    --black: black;
+}
+
 /* Font Family Hellix  */
 @font-face {
     font-family: 'hellix';

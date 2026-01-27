@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Boy | Search Grid</title>
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/white-favicon-square.ico"
+      type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="assets/css/basic.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/search-grid/search-grid.css" />
+    <link rel="stylesheet" href="assets/css/element-dropdown.css" />
+    <link rel="stylesheet" href="assets/css/buttons.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+  <body>
+    <!-- #############################  -->
+    <!--  START ::  Header Container    -->
+    <!--#############################   -->
+    <header class="header-section">
+      <div class="container">
+        <div class="header-container">
+          <!-- Header Container  -->
+
+          <div class="header-logo">
+            <img
+              src="assets/images/header-main-logo.png"
+              alt="Money Boy Logo" />
+          </div>
+          <div class="header-cta-button-container">
+            <div class="header-cta-buttons">
+              <!-- Login Button  -->
+              <button class="header-btn cta-login-btn">
+                <!-- User Account Icon  -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none">
+                  <path
+                    opacity="0.4"
+                    d="M12 22.0098C17.5228 22.0098 22 17.5326 22 12.0098C22 6.48692 17.5228 2.00977 12 2.00977C6.47715 2.00977 2 6.48692 2 12.0098C2 17.5326 6.47715 22.0098 12 22.0098Z"
+                    fill="none" />
+                  <path
+                    d="M12 6.93994C9.93 6.93994 8.25 8.61994 8.25 10.6899C8.25 12.7199 9.84 14.3699 11.95 14.4299C11.98 14.4299 12.02 14.4299 12.04 14.4299C12.06 14.4299 12.09 14.4299 12.11 14.4299C12.12 14.4299 12.13 14.4299 12.13 14.4299C14.15 14.3599 15.74 12.7199 15.75 10.6899C15.75 8.61994 14.07 6.93994 12 6.93994Z"
+                    fill="none" />
+                  <path
+                    d="M18.7807 19.3602C17.0007 21.0002 14.6207 22.0102 12.0007 22.0102C9.3807 22.0102 7.0007 21.0002 5.2207 19.3602C5.4607 18.4502 6.1107 17.6202 7.0607 16.9802C9.7907 15.1602 14.2307 15.1602 16.9407 16.9802C17.9007 17.6202 18.5407 18.4502 18.7807 19.3602Z"
+                    fill="none" />
+                </svg>
+                <span>Log In</span>
+              </button>
+
+              <!-- Sign Up Button  -->
+              <button class="header-btn cta-signup-btn">
+                <span>Sign Up</span></button
+              >
+            </div>
+          </div>
+
+          <input type="checkbox" id="menu-toggle" />
+
+          <label for="menu-toggle" class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <!-- #############################  -->
+    <!--  END ::  Header Container      -->
+    <!--#############################   -->
+
+    <!-- #################################  -->
+    <!-- #################################  -->
+    <!-- #################################  -->
+    <!-- #################################  -->
+    <!-- #################################  -->
+
+    <!-- #########################################  -->
+    <!--  START :: Search Aside Bar Container       -->
+    <!--#########################################   -->
+
+    <section class="search-page-aside-bar-section">
+      <div class="container">
+        <!-- Hero Container  -->
+        <div class="search-page-aside-bar-container">
+          <div class="aside-bar-content-container">
+            <!-- Dropdown Menu Box  -->
+            <h2>Find Money Boys</h2>
+            <div class="content-filter-dropdown-container">
+              <div
+                class="custom-select-element"
+                data-custom-select-element
+                data-custom-select-value>
+                <div
+                  class="custom-select-label-wrapper"
+                  data-custom-select-triger>
+                  <div class="custom-select-icon-txt">
+                    <span class="custom-select-label-txt"> Countries </span>
+                  </div>
+                  <div class="custom-select-chevron">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none">
+                      <path
+                        d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
+                        stroke="none"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Custom Selector Options Dropdown Wrapper  -->
+                <div
+                  class="custom-select-options-dropdown-wrapper"
+                  data-custom-select-dropdown>
+                  <div class="custom-select-options-dropdown-container">
+                    <div
+                      class="custom-select-options-search"
+                      data-custom-select-options-search>
+                      <div class="label-input">
+                        <!-- Placeholder Icon -->
+                        <div class="input-placeholder-icon">
+                          <svg
+                            class="svg-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none">
+                            <path
+                              d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                            <path
+                              d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                            <path
+                              d="M14 5H20"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                            <path
+                              d="M14 8H17"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                          </svg>
+                        </div>
+                        <input type="text" placeholder="Search here" />
+                      </div>
+                    </div>
+
+                    <!-- Custom Select Options lists Container  -->
+                    <div class="custom-select-options-lists-container">
+                      <ul
+                        class="custom-select-options-list"
+                        data-custom-select-options-list>
+                        <li class="custom-select-option">
+                          <span>Option 1</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 2</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 3</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 4</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 5</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 6</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 7</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 8</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 9</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 10</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dropdown Menu Box  -->
+              <div
+                class="custom-select-element"
+                data-custom-select-element
+                data-custom-select-value>
+                <div
+                  class="custom-select-label-wrapper"
+                  data-custom-select-triger>
+                  <div class="custom-select-icon-txt">
+                    <span class="custom-select-label-txt"> City </span>
+                  </div>
+                  <div class="custom-select-chevron">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="24"
+                      viewBox="0 0 25 24"
+                      fill="none">
+                      <path
+                        d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
+                        stroke="none"
+                        stroke-width="1.5"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+                <div
+                  class="custom-select-options-dropdown-wrapper"
+                  data-custom-select-dropdown>
+                  <div class="custom-select-options-dropdown-container">
+                    <div
+                      class="custom-select-options-search"
+                      data-custom-select-options-search>
+                      <div class="label-input">
+                        <!-- Placeholder Icon -->
+                        <div class="input-placeholder-icon">
+                          <svg
+                            class="svg-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none">
+                            <path
+                              d="M20 11C20 15.97 15.97 20 11 20C6.03 20 2 15.97 2 11C2 6.03 6.03 2 11 2"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                            <path
+                              d="M18.9299 20.6898C19.4599 22.2898 20.6699 22.4498 21.5999 21.0498C22.4499 19.7698 21.8899 18.7198 20.3499 18.7198C19.2099 18.7098 18.5699 19.5998 18.9299 20.6898Z"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                            <path
+                              d="M14 5H20"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                            <path
+                              d="M14 8H17"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"></path>
+                          </svg>
+                        </div>
+                        <input type="text" placeholder="Search here" />
+                      </div>
+                    </div>
+
+                    <!-- Custom Selector Options Lists Container  -->
+                    <div class="custom-select-options-lists-container">
+                      <ul
+                        class="custom-select-options-list"
+                        data-custom-select-options-list>
+                        <li class="custom-select-option">
+                          <span>Option 1</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 2</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 3</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 4</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 5</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 6</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 7</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 8</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 9</span>
+                        </li>
+                        <li class="custom-select-option">
+                          <span>Option 10</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Find Money Boy Button  -->
+              <button class="find-money-boy-btn"
+                ><span>Find a MoneyBoy</span>
+              </button>
+
+              <!-- Search Near Me Button  -->
+              <button class="search-near-me-btn">
+                <span>Search near me</span>
+              </button>
+              <!-- #################################  -->
+              <!-- #################################  -->
+              <!-- #################################  -->
+              <!-- #################################  -->
+
+              <!---------------------------------------->
+              <!--------- Advanced Filter Header ------->
+              <!---------------------------------------->
+              <div class="aside-bar-advanced-filter-wrapper">
+                <!-- Advanced Filter Icon  -->
+                <div class="advanced-filter-head-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 30 30"
+                    fill="none">
+                    <path
+                      d="M27.5 8.125H20"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M7.5 8.125H2.5"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M12.5 12.5C14.9162 12.5 16.875 10.5412 16.875 8.125C16.875 5.70875 14.9162 3.75 12.5 3.75C10.0838 3.75 8.125 5.70875 8.125 8.125C8.125 10.5412 10.0838 12.5 12.5 12.5Z"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M27.5 21.875H22.5"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M10 21.875H2.5"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                    <path
+                      d="M17.5 26.25C19.9162 26.25 21.875 24.2912 21.875 21.875C21.875 19.4588 19.9162 17.5 17.5 17.5C15.0838 17.5 13.125 19.4588 13.125 21.875C13.125 24.2912 15.0838 26.25 17.5 26.25Z"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+
+                <h3>Advanced Filter</h3>
+
+                <!-- Custom Select Chevron Icon  -->
+                <div class="custom-select-chevron">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="24"
+                    viewBox="0 0 25 24"
+                    fill="none">
+                    <path
+                      d="M20.4201 8.95L13.9001 15.47C13.1301 16.24 11.8701 16.24 11.1001 15.47L4.58008 8.95"
+                      stroke="white"
+                      stroke-width="1.5"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+
+              <ul class="aside-bar-advanced-filter-list">
+                <!-- Online Filter  -->
+                <li class="aside-bar-filter-online-panel">
+                  <div class="online-filter-text">
+                    <span> Online Now </span>
+
+                    <div class="online-active-state"></div>
+                  </div>
+
+                  <label class="online-filter-toggle-switch">
+                    <input type="checkbox" unchecked />
+                    <span class="online-filter-toggle"></span>
+                  </label>
+                </li>
+
+                <!-- Advanced Filter Search Panel  -->
+                <li class="aside-bar-filter-search-panel">
+                  <div class="advanced-search-panel-head">
+                    <div class="search-panel-name"> Search by name </div>
+
+                    <!-- Close Button Icon  -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="19"
+                      height="19"
+                      viewBox="0 0 19 19"
+                      fill="none">
+                      <path
+                        d="M9.49967 17.4163C13.8538 17.4163 17.4163 13.8538 17.4163 9.49967C17.4163 5.14551 13.8538 1.58301 9.49967 1.58301C5.14551 1.58301 1.58301 5.14551 1.58301 9.49967C1.58301 13.8538 5.14551 17.4163 9.49967 17.4163Z"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M7.25977 11.7406L11.7406 7.25977"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M11.7406 11.7406L7.25977 7.25977"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+
+                  <!-- Advanced Filter Search Panel Input  -->
+                  <div class="advanced-search-panel-input">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none">
+                      <path
+                        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M22 22L20 20"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    <input type="text" />
+                  </div>
+                </li>
+
+                <!-- Advanced Filter Location Panel  -->
+
+                <li class="aside-bar-filter-location-panel">
+                  <div class="filter-loctaion-panel-head">
+                    <div class="filter-location-text">
+                      Location Radius25km
+                    </div>
+
+                    <!-- Close Button Icon  -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="19"
+                      height="19"
+                      viewBox="0 0 19 19"
+                      fill="none">
+                      <path
+                        d="M9.49967 17.4163C13.8538 17.4163 17.4163 13.8538 17.4163 9.49967C17.4163 5.14551 13.8538 1.58301 9.49967 1.58301C5.14551 1.58301 1.58301 5.14551 1.58301 9.49967C1.58301 13.8538 5.14551 17.4163 9.49967 17.4163Z"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M7.25977 11.7406L11.7406 7.25977"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M11.7406 11.7406L7.25977 7.25977"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+
+                  <div class="location-custom-range-input">
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value="30"
+                      class="location-custom-input"
+                      id="myRange" />
+                  </div>
+                </li>
+
+                <!-- Advanced Filter Location Panel  -->
+
+                <li class="aside-bar-filter-age-panel">
+                  <div class="filter-loctaion-age-head">
+                    <div class="filter-age-text"> Age 18 - 47 </div>
+
+                    <!-- Close Button Icon  -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="19"
+                      height="19"
+                      viewBox="0 0 19 19"
+                      fill="none">
+                      <path
+                        d="M9.49967 17.4163C13.8538 17.4163 17.4163 13.8538 17.4163 9.49967C17.4163 5.14551 13.8538 1.58301 9.49967 1.58301C5.14551 1.58301 1.58301 5.14551 1.58301 9.49967C1.58301 13.8538 5.14551 17.4163 9.49967 17.4163Z"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M7.25977 11.7406L11.7406 7.25977"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M11.7406 11.7406L7.25977 7.25977"
+                        stroke="#868686"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+
+                  <!-- Double Range Slider  -->
+                  <div class="location-custom-range-input">
+                    <div class="slider-track"></div>
+                    <div class="slider-range" id="range-fill"></div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="20"
+                      id="slider-1"
+                      oninput="updateSlider()" />
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value="70"
+                      id="slider-2"
+                      oninput="updateSlider()" />
+                  </div>
+                </li>
+
+                <li class="aside-bar-filter-height-panel">
+                  <div class="filter-height-penal">
+                    <span>height</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none">
+                      <path
+                        d="M6 12H18"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                      <path
+                        d="M12 18V6"
+                        stroke="white"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="assets/js/dropdown-menu.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/location-custom-range-input.js"></script>
+  </body>
+</html>

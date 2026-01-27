@@ -1,0 +1,341 @@
+.search-page-aside-bar-section {
+    background-color: black;
+    padding-top: 110px;
+
+    .container {
+        .search-page-aside-bar-container {
+            height: 100vh;
+            min-height: 900px;
+            display: flex;
+
+            .aside-bar-content-container {
+                h2 {
+                    background: linear-gradient(161.51deg, #AAAAAA 12.53%, rgba(255, 255, 255, 0.587) 107.92%);
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-size: 20px;
+                    line-height: 40px;
+                    font-family: "bambino";
+                }
+
+                .content-filter-dropdown-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    width: 226px;
+
+                    .custom-select-element {
+                        border-radius: 16px;
+                        display: flex;
+                        position: relative;
+                        background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.089) 13.36%, rgba(221, 229, 255, 0.27) 114.95%);
+                        width: 100%;
+                        -webkit-tap-highlight-color: transparent;
+
+                        .custom-select-label-wrapper {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            cursor: pointer;
+                            border-radius: inherit;
+                            gap: 8px;
+                            padding: 16px;
+                            width: 100%;
+                            user-select: none;
+
+                            .custom-select-icon-txt {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+
+                                .custom-select-label-txt {
+                                    font-family: 'hellix';
+                                    color: white;
+                                }
+                            }
+
+                            .custom-select-chevron {
+                                display: flex;
+                                align-items: center;
+                                transition: all .3s ease;
+
+                                svg {
+                                    width: 18px;
+                                    height: 18px;
+
+                                    path {
+                                        stroke: white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .find-money-boy-btn {
+                        border-radius: 20px;
+                        padding: 19px 0;
+
+                        span {
+                            font-size: 20px;
+                            line-height: 25px;
+                            font-weight: 500;
+                        }
+                    }
+
+                    /* ---------------------------------------------  */
+                    /* Search Aside bar Advanced Filter Wrapper  */
+                    /* ---------------------------------------------  */
+                    .aside-bar-advanced-filter-wrapper {
+                        padding: 16px 0 22px;
+                        display: flex;
+                        justify-content: space-between;
+
+                        h3 {
+                            font-size: 18px;
+                            line-height: 24px;
+                            color: white;
+                            font-family: var(--ff-bambino);
+                            letter-spacing: 1.5px;
+                        }
+
+                        .custom-select-chevron {
+                            margin-left: 6px;
+
+                            svg {}
+                        }
+                    }
+
+                    .aside-bar-advanced-filter-list {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        color: var(--white);
+
+                        .aside-bar-filter-online-panel {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .online-filter-text {
+                                display: flex;
+                                gap: 4px;
+                                align-items: center;
+
+                                span {
+                                    font-size: 16px;
+                                    line-height: 21px;
+                                    font-family: var(--ff-hellix);
+                                }
+
+                                .online-active-state {
+                                    width: 5px;
+                                    height: 5px;
+                                    border-radius: 50%;
+                                    background-color: #1CBEA6;
+                                    margin-top: 5px;
+                                }
+                            }
+
+                            .online-filter-toggle-switch {
+                                input {}
+
+                                .online-filter-toggle {}
+                            }
+                        }
+
+                        .aside-bar-filter-search-panel {
+                            .advanced-search-panel-head {
+                                .search-panel-name {}
+
+                                svg {}
+                            }
+
+                            .advanced-search-panel-input {
+                                svg {}
+
+                                input {}
+                            }
+                        }
+
+                        .aside-bar-filter-location-panel {
+                            .filter-loctaion-panel-head {
+                                .filter-location-text {}
+
+                                svg {}
+                            }
+
+                            .location-custom-range-input {
+                                input.location-custom-input {}
+                            }
+                        }
+
+                        .aside-bar-filter-age-panel {
+                            .filter-loctaion-age-head {
+                                .filter-age-text {}
+
+                                svg {}
+                            }
+
+                            .location-custom-range-input {
+                                .slider-track {}
+
+                                .slider-range {}
+
+                                input {}
+                            }
+                        }
+
+                        .aside-bar-filter-height-panel {
+                            .filter-height-penal {
+                                span {}
+
+                                svg {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ###############################  */
+/* ###############################  */
+/* ###############################  */
+/* ###############################  */
+/* Location Custom Range input  */
+.location-custom-range-input {
+    .location-custom-input {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 4px;
+        background: #444;
+        outline: none;
+        border-radius: 2px;
+        position: relative;
+    }
+
+    /* Chrome/Safari ke liye Yellow Progress Bar */
+    /* Note: Isko dynamic banane ke liye JS lagti hai, par CSS se main look de raha hoon */
+    .location-custom-input::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: linear-gradient(to right,
+                #ffd700 30%,
+                #444 30%);
+        /* 30% yellow jaisa image mein hai */
+        border-radius: 2px;
+    }
+
+    /* Slider Handle (The yellow thumb) */
+    .location-custom-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 24px;
+        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+        cursor: pointer;
+        border-radius: 3px;
+        margin-top: -10px;
+        /* Handle ko track ke center mein lane k liye */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        clip-path: polygon(0% 0%,
+                100% 0%,
+                100% 80%,
+                50% 100%,
+                0% 80%);
+        /* Neeche se halka point shape */
+    }
+
+    /* Firefox ke liye styling */
+    .location-custom-input::-moz-range-thumb {
+        width: 18px;
+        height: 24px;
+        background: #ffd700;
+        cursor: pointer;
+        border-radius: 3px;
+        border: none;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+    }
+
+    .location-custom-input::-moz-range-progress {
+        background: #ffd700;
+        height: 4px;
+    }
+}
+
+/* ##########################   */
+/* ##########################   */
+/* ##########################   */
+/* ##########################   */
+/* Double Range Input Slider   */
+.location-custom-range-input {
+    position: relative;
+
+    .slider-track {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: #444;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 2px;
+        z-index: 1;
+    }
+
+    /* Active Range (Yellow Line) */
+    .slider-range {
+        position: absolute;
+        height: 4px;
+        background: #ffd700;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        border-radius: 2px;
+    }
+
+    /* Inputs Styling */
+    input[type="range"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        outline: none;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        pointer-events: none;
+        /* Pointer ignore karega track ko */
+        z-index: 3;
+    }
+
+    /* Custom Handle (Thumb) */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 24px;
+        width: 18px;
+        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+        cursor: pointer;
+        border-radius: 3px;
+        pointer-events: auto;
+        /* Sirf handle click hoga */
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        height: 24px;
+        width: 18px;
+        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+        cursor: pointer;
+        border-radius: 3px;
+        pointer-events: auto;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        border: none;
+    }
+}

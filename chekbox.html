@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Sidebar UI</title>
+    <style>
+      /* CSS Variables for easy customization */
+      :root {
+        --bg-color: #000;
+        --accent-green: #4dbb9b;
+        --accent-yellow: #ffcc00;
+        --text-color: #ffffff;
+        --input-bg: #1a1a1a;
+        --gray-text: #a0a0a0;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding-top: 50px;
+      }
+
+      .filter-sidebar {
+        width: 350px;
+        padding: 20px;
+      }
+
+      .filter-item {
+        margin-bottom: 30px;
+      }
+
+      /* --- Online Now Section --- */
+      .status-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .status-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 22px;
+        font-weight: 400;
+      }
+
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        background-color: var(--accent-green);
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* Toggle Switch */
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 24px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider-toggle {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #333;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+
+      .slider-toggle:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider-toggle {
+        background-color: var(--accent-green);
+      }
+      input:checked + .slider-toggle:before {
+        transform: translateX(20px);
+      }
+
+      /* --- Header Labels --- */
+      .label-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      .label-row strong {
+        margin-left: 5px;
+        font-weight: 600;
+      }
+
+      .close-icon {
+        color: var(--gray-text);
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      /* --- Search Input Box --- */
+      .search-box {
+        background: linear-gradient(180deg, #2c2c2e 0%, #000000 100%);
+        border: 1px solid #333;
+        border-radius: 20px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .search-icon {
+        width: 25px;
+        height: 25px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .search-icon::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 8px;
+        background: #fff;
+        bottom: -5px;
+        right: -3px;
+        transform: rotate(-45deg);
+      }
+
+      /* --- Sliders --- */
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
+      }
+
+      /* Track */
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        background: #333;
+        border-radius: 2px;
+      }
+
+      /* Thumb (The Yellow Pin) */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 18px;
+        width: 14px;
+        background: var(--accent-yellow);
+        cursor: pointer;
+        margin-top: -7px; /* Centers thumb on track */
+        clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+      }
+
+      /* --- Accordion Style (Height/Weight) --- */
+      .accordion-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        font-size: 20px;
+        border-top: 1px solid #1a1a1a;
+      }
+
+      .plus-icon {
+        font-size: 24px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="filter-sidebar">
+      <div class="filter-item status-row">
+        <div class="status-label">
+          Online Now <span class="status-dot"></span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" unchecked />
+          <span class="slider-toggle"></span>
+        </label>
+      </div>
+
+      <div class="filter-item">
+        <div class="label-row">
+          Search by name <span class="close-icon">&times;</span>
+        </div>
+        <div class="search-box">
+          <div class="search-icon"></div>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <div class="label-row">
+          <span>Location Radius <strong>25km</strong></span>
+          <span class="close-icon">&times;</span>
+        </div>
+        <input type="range" min="1" max="100" value="25" />
+      </div>
+
+      <div class="filter-item">
+        <div class="label-row">
+          <span>Age <strong>18 - 47</strong></span>
+          <span class="close-icon">&times;</span>
+        </div>
+        <input type="range" min="18" max="100" value="47" />
+      </div>
+
+      <div class="accordion-item">
+        <span>Height</span>
+        <span class="plus-icon">+</span>
+      </div>
+
+      <div class="accordion-item">
+        <span>Weight</span>
+        <span class="plus-icon">+</span>
+      </div>
+    </div>
+  </body>
+</html>

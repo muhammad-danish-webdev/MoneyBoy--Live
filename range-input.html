@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dual Range Slider</title>
+    <style>
+      body {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .slider-wrapper {
+        position: relative;
+        width: 80%;
+        max-width: 600px;
+        height: 40px;
+      }
+
+      /* Base Track (Grey Line) */
+      .slider-track {
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: #444;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 2px;
+        z-index: 1;
+      }
+
+      /* Active Range (Yellow Line) */
+      .slider-range {
+        position: absolute;
+        height: 4px;
+        background: #ffd700;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        border-radius: 2px;
+      }
+
+      /* Inputs Styling */
+      input[type="range"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        outline: none;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        pointer-events: none; /* Pointer ignore karega track ko */
+        z-index: 3;
+      }
+
+      /* Custom Handle (Thumb) */
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 24px;
+        width: 18px;
+        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+        cursor: pointer;
+        border-radius: 3px;
+        pointer-events: auto; /* Sirf handle click hoga */
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        height: 24px;
+        width: 18px;
+        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+        cursor: pointer;
+        border-radius: 3px;
+        pointer-events: auto;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-wrapper">
+      <div class="slider-track"></div>
+      <div class="slider-range" id="range-fill"></div>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="20"
+        id="slider-1"
+        oninput="updateSlider()" />
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="70"
+        id="slider-2"
+        oninput="updateSlider()" />
+    </div>
+
+    <script>
+      const sliderOne = document.getElementById("slider-1");
+      const sliderTwo = document.getElementById("slider-2");
+      const rangeFill = document.getElementById("range-fill");
+      const minGap = 0;
+
+      function updateSlider() {
+        // Check karein ke sliders ek dusre ko cross na karein
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          // Agar cross ho rahe hon to purani position par rakhein
+          if (event.target.id === "slider-1") {
+            sliderOne.value = parseInt(sliderTwo.value) - minGap;
+          } else {
+            sliderTwo.value = parseInt(sliderOne.value) + minGap;
+          }
+        }
+
+        // Yellow color update karein handles ke beech mein
+        const percent1 = (sliderOne.value / sliderOne.max) * 100;
+        const percent2 = (sliderTwo.value / sliderTwo.max) * 100;
+
+        rangeFill.style.left = percent1 + "%";
+        rangeFill.style.width = percent2 - percent1 + "%";
+      }
+
+      // Initial call taake load hote hi set ho jaye
+      updateSlider();
+    </script>
+  </body>
+</html>

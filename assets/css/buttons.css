@@ -1,5 +1,3 @@
-
-
 /* Find Money Boy Button  */
 .find-money-boy-btn {
     padding: 14px 0;
@@ -46,6 +44,65 @@
 
         &::before {
             opacity: 1;
+        }
+    }
+}
+
+/* Search Near Me Button */
+.search-near-me-btn {
+    padding: 14px 0;
+    width: 100%;
+    background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
+    border: none;
+    border-radius: 12px;
+    font-family: "Bambino";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    z-index: 1;
+    transition: all .3s ease;
+    margin-top: 6px;
+    position: relative;
+    overflow: hidden;
+
+    /* --- WITHOUT HOVER (Ab ye Default hai) --- */
+    span {
+        transition: all .3s ease;
+        /* Text Gradient Effect */
+        background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 2;
+        position: relative;
+        display: inline-block;
+    }
+
+    &::before {
+        content: '';
+        inset: 1px;
+        display: block;
+        background-color: black;
+        position: absolute;
+        border-radius: inherit;
+        transition: all .3s ease;
+        opacity: 1;
+        /* Default mein black parda nazar ayega */
+        z-index: 1;
+    }
+
+    /* --- ON HOVER (Ab ye Hover Effect hai) --- */
+    &:hover {
+        span {
+            /* Hover par text black ho jayega */
+            background: none;
+            -webkit-text-fill-color: black;
+            color: black;
+        }
+
+        &::before {
+            /* Hover par black parda gayab ho jayega aur niche ka gradient dikhay ga */
+            opacity: 0;
         }
     }
 }
