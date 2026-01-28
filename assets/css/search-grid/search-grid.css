@@ -132,11 +132,12 @@
                                     width: 5px;
                                     height: 5px;
                                     border-radius: 50%;
-                                    background-color: #1CBEA6;
+                                    background-color: var(--green);
                                     margin-top: 5px;
                                 }
                             }
 
+                            /* Online Filter Toggle Switch  */
                             .online-filter-toggle-switch {
                                 position: relative;
                                 display: inline-block;
@@ -149,9 +150,9 @@
                                     height: 0;
 
                                     &:checked+.online-filter-toggle {
-                                        background-color: #1CBEA6;
+                                        background-color: var(--green);
 
-                                        &:before {
+                                        &::before {
                                             transform: translateX(20px);
                                         }
                                     }
@@ -168,7 +169,7 @@
                                     transition: 0.4s;
                                     border-radius: 34px;
 
-                                    &:before {
+                                    &::before {
                                         position: absolute;
                                         content: "";
                                         height: 16px;
@@ -184,24 +185,139 @@
                         }
 
                         .aside-bar-filter-search-panel {
-                            .advanced-search-panel-head {
-                                .search-panel-name {}
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
 
-                                svg {}
+                            .advanced-search-panel-head {
+                                display: flex;
+                                justify-content: space-between;
+
+                                .search-panel-text {
+                                    font-size: 16px;
+                                    line-height: 21px;
+                                    font-family: var(--ff-hellix);
+                                }
+
+                                svg {
+                                    path {
+                                        transition: all .3s ease;
+                                    }
+
+                                    &:hover {
+                                        cursor: pointer;
+
+                                        path {
+                                            stroke: white;
+                                        }
+                                    }
+                                }
                             }
 
                             .advanced-search-panel-input {
-                                svg {}
+                                width: 100%;
+                                position: relative;
+                                user-select: none;
 
-                                input {}
+                                svg {
+                                    position: absolute;
+                                    top: 13px;
+                                    left: 16px;
+
+                                    path {
+                                        stroke: rgba(175, 167, 167, 0.481);
+                                    }
+                                }
+
+                                input {
+                                    width: 100%;
+                                    height: 50px;
+                                    border-radius: 16px;
+                                    background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.048) 13.36%, rgba(221, 229, 255, 0.27) 114.95%),
+                                        linear-gradient(10deg, rgba(2, 28, 120, 0.01), rgba(2, 28, 120, 0.092));
+                                    outline: none;
+                                    padding-left: 50px;
+                                    color: white;
+                                    caret-color: white;
+                                    font-size: 14px;
+                                    line-height: 19px;
+                                    font-family: var(--ff-hellix);
+                                    transition: all .3s ease;
+                                    user-select: none;
+                                    border: 1px solid black;
+
+                                    &::placeholder {
+                                        font-size: 14px;
+                                        font-family: var(--ff-bambino);
+                                        transition: all .3s ease;
+                                    }
+                                }
+
+                                &:hover {
+                                    svg {
+                                        path {
+                                            stroke: rgb(156, 151, 151);
+                                        }
+                                    }
+
+                                    input {
+                                        background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.1) 13.36%, rgba(221, 229, 255, 0.35) 114.95%),
+                                            linear-gradient(10deg, rgba(2, 28, 120, 0.05), rgba(2, 28, 120, 0.067));
+                                        border: 1px solid rgba(255, 255, 255, 0.507);
+
+                                        &::placeholder {
+                                            color: rgb(156, 151, 151);
+                                        }
+                                    }
+                                }
+
+                                &:has(input:focus) {
+                                    svg {
+                                        path {
+                                            stroke: white;
+                                        }
+                                    }
+
+                                    input {
+                                        border: 1px solid white;
+                                    }
+                                }
                             }
                         }
 
                         .aside-bar-filter-location-panel {
-                            .filter-loctaion-panel-head {
-                                .filter-location-text {}
+                            display: flex;
+                            flex-direction: column;
+                            gap: 26px;
 
-                                svg {}
+                            .filter-loctaion-panel-head {
+                                display: flex;
+                                justify-content: space-between;
+
+                                .filter-location-text {
+                                    font-size: 16px;
+                                    line-height: 21px;
+                                    font-family: var(--ff-hellix);
+                                    color: white;
+                                    white-space: nowrap;
+
+                                    span {
+                                        font-size: 13px;
+                                        line-height: 13px;
+                                    }
+                                }
+
+                                svg {
+                                    path {
+                                        transition: all .3s ease;
+                                    }
+
+                                    &:hover {
+                                        path {
+                                            stroke: white;
+                                        }
+                                    }
+                                }
                             }
 
                             .location-custom-range-input {
@@ -261,10 +377,7 @@
         width: 100%;
         height: 4px;
         cursor: pointer;
-        background: linear-gradient(to right,
-                #ffd700 30%,
-                #444 30%);
-        /* 30% yellow jaisa image mein hai */
+        background: linear-gradient(180deg, #FECE26 0%, #E5741F 100%);
         border-radius: 2px;
     }
 
@@ -272,12 +385,12 @@
     .location-custom-input::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 18px;
-        height: 24px;
-        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
+        width: 13px;
+        height: 20px;
+        background: linear-gradient(180deg, #FECE26 0%, #E5741F 100%);
         cursor: pointer;
-        border-radius: 3px;
-        margin-top: -10px;
+        border-radius: 2px;
+        margin-top: -8px;
         /* Handle ko track ke center mein lane k liye */
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
         clip-path: polygon(0% 0%,
@@ -290,17 +403,18 @@
 
     /* Firefox ke liye styling */
     .location-custom-input::-moz-range-thumb {
-        width: 18px;
-        height: 24px;
-        background: #ffd700;
+        width: 8px;
+        height: 13px;
+        background: red;
         cursor: pointer;
         border-radius: 3px;
         border: none;
         clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        box-shadow: 0px 4px 7px 0px #000000BD;
     }
 
     .location-custom-input::-moz-range-progress {
-        background: #ffd700;
+        background: red;
         height: 4px;
     }
 }
@@ -310,7 +424,7 @@
 /* ##########################   */
 /* ##########################   */
 /* Double Range Input Slider   */
-.location-custom-range-input {
+.custom-double-range-input {
     position: relative;
 
     .slider-track {
