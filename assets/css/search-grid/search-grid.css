@@ -369,8 +369,26 @@
                         }
 
                         .aside-bar-filter-age-panel {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px;
+
                             .filter-loctaion-age-head {
-                                .filter-age-text {}
+                                display: flex;
+                                justify-content: space-between;
+
+                                .filter-age-text {
+                                    font-size: 16px;
+                                    line-height: 21px;
+                                    font-weight: 400;
+                                    color: var(--white);
+                                    font-family: var(--ff-hellix);
+
+                                    span {
+                                        font-size: 13px;
+                                        font-weight: 600;
+                                    }
+                                }
 
                                 svg {}
                             }
