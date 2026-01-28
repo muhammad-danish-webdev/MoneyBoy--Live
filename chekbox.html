@@ -2,208 +2,96 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filter Sidebar UI</title>
+    <title>Custom Human Code Slider</title>
     <style>
-      /* CSS Variables for easy customization */
-      :root {
-        --bg-color: #000;
-        --accent-green: #4dbb9b;
-        --accent-yellow: #ffcc00;
-        --text-color: #ffffff;
-        --input-bg: #1a1a1a;
-        --gray-text: #a0a0a0;
-      }
-
+      /* Basic Setup */
       body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #000; /* Dark background taake gradient uth kar aaye */
         display: flex;
         justify-content: center;
-        padding-top: 50px;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
       }
 
-      .filter-sidebar {
-        width: 350px;
+      /* Container taake slider ki width control mein rahe */
+      .slider-wrapper {
+        width: 100%;
+        max-width: 400px;
         padding: 20px;
       }
 
-      .filter-item {
-        margin-bottom: 30px;
-      }
-
-      /* --- Online Now Section --- */
-      .status-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .status-label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 22px;
-        font-weight: 400;
-      }
-
-      .status-dot {
-        width: 10px;
-        height: 10px;
-        background-color: var(--accent-green);
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-      /* Toggle Switch */
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 44px;
-        height: 24px;
-      }
-
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      .slider-toggle {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #333;
-        transition: 0.4s;
-        border-radius: 34px;
-      }
-
-      .slider-toggle:before {
-        position: absolute;
-        content: "";
-        height: 18px;
-        width: 18px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        transition: 0.4s;
-        border-radius: 50%;
-      }
-
-      input:checked + .slider-toggle {
-        background-color: var(--accent-green);
-      }
-      input:checked + .slider-toggle:before {
-        transform: translateX(20px);
-      }
-
-      /* --- Header Labels --- */
-      .label-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        font-size: 18px;
-      }
-
-      .label-row strong {
-        margin-left: 5px;
-        font-weight: 600;
-      }
-
-      .close-icon {
-        color: var(--gray-text);
-        font-size: 20px;
-        cursor: pointer;
-      }
-
-      /* --- Search Input Box --- */
-      .search-box {
-        background: linear-gradient(180deg, #2c2c2e 0%, #000000 100%);
-        border: 1px solid #333;
-        border-radius: 20px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-      }
-
-      .search-icon {
-        width: 25px;
-        height: 25px;
-        border: 2px solid #fff;
-        border-radius: 50%;
-        position: relative;
-      }
-
-      .search-icon::after {
-        content: "";
-        position: absolute;
-        width: 2px;
-        height: 8px;
-        background: #fff;
-        bottom: -5px;
-        right: -3px;
-        transform: rotate(-45deg);
-      }
-
-      /* --- Sliders --- */
-      input[type="range"] {
-        -webkit-appearance: none;
-        width: 100%;
-        background: transparent;
-      }
-
-      /* Track */
-      input[type="range"]::-webkit-slider-runnable-track {
+      /* Main Input Styling */
+      .custom-slider {
+        -webkit-appearance: none; /* Default browser styling khatam karne ke liye */
         width: 100%;
         height: 4px;
-        background: #333;
+        border-radius: 10px;
+        background: #333; /* Default track color */
+        outline: none;
+        cursor: pointer;
+      }
+
+      /* Slider Thumb (Handle) for Chrome, Safari, Edge */
+      .custom-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 14px;
+        background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
+        /* Neeche se nokeela banane ke liye clip-path */
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+        border-radius: 2px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin-top: -8px; /* Thumb ko line ke center mein lane ke liye */
+        transition: transform 0.1s ease;
+      }
+
+      /* Slider Thumb (Handle) for Firefox */
+      .custom-slider::-moz-range-thumb {
+        height: 20px;
+        width: 14px;
+        background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+        border: none;
         border-radius: 2px;
       }
 
-      /* Thumb (The Yellow Pin) */
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        height: 18px;
-        width: 14px;
-        background: var(--accent-yellow);
-        cursor: pointer;
-        margin-top: -7px; /* Centers thumb on track */
-        clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
-      }
-
-      /* --- Accordion Style (Height/Weight) --- */
-      .accordion-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 0;
-        font-size: 20px;
-        border-top: 1px solid #1a1a1a;
-      }
-
-      .plus-icon {
-        font-size: 24px;
-        color: #fff;
+      /* Hover effect taake handle thora bara lage */
+      .custom-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.1);
       }
     </style>
   </head>
   <body>
-    <div class="filter-sidebar">
-      <div class="filter-item status-row">
-        <div class="status-label">
-          Online Now <span class="status-dot"></span>
-        </div>
-        <label class="switch">
-          <input type="checkbox" unchecked />
-          <span class="slider-toggle"></span>
-        </label>
-      </div>
+    <div class="slider-wrapper">
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="40"
+        class="custom-slider"
+        id="mySlider" />
     </div>
+
+    <script>
+      const slider = document.getElementById("mySlider");
+
+      // Function jo background color ko handle tak fill karega
+      function handleProgress() {
+        const value = slider.value;
+        const min = slider.min || 0;
+        const max = slider.max || 100;
+        const percent = ((value - min) / (max - min)) * 100;
+
+        // Handle tak yellow/orange, baaki grey
+        slider.style.background = `linear-gradient(to right, #FECE26 0%, #E5741F ${percent}%, #333 ${percent}%, #333 100%)`;
+      }
+
+      // Jab user slider hilaaye
+      slider.oninput = handleProgress;
+
+      // Page khulne par pehli baar run karein
+      handleProgress();
+    </script>
   </body>
 </html>
