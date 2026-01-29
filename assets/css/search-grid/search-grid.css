@@ -1,11 +1,14 @@
+.header-section {
+    background-color: black;
+}
+
 .search-page-aside-bar-section {
     background-color: black;
     padding-top: 110px;
 
     .container {
         .search-page-aside-bar-container {
-            height: 100vh;
-            min-height: 900px;
+            height: 100%;
             display: flex;
 
             .aside-bar-content-container {
@@ -22,7 +25,7 @@
                 .content-filter-dropdown-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 12px;
+                    gap: 10px;
                     width: 226px;
 
                     .custom-select-element {
@@ -85,32 +88,53 @@
                     }
 
                     /* ---------------------------------------------  */
-                    /* Search Aside bar Advanced Filter Wrapper  */
+                    /*    Search Aside bar Advanced Filter Wrapper    */
                     /* ---------------------------------------------  */
                     .aside-bar-advanced-filter-wrapper {
                         padding: 16px 0 22px;
                         display: flex;
                         justify-content: space-between;
+                        transition: all .3s ease;
+                        cursor: pointer;
 
                         h3 {
                             font-size: 18px;
                             line-height: 24px;
-                            color: white;
+                            color: rgba(255, 255, 255, 0.771);
                             font-family: var(--ff-bambino);
                             letter-spacing: 1.5px;
+                            transition: all .3s ease;
                         }
 
                         .custom-select-chevron {
                             margin-left: 6px;
+                            transition: all .3s ease;
+                        }
 
-                            svg {}
+                        svg {
+                            path {
+                                transition: all .3s ease;
+                                stroke: rgba(255, 255, 255, 0.771);
+                            }
+                        }
+
+                        &:hover {
+                            h3 {
+                                color: var(--white);
+                            }
+
+                            svg {
+                                path {
+                                    stroke: white;
+                                }
+                            }
                         }
                     }
 
                     .aside-bar-advanced-filter-list {
                         display: flex;
                         flex-direction: column;
-                        gap: 20px;
+                        gap: 18px;
                         color: var(--white);
 
                         .aside-bar-filter-online-panel {
@@ -187,11 +211,12 @@
                         .aside-bar-filter-search-panel {
                             display: flex;
                             flex-direction: column;
-                            gap: 6px;
+                            gap: 8px;
 
                             .advanced-search-panel-head {
                                 display: flex;
                                 justify-content: space-between;
+                                align-items: center;
 
                                 .search-panel-text {
                                     font-size: 16px;
@@ -288,7 +313,7 @@
                         .aside-bar-filter-location-panel {
                             display: flex;
                             flex-direction: column;
-                            gap: 26px;
+                            gap: 6px;
 
                             .filter-loctaion-panel-head {
                                 display: flex;
@@ -371,22 +396,24 @@
                         .aside-bar-filter-age-panel {
                             display: flex;
                             flex-direction: column;
-                            gap: 20px;
+                            gap: 16px;
+                            margin-bottom: 26px;
 
                             .filter-loctaion-age-head {
                                 display: flex;
                                 justify-content: space-between;
+                                align-items: center;
 
                                 .filter-age-text {
                                     font-size: 16px;
                                     line-height: 21px;
-                                    font-weight: 400;
+                                    font-weight: 300;
                                     color: var(--white);
                                     font-family: var(--ff-hellix);
 
                                     span {
                                         font-size: 13px;
-                                        font-weight: 600;
+                                        margin-left: 6px;
                                     }
                                 }
 
@@ -473,11 +500,58 @@
                             input {}
                         }
 
-                        .aside-bar-filter-height-panel {
-                            .filter-height-penal {
-                                span {}
+                        .filter-menu-item {
+                            position: relative;
 
-                                svg {}
+                            svg {
+                                transition: all .3s ease;
+                            }
+
+                            .filter-menu-panel {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+
+                                span {
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    line-height: 20px;
+                                    color: rgba(255, 255, 255, 0.696);
+                                    font-family: var(--ff-hellix);
+                                    transition: all .3s ease;
+                                }
+
+                                svg {
+                                    transition: all .3s ease;
+
+                                    path {
+                                        transition: all .3s ease;
+                                        stroke: rgba(255, 255, 255, 0.696);
+                                    }
+                                }
+
+                                &:hover {
+                                    cursor: pointer;
+
+                                    span {
+                                        color: var(--white);
+                                    }
+
+                                    svg {
+                                        path {
+                                            stroke: var(--white);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .custom-select-options-dropdown-wrapper {
+                                top: 33px;
+                                left: -7px;
+                            }
+
+                            &.filter-menu-item.active .filter-menu-panel svg {
+                                transform: rotate(45deg);
                             }
                         }
                     }

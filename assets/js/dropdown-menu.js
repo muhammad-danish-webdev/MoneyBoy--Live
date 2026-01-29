@@ -66,3 +66,151 @@ document.addEventListener("DOMContentLoaded", () => {
     closeAllEverywhere();
   });
 });
+
+// Search Page Filter Menu Item Dropdown
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Tamam filter menu items ko select karein
+//   const filterItems = document.querySelectorAll(".filter-menu-item");
+
+//   filterItems.forEach((item) => {
+//     // Har item ke andar uska specific panel (button) aur dropdown dhundein
+//     const panel = item.querySelector(".filter-menu-panel");
+//     const dropdown = item.querySelector(
+//       ".custom-select-options-dropdown-wrapper",
+//     );
+
+//     panel.addEventListener("click", (e) => {
+//       // 1. Agar aap chahte hain ke ek khulne par dusra band ho jaye (Accordion style),
+//       // to niche wali 3 lines ka comment hata dein:
+//       /*
+//             filterItems.forEach(otherItem => {
+//                 if (otherItem !== item) {
+//                     otherItem.querySelector('.custom-select-options-dropdown-wrapper').classList.remove('active');
+//                 }
+//             });
+//             */
+
+//       // 2. Sirf clicked item ke dropdown par 'active' class toggle karein
+//       dropdown.classList.toggle("active");
+
+//       // Event bubbling ko rokne ke liye taake document click trigger na ho
+//       e.stopPropagation();
+//     });
+//   });
+
+//   // Dropdown ke andar click karne par dropdown band NA ho
+//   const allDropdowns = document.querySelectorAll(
+//     ".custom-select-options-dropdown-wrapper",
+//   );
+//   allDropdowns.forEach((dropdown) => {
+//     dropdown.addEventListener("click", (e) => {
+//       e.stopPropagation();
+//     });
+//   });
+
+//   // Screen par kahin bhi bahar click karne par khula hua dropdown band ho jaye
+//   document.addEventListener("click", () => {
+//     allDropdowns.forEach((dropdown) => {
+//       dropdown.classList.remove("active");
+//     });
+//   });
+// });
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   const filterItems = document.querySelectorAll(".filter-menu-item");
+
+//   filterItems.forEach((item) => {
+//     const panel = item.querySelector(".filter-menu-panel");
+//     const dropdown = item.querySelector(
+//       ".custom-select-options-dropdown-wrapper",
+//     );
+
+//     panel.addEventListener("click", (e) => {
+//       // Click hone par event ko mazeed upar jane se rokein
+//       e.stopPropagation();
+
+//       // Check karein ke kya current dropdown pehle se active hai
+//       const isActive = dropdown.classList.contains("active");
+
+//       // --- YE HAI MAIN LOGIC ---
+//       // Pehle tamam dropdowns se 'active' class remove kar dein
+//       document
+//         .querySelectorAll(".custom-select-options-dropdown-wrapper")
+//         .forEach((dw) => {
+//           dw.classList.remove("active");
+//         });
+
+//       // Agar pehle active nahi tha, to ab active kar dein
+//       // (Isse click-to-open aur click-to-close dono kaam karenge)
+//       if (!isActive) {
+//         dropdown.classList.add("active");
+//       }
+//     });
+//   });
+
+//   // Dropdown ke andar click karne se dropdown band na ho
+//   document
+//     .querySelectorAll(".custom-select-options-dropdown-wrapper")
+//     .forEach((dropdown) => {
+//       dropdown.addEventListener("click", (e) => {
+//         e.stopPropagation();
+//       });
+//     });
+
+//   // Screen par kahin bhi bahar click karne se active dropdown band ho jaye
+//   document.addEventListener("click", () => {
+//     document
+//       .querySelectorAll(".custom-select-options-dropdown-wrapper")
+//       .forEach((dw) => {
+//         dw.classList.remove("active");
+//       });
+//   });
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filterItems = document.querySelectorAll(".filter-menu-item");
+
+  filterItems.forEach((item) => {
+    const panel = item.querySelector(".filter-menu-panel");
+    const dropdown = item.querySelector(
+      ".custom-select-options-dropdown-wrapper",
+    );
+
+    panel.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      // Check karein ke ye specific item pehle se active hai ya nahi
+      const isActive = item.classList.contains("active");
+
+      // 1. Pehle TAMAM items aur dropdowns se active class hata dein (Accordion effect)
+      filterItems.forEach((el) => {
+        el.classList.remove("active"); // Item se hataya (SVG rotation reset)
+        const dw = el.querySelector(".custom-select-options-dropdown-wrapper");
+        if (dw) dw.classList.remove("active"); // Dropdown band kiya
+      });
+
+      // 2. Agar clicked item pehle active nahi tha, to ab use active kar dein
+      if (!isActive) {
+        item.classList.add("active"); // Isse SVG rotate hoga (-45deg)
+        dropdown.classList.add("active"); // Isse dropdown khulega
+      }
+    });
+  });
+
+  // Dropdown ke andar click karne par band na ho
+  document
+    .querySelectorAll(".custom-select-options-dropdown-wrapper")
+    .forEach((dropdown) => {
+      dropdown.addEventListener("click", (e) => e.stopPropagation());
+    });
+
+  // Bahar click karne par sab band kar dein
+  document.addEventListener("click", () => {
+    filterItems.forEach((el) => {
+      el.classList.remove("active");
+      const dw = el.querySelector(".custom-select-options-dropdown-wrapper");
+      if (dw) dw.classList.remove("active");
+    });
+  });
+});
