@@ -2,556 +2,688 @@
     background-color: black;
 }
 
-.search-page-aside-bar-section {
+.search-content-wrapper-section {
     background-color: black;
-    padding-top: 110px;
 
     .container {
-        .search-page-aside-bar-container {
-            height: 100%;
+        .search-content-wrapper-container {
             display: flex;
 
-            .aside-bar-content-container {
-                h2 {
-                    background: linear-gradient(161.51deg, #AAAAAA 12.53%, rgba(255, 255, 255, 0.587) 107.92%);
-                    -webkit-background-clip: text;
-                    background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    font-size: 20px;
-                    line-height: 40px;
-                    font-family: "bambino";
-                }
+            .search-page-aside-bar-section {
+                background-color: black;
+                padding-top: 110px;
 
-                .content-filter-dropdown-container {
+                .search-page-aside-bar-container {
+                    height: 100%;
                     display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    width: 226px;
+                    height: 200vh;
 
-                    .custom-select-element {
-                        border-radius: 16px;
-                        display: flex;
-                        position: relative;
-                        background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.089) 13.36%, rgba(221, 229, 255, 0.27) 114.95%);
-                        width: 100%;
-                        -webkit-tap-highlight-color: transparent;
+                    .aside-bar-content-container {
+                        padding: 20px 20px 20px 0;
 
-                        .custom-select-label-wrapper {
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            width: 100%;
-                            cursor: pointer;
-                            border-radius: inherit;
-                            gap: 8px;
-                            padding: 16px;
-                            width: 100%;
-                            user-select: none;
-
-                            .custom-select-icon-txt {
-                                display: flex;
-                                align-items: center;
-                                gap: 8px;
-
-                                .custom-select-label-txt {
-                                    font-family: 'hellix';
-                                    color: white;
-                                }
-                            }
-
-                            .custom-select-chevron {
-                                display: flex;
-                                align-items: center;
-                                transition: all .3s ease;
-
-                                svg {
-                                    width: 18px;
-                                    height: 18px;
-
-                                    path {
-                                        stroke: white;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .find-money-boy-btn {
-                        border-radius: 20px;
-                        padding: 19px 0;
-
-                        span {
+                        h2 {
+                            background: linear-gradient(161.51deg, #AAAAAA 12.53%, rgba(255, 255, 255, 0.587) 107.92%);
+                            -webkit-background-clip: text;
+                            background-clip: text;
+                            -webkit-text-fill-color: transparent;
                             font-size: 20px;
-                            line-height: 25px;
-                            font-weight: 500;
-                        }
-                    }
-
-                    /* ---------------------------------------------  */
-                    /*    Search Aside bar Advanced Filter Wrapper    */
-                    /* ---------------------------------------------  */
-                    .aside-bar-advanced-filter-wrapper {
-                        padding: 16px 0 22px;
-                        display: flex;
-                        justify-content: space-between;
-                        transition: all .3s ease;
-                        cursor: pointer;
-
-                        h3 {
-                            font-size: 18px;
-                            line-height: 24px;
-                            color: rgba(255, 255, 255, 0.771);
-                            font-family: var(--ff-bambino);
-                            letter-spacing: 1.5px;
-                            transition: all .3s ease;
+                            line-height: 40px;
+                            font-family: "bambino";
+                            margin-bottom: 10px;
                         }
 
-                        .custom-select-chevron {
-                            margin-left: 6px;
-                            transition: all .3s ease;
-                        }
-
-                        svg {
-                            path {
-                                transition: all .3s ease;
-                                stroke: rgba(255, 255, 255, 0.771);
-                            }
-                        }
-
-                        &:hover {
-                            h3 {
-                                color: var(--white);
-                            }
-
-                            svg {
-                                path {
-                                    stroke: white;
-                                }
-                            }
-                        }
-                    }
-
-                    .aside-bar-advanced-filter-list {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 18px;
-                        color: var(--white);
-
-                        .aside-bar-filter-online-panel {
-                            display: flex;
-                            justify-content: space-between;
-
-                            .online-filter-text {
-                                display: flex;
-                                gap: 4px;
-                                align-items: center;
-
-                                span {
-                                    font-size: 16px;
-                                    line-height: 21px;
-                                    font-family: var(--ff-hellix);
-                                }
-
-                                .online-active-state {
-                                    width: 5px;
-                                    height: 5px;
-                                    border-radius: 50%;
-                                    background-color: var(--green);
-                                    margin-top: 5px;
-                                }
-                            }
-
-                            /* Online Filter Toggle Switch  */
-                            .online-filter-toggle-switch {
-                                position: relative;
-                                display: inline-block;
-                                width: 42px;
-                                height: 22px;
-
-                                input {
-                                    opacity: 0;
-                                    width: 0;
-                                    height: 0;
-
-                                    &:checked+.online-filter-toggle {
-                                        background-color: var(--green);
-
-                                        &::before {
-                                            transform: translateX(20px);
-                                        }
-                                    }
-                                }
-
-                                .online-filter-toggle {
-                                    position: absolute;
-                                    cursor: pointer;
-                                    top: 0;
-                                    left: 0;
-                                    right: 0;
-                                    bottom: 0;
-                                    background-color: #333333;
-                                    transition: 0.4s;
-                                    border-radius: 34px;
-
-                                    &::before {
-                                        position: absolute;
-                                        content: "";
-                                        height: 16px;
-                                        width: 16px;
-                                        left: 3px;
-                                        bottom: 3px;
-                                        background-color: white;
-                                        transition: 0.4s;
-                                        border-radius: 50%;
-                                    }
-                                }
-                            }
-                        }
-
-                        .aside-bar-filter-search-panel {
+                        .content-filter-dropdown-container {
                             display: flex;
                             flex-direction: column;
-                            gap: 8px;
+                            gap: 10px;
+                            width: 226px;
 
-                            .advanced-search-panel-head {
+                            .custom-select-element {
+                                border-radius: 16px;
                                 display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-
-                                .search-panel-text {
-                                    font-size: 16px;
-                                    line-height: 21px;
-                                    font-family: var(--ff-hellix);
-                                }
-
-                                svg {
-                                    path {
-                                        transition: all .3s ease;
-                                    }
-
-                                    &:hover {
-                                        cursor: pointer;
-
-                                        path {
-                                            stroke: white;
-                                        }
-                                    }
-                                }
-                            }
-
-                            .advanced-search-panel-input {
+                                position: relative;
+                                background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.089) 13.36%, rgba(221, 229, 255, 0.27) 114.95%);
                                 width: 100%;
-                                position: relative;
-                                user-select: none;
+                                -webkit-tap-highlight-color: transparent;
+                                transition: all .3s ease;
 
-                                svg {
-                                    position: absolute;
-                                    top: 13px;
-                                    left: 16px;
-
-                                    path {
-                                        stroke: rgba(175, 167, 167, 0.481);
-                                    }
-                                }
-
-                                input {
+                                .custom-select-label-wrapper {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
                                     width: 100%;
-                                    height: 50px;
-                                    border-radius: 16px;
-                                    background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.048) 13.36%, rgba(221, 229, 255, 0.27) 114.95%),
-                                        linear-gradient(10deg, rgba(2, 28, 120, 0.01), rgba(2, 28, 120, 0.092));
-                                    outline: none;
-                                    padding-left: 50px;
-                                    color: white;
-                                    caret-color: white;
-                                    font-size: 14px;
-                                    line-height: 19px;
-                                    font-family: var(--ff-hellix);
-                                    transition: all .3s ease;
+                                    cursor: pointer;
+                                    border-radius: inherit;
+                                    gap: 8px;
+                                    padding: 16px;
+                                    width: 100%;
                                     user-select: none;
-                                    border: 1px solid black;
 
-                                    &::placeholder {
-                                        font-size: 14px;
-                                        font-family: var(--ff-bambino);
+                                    .custom-select-icon-txt {
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 8px;
+
+                                        .custom-select-label-txt {
+                                            font-family: 'hellix';
+                                            color: white;
+                                        }
+                                    }
+
+                                    .custom-select-chevron {
+                                        display: flex;
+                                        align-items: center;
                                         transition: all .3s ease;
+
+                                        svg {
+                                            width: 18px;
+                                            height: 18px;
+
+                                            path {
+                                                stroke: white;
+                                            }
+                                        }
                                     }
                                 }
 
                                 &:hover {
-                                    svg {
-                                        path {
-                                            stroke: rgb(156, 151, 151);
-                                        }
-                                    }
-
-                                    input {
-                                        background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.1) 13.36%, rgba(221, 229, 255, 0.35) 114.95%),
-                                            linear-gradient(10deg, rgba(2, 28, 120, 0.05), rgba(2, 28, 120, 0.067));
-                                        border: 1px solid rgba(255, 255, 255, 0.507);
-
-                                        &::placeholder {
-                                            color: rgb(156, 151, 151);
-                                        }
-                                    }
-                                }
-
-                                &:has(input:focus) {
-                                    svg {
-                                        path {
-                                            stroke: white;
-                                        }
-                                    }
-
-                                    input {
-                                        border: 1px solid white;
-                                    }
-                                }
-                            }
-                        }
-
-                        .aside-bar-filter-location-panel {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 6px;
-
-                            .filter-loctaion-panel-head {
-                                display: flex;
-                                justify-content: space-between;
-
-                                .filter-location-text {
-                                    font-size: 16px;
-                                    line-height: 21px;
-                                    font-family: var(--ff-hellix);
-                                    color: white;
-                                    white-space: nowrap;
-
-                                    span {
-                                        font-size: 13px;
-                                        line-height: 13px;
-                                    }
-                                }
-
-                                svg {
-                                    path {
-                                        transition: all .3s ease;
-                                    }
-
-                                    &:hover {
-                                        path {
-                                            stroke: white;
-                                        }
-                                    }
+                                    background: linear-gradient(10.01deg, rgba(255, 255, 255, 0.139) 13.36%, rgba(221, 229, 255, 0.34) 114.95%);
                                 }
                             }
 
-                            /* ###############################  */
-                            /* ###############################  */
-                            /* ###############################  */
-                            /* ###############################  */
-                            /* Location Custom Range input  */
-                            .location-custom-range-input {
-                                .location-custom-input {
-                                    -webkit-appearance: none;
-                                    /* Default browser styling khatam karne ke liye */
-                                    width: 100%;
-                                    height: 4px;
-                                    border-radius: 10px;
-                                    background: #333;
-                                    /* Default track color */
-                                    outline: none;
-                                    cursor: pointer;
-                                }
-
-                                /* Slider Thumb (Handle) for Chrome, Safari, Edge */
-                                .location-custom-input::-webkit-slider-thumb {
-                                    -webkit-appearance: none;
-                                    height: 16px;
-                                    width: 10px;
-                                    background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
-                                    /* Neeche se nokeela banane ke liye clip-path */
-                                    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
-                                    border-radius: 2px;
-                                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-                                    margin-top: 0px;
-                                    /* Thumb ko line ke center mein lane ke liye */
-                                    transition: all .3s ease;
-                                }
-
-                                /* Slider Thumb (Handle) for Firefox */
-                                .location-custom-input::-moz-range-thumb {
-                                    background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
-                                    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
-                                    border: none;
-                                    border-radius: 2px;
-                                }
-
-                                /* Hover effect taake handle thora bara lage */
-                                .location-custom-input::-webkit-slider-thumb:hover {
-                                    transform: scale(1.1);
-                                }
-                            }
-                        }
-
-                        .aside-bar-filter-age-panel {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 16px;
-                            margin-bottom: 26px;
-
-                            .filter-loctaion-age-head {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-
-                                .filter-age-text {
-                                    font-size: 16px;
-                                    line-height: 21px;
-                                    font-weight: 300;
-                                    color: var(--white);
-                                    font-family: var(--ff-hellix);
-
-                                    span {
-                                        font-size: 13px;
-                                        margin-left: 6px;
-                                    }
-                                }
-
-                                svg {}
-                            }
-
-                            /* ##########################   */
-                            /* ##########################   */
-                            /* ##########################   */
-                            /* ##########################   */
-                            /* Double Range Input Slider   */
-                            .custom-double-range-input {
-                                position: relative;
-
-                                .slider-track {
-                                    position: absolute;
-                                    width: 100%;
-                                    height: 4px;
-                                    background-color: #444;
-                                    top: 50%;
-                                    transform: translateY(-50%);
-                                    border-radius: 2px;
-                                    z-index: 1;
-                                    transition: all .3s ease;
-                                }
-
-                                /* Active Range (Yellow Line) */
-                                .slider-range {
-                                    position: absolute;
-                                    height: 2px;
-                                    background: linear-gradient(0deg, #e5741f 0%, #fece26 100%);
-                                    top: 50%;
-                                    transform: translateY(-50%);
-                                    z-index: 2;
-                                    border-radius: 2px;
-                                }
-
-                                /* Inputs Styling */
-                                input[type="range"] {
-                                    -webkit-appearance: none;
-                                    -moz-appearance: none;
-                                    appearance: none;
-                                    width: 100%;
-                                    outline: none;
-                                    position: absolute;
-                                    margin: auto;
-                                    top: 0;
-                                    bottom: 0;
-                                    background-color: transparent;
-                                    pointer-events: none;
-                                    /* Pointer ignore karega track ko */
-                                    z-index: 3;
-                                }
-
-                                /* Custom Handle (Thumb) */
-                                input[type="range"]::-webkit-slider-thumb {
-                                    -webkit-appearance: none;
-                                    appearance: none;
-                                    height: 16px;
-                                    width: 10px;
-                                    background: linear-gradient(0deg, #e5741f 0%, #fece26 100%);
-                                    cursor: pointer;
-                                    border-radius: 2px;
-                                    pointer-events: auto;
-                                    /* Sirf handle click hoga */
-                                    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
-                                    transition: all .3s ease;
-                                }
-
-                                input[type="range"]::-moz-range-thumb {
-                                    background: linear-gradient(0deg, #e5741f 0%, #fece26 100%);
-                                    cursor: pointer;
-                                    border-radius: 2px;
-                                    pointer-events: auto;
-                                    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
-                                    border: none;
-                                }
-
-                                &.custom-double-range-input input[type="range"]::-webkit-slider-thumb:hover {
-                                    transform: scale(1.1);
-                                }
-                            }
-
-                            input {}
-                        }
-
-                        .filter-menu-item {
-                            position: relative;
-
-                            svg {
-                                transition: all .3s ease;
-                            }
-
-                            .filter-menu-panel {
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
+                            .find-money-boy-btn {
+                                border-radius: 20px;
+                                padding: 19px 0;
 
                                 span {
-                                    font-size: 16px;
-                                    font-weight: 600;
-                                    line-height: 20px;
-                                    color: rgba(255, 255, 255, 0.696);
-                                    font-family: var(--ff-hellix);
+                                    font-size: 20px;
+                                    line-height: 25px;
+                                    font-weight: 500;
+                                }
+                            }
+
+                            /* ---------------------------------------------  */
+                            /*    Search Aside bar Advanced Filter Wrapper    */
+                            /* ---------------------------------------------  */
+                            .aside-bar-advanced-filter-wrapper {
+                                padding: 16px 0 22px;
+                                display: flex;
+                                justify-content: space-between;
+                                transition: all .3s ease;
+                                cursor: pointer;
+
+                                h3 {
+                                    font-size: 18px;
+                                    line-height: 24px;
+                                    color: rgba(255, 255, 255, 0.771);
+                                    font-family: var(--ff-bambino);
+                                    letter-spacing: 1.5px;
+                                    transition: all .3s ease;
+                                }
+
+                                .custom-select-chevron {
+                                    margin-left: 6px;
                                     transition: all .3s ease;
                                 }
 
                                 svg {
-                                    transition: all .3s ease;
-
                                     path {
                                         transition: all .3s ease;
-                                        stroke: rgba(255, 255, 255, 0.696);
+                                        stroke: rgba(255, 255, 255, 0.771);
                                     }
                                 }
 
                                 &:hover {
-                                    cursor: pointer;
-
-                                    span {
+                                    h3 {
                                         color: var(--white);
                                     }
 
                                     svg {
                                         path {
-                                            stroke: var(--white);
+                                            stroke: white;
                                         }
                                     }
                                 }
                             }
 
-                            .custom-select-options-dropdown-wrapper {
-                                top: 33px;
-                                left: -7px;
-                            }
+                            .aside-bar-advanced-filter-list {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 18px;
+                                color: var(--white);
+                                max-height: 0;
+                                transition: all 0.4s ease;
 
-                            &.filter-menu-item.active .filter-menu-panel svg {
-                                transform: rotate(45deg);
+                                .aside-bar-filter-online-panel {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    .online-filter-text {
+                                        display: flex;
+                                        gap: 4px;
+                                        align-items: center;
+
+                                        span {
+                                            font-size: 16px;
+                                            line-height: 21px;
+                                            font-family: var(--ff-hellix);
+                                        }
+
+                                        .online-active-state {
+                                            width: 5px;
+                                            height: 5px;
+                                            border-radius: 50%;
+                                            background-color: var(--green);
+                                            margin-top: 5px;
+                                        }
+                                    }
+
+                                    /* Online Filter Toggle Switch  */
+                                    .online-filter-toggle-switch {
+                                        position: relative;
+                                        display: inline-block;
+                                        width: 25px;
+                                        height: 15px;
+
+                                        input {
+                                            opacity: 0;
+                                            width: 0;
+                                            height: 0;
+
+                                            &:checked+.online-filter-toggle {
+                                                background-color: var(--green);
+
+                                                &::before {
+                                                    transform: translateX(10px);
+                                                }
+                                            }
+                                        }
+
+                                        .online-filter-toggle {
+                                            position: absolute;
+                                            cursor: pointer;
+                                            top: 0;
+                                            left: 0;
+                                            right: 0;
+                                            bottom: 0;
+                                            background-color: #333333;
+                                            transition: 0.4s;
+                                            border-radius: 34px;
+
+                                            &::before {
+                                                position: absolute;
+                                                content: "";
+                                                height: 10px;
+                                                width: 10px;
+                                                left: 3px;
+                                                bottom: 3px;
+                                                background-color: white;
+                                                transition: 0.4s;
+                                                border-radius: 50%;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .aside-bar-filter-search-panel {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 8px;
+
+                                    .advanced-search-panel-head {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        .search-panel-text {
+                                            font-size: 16px;
+                                            line-height: 21px;
+                                            font-family: var(--ff-hellix);
+                                        }
+
+                                        svg {
+                                            path {
+                                                transition: all .3s ease;
+                                            }
+
+                                            &:hover {
+                                                cursor: pointer;
+
+                                                path {
+                                                    stroke: white;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .advanced-search-panel-input {
+                                        width: 100%;
+                                        position: relative;
+                                        user-select: none;
+
+                                        svg {
+                                            position: absolute;
+                                            top: 13px;
+                                            left: 16px;
+
+                                            path {
+                                                stroke: rgba(175, 167, 167, 0.481);
+                                            }
+                                        }
+
+                                        input {
+                                            width: 100%;
+                                            height: 50px;
+                                            border-radius: 16px;
+                                            background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.048) 13.36%, rgba(221, 229, 255, 0.27) 114.95%),
+                                                linear-gradient(10deg, rgba(2, 28, 120, 0.01), rgba(2, 28, 120, 0.092));
+                                            outline: none;
+                                            padding-left: 50px;
+                                            color: white;
+                                            caret-color: white;
+                                            font-size: 14px;
+                                            line-height: 19px;
+                                            font-family: var(--ff-hellix);
+                                            transition: all .3s ease;
+                                            user-select: none;
+                                            border: 1px solid black;
+
+                                            &::placeholder {
+                                                font-size: 14px;
+                                                font-family: var(--ff-bambino);
+                                                transition: all .3s ease;
+                                            }
+                                        }
+
+                                        &:hover {
+                                            svg {
+                                                path {
+                                                    stroke: rgb(156, 151, 151);
+                                                }
+                                            }
+
+                                            input {
+                                                background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.1) 13.36%, rgba(221, 229, 255, 0.35) 114.95%),
+                                                    linear-gradient(10deg, rgba(2, 28, 120, 0.05), rgba(2, 28, 120, 0.067));
+                                                border: 1px solid rgba(255, 255, 255, 0.507);
+
+                                                &::placeholder {
+                                                    color: rgb(156, 151, 151);
+                                                }
+                                            }
+                                        }
+
+                                        &:has(input:focus) {
+                                            svg {
+                                                path {
+                                                    stroke: white;
+                                                }
+                                            }
+
+                                            input {
+                                                border: 1px solid white;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .aside-bar-filter-location-panel {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 6px;
+
+                                    .filter-loctaion-panel-head {
+                                        display: flex;
+                                        justify-content: space-between;
+
+                                        .filter-location-text {
+                                            font-size: 16px;
+                                            line-height: 21px;
+                                            font-family: var(--ff-hellix);
+                                            color: white;
+                                            white-space: nowrap;
+
+                                            span {
+                                                font-size: 13px;
+                                                line-height: 13px;
+                                            }
+                                        }
+
+                                        svg {
+                                            path {
+                                                transition: all .3s ease;
+                                            }
+
+                                            &:hover {
+                                                path {
+                                                    stroke: white;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    /* ###############################  */
+                                    /* ###############################  */
+                                    /* ###############################  */
+                                    /* ###############################  */
+                                    /* Location Custom Range input  */
+                                    .location-custom-range-input {
+                                        .location-custom-input {
+                                            -webkit-appearance: none;
+                                            /* Default browser styling khatam karne ke liye */
+                                            width: 100%;
+                                            height: 4px;
+                                            border-radius: 10px;
+                                            background: #333;
+                                            /* Default track color */
+                                            outline: none;
+                                            cursor: pointer;
+                                        }
+
+                                        /* Slider Thumb (Handle) for Chrome, Safari, Edge */
+                                        .location-custom-input::-webkit-slider-thumb {
+                                            -webkit-appearance: none;
+                                            height: 16px;
+                                            width: 10px;
+                                            background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
+                                            /* Neeche se nokeela banane ke liye clip-path */
+                                            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+                                            border-radius: 2px;
+                                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                                            margin-top: 0px;
+                                            /* Thumb ko line ke center mein lane ke liye */
+                                            transition: all .3s ease;
+                                        }
+
+                                        /* Slider Thumb (Handle) for Firefox */
+                                        .location-custom-input::-moz-range-thumb {
+                                            background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
+                                            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+                                            border: none;
+                                            border-radius: 2px;
+                                        }
+
+                                        /* Hover effect taake handle thora bara lage */
+                                        .location-custom-input::-webkit-slider-thumb:hover {
+                                            transform: scale(1.1);
+                                        }
+                                    }
+                                }
+
+                                .aside-bar-filter-age-panel {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 16px;
+                                    margin-bottom: 26px;
+
+                                    .filter-loctaion-age-head {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        .filter-age-text {
+                                            font-size: 16px;
+                                            line-height: 21px;
+                                            font-weight: 300;
+                                            color: var(--white);
+                                            font-family: var(--ff-hellix);
+
+                                            span {
+                                                font-size: 13px;
+                                                margin-left: 6px;
+                                            }
+                                        }
+
+                                        svg {}
+                                    }
+
+                                    /* ##########################   */
+                                    /* ##########################   */
+                                    /* ##########################   */
+                                    /* ##########################   */
+                                    /* Double Range Input Slider   */
+                                    .custom-double-range-input {
+                                        position: relative;
+
+                                        .slider-track {
+                                            position: absolute;
+                                            width: 100%;
+                                            height: 4px;
+                                            background-color: #444;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            border-radius: 2px;
+                                            z-index: 1;
+                                            transition: all .3s ease;
+                                        }
+
+                                        /* Active Range (Yellow Line) */
+                                        .slider-range {
+                                            position: absolute;
+                                            height: 2px;
+                                            background: linear-gradient(0deg, #e5741f 0%, #fece26 100%);
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            z-index: 2;
+                                            border-radius: 2px;
+                                        }
+
+                                        /* Inputs Styling */
+                                        input[type="range"] {
+                                            -webkit-appearance: none;
+                                            -moz-appearance: none;
+                                            appearance: none;
+                                            width: 100%;
+                                            outline: none;
+                                            position: absolute;
+                                            margin: auto;
+                                            top: 0;
+                                            bottom: 0;
+                                            background-color: transparent;
+                                            pointer-events: none;
+                                            /* Pointer ignore karega track ko */
+                                            z-index: 3;
+                                        }
+
+                                        /* Custom Handle (Thumb) */
+                                        input[type="range"]::-webkit-slider-thumb {
+                                            -webkit-appearance: none;
+                                            appearance: none;
+                                            height: 16px;
+                                            width: 10px;
+                                            background: linear-gradient(0deg, #e5741f 0%, #fece26 100%);
+                                            cursor: pointer;
+                                            border-radius: 2px;
+                                            pointer-events: auto;
+                                            /* Sirf handle click hoga */
+                                            clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+                                            transition: all .3s ease;
+                                        }
+
+                                        input[type="range"]::-moz-range-thumb {
+                                            background: linear-gradient(0deg, #e5741f 0%, #fece26 100%);
+                                            cursor: pointer;
+                                            border-radius: 2px;
+                                            pointer-events: auto;
+                                            clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+                                            border: none;
+                                        }
+
+                                        &.custom-double-range-input input[type="range"]::-webkit-slider-thumb:hover {
+                                            transform: scale(1.1);
+                                        }
+                                    }
+
+                                    input {}
+                                }
+
+                                .filter-menu-item {
+                                    position: relative;
+
+                                    svg {
+                                        transition: all .3s ease;
+                                    }
+
+                                    .filter-menu-panel {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: center;
+
+                                        span {
+                                            font-size: 16px;
+                                            font-weight: 600;
+                                            line-height: 20px;
+                                            color: rgba(255, 255, 255, 0.696);
+                                            font-family: var(--ff-hellix);
+                                            transition: all .3s ease;
+                                        }
+
+                                        svg {
+                                            transition: all .3s ease;
+
+                                            path {
+                                                transition: all .3s ease;
+                                                stroke: rgba(255, 255, 255, 0.696);
+                                            }
+                                        }
+
+                                        &:hover {
+                                            cursor: pointer;
+
+                                            span {
+                                                color: var(--white);
+                                            }
+
+                                            svg {
+                                                path {
+                                                    stroke: var(--white);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .custom-select-options-dropdown-wrapper {
+                                        top: 33px;
+                                        left: 0;
+                                    }
+
+                                    &.filter-menu-item.active .filter-menu-panel svg {
+                                        transform: rotate(45deg);
+                                    }
+                                }
+
+                                &.aside-bar-advanced-filter-list.open {
+                                    max-height: 100%;
+                                    /* Ek aisi value jo list ki height se zyada ho */
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* Search Main Cards Section  */
+            .search-main-cards-section {
+                margin-top: 100px;
+                width: 100%;
+
+                .search-main-cards-container {
+                    width: 100%;
+
+                    .main-cards-container-header {
+                        border-radius: 20px;
+                        background: #0E1014;
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                        padding: 16px;
+
+                        .california-head {
+                            display: flex;
+                            align-items: center;
+                            margin-left: 6px;
+
+                            svg {}
+
+                            span {
+                                font-size: 18px;
+                                font-weight: 400;
+                                list-style: 28px;
+                                color: var(--white);
+                                font-family: var(--ff-bambino);
+                            }
+                        }
+
+                        .cards-view-switcher-buttons {
+                            display: flex;
+
+                            .grid-layout-btns {
+                                display: flex;
+                                padding-right: 40px;
+
+                                .list-view-btn {
+                                    position: relative;
+                                    left: -36px;
+
+                                    svg {
+                                        transition: all .4s ease;
+                                        position: absolute;
+                                        z-index: 1;
+                                    }
+
+                                    .simple-list-svg {
+                                        opacity: 0;
+                                    }
+
+                                    .gradient-list-svg {
+                                        opacity: 1;
+                                    }
+
+                                    &.list-view-btn.active {
+                                        .simple-list-svg {
+                                            opacity: 1;
+                                        }
+
+                                        .gradient-list-svg {
+                                            opacity: 0;
+                                        }
+                                    }
+                                }
+
+                                .grid-view-btn {
+                                    position: relative;
+
+                                    svg {
+                                        transition: all .4s ease;
+                                        position: absolute;
+                                        z-index: 1;
+                                    }
+
+                                    .simple-grid-svg {
+                                        opacity: 0;
+                                    }
+
+                                    .gradient-grid-svg {
+                                        opacity: 1;
+                                    }
+
+                                    &.grid-view-btn.active {
+                                        .simple-grid-svg {
+                                            opacity: 1;
+                                        }
+
+                                        .gradient-grid-svg {
+                                            opacity: 0;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

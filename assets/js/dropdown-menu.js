@@ -214,3 +214,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Advanced Filter Wrapper Container JS Logic
+const filterWrapper = document.querySelector(
+  ".aside-bar-advanced-filter-wrapper",
+);
+const filterList = document.querySelector(".aside-bar-advanced-filter-list");
+
+filterWrapper.addEventListener("click", () => {
+  // Check karein ke list pehle se khuli hai ya nahi
+  const isOpen = filterList.style.maxHeight;
+
+  if (isOpen && isOpen !== "0px") {
+    // Agar khuli hai to band kar do
+    filterList.style.maxHeight = "0px";
+  } else {
+    // Agar band hai to scrollHeight use karke smoothly kholo
+    filterList.style.maxHeight = filterList.scrollHeight + "px";
+  }
+});

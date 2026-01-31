@@ -2,96 +2,262 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Custom Human Code Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Laces | Modern Lace Factory</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
-      /* Basic Setup */
-      body {
-        background: #000; /* Dark background taake gradient uth kar aaye */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
       }
 
-      /* Container taake slider ki width control mein rahe */
-      .slider-wrapper {
+      :root {
+        --primary-gradient: linear-gradient(135deg, #fece26 0%, #e5741f 100%);
+        --dark-bg: #0f0f0f;
+        --glass: rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: white;
+        overflow-x: hidden;
+      }
+
+      /* --- Animated Header --- */
+      header {
+        position: fixed;
+        top: 0;
         width: 100%;
-        max-width: 400px;
-        padding: 20px;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: rgba(15, 15, 15, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        animation: slideDown 0.8s ease;
       }
 
-      /* Main Input Styling */
-      .custom-slider {
-        -webkit-appearance: none; /* Default browser styling khatam karne ke liye */
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 400;
+        transition: 0.3s;
+        opacity: 0.8;
+      }
+
+      nav ul li a:hover {
+        opacity: 1;
+        color: #fece26;
+      }
+
+      /* --- Hero Section --- */
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 0 8%;
+        background: radial-gradient(
+          circle at top left,
+          rgba(229, 116, 31, 0.15),
+          transparent
+        );
+        overflow: hidden;
+      }
+
+      .hero-container {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: center;
         width: 100%;
-        height: 4px;
-        border-radius: 10px;
-        background: #333; /* Default track color */
-        outline: none;
-        cursor: pointer;
       }
 
-      /* Slider Thumb (Handle) for Chrome, Safari, Edge */
-      .custom-slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        height: 20px;
-        width: 14px;
-        background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
-        /* Neeche se nokeela banane ke liye clip-path */
-        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
-        border-radius: 2px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        margin-top: -8px; /* Thumb ko line ke center mein lane ke liye */
-        transition: transform 0.1s ease;
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.1;
+        margin-bottom: 20px;
       }
 
-      /* Slider Thumb (Handle) for Firefox */
-      .custom-slider::-moz-range-thumb {
-        height: 20px;
-        width: 14px;
-        background: linear-gradient(180deg, #fece26 0%, #e5741f 100%);
-        clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
+      .hero-content span {
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 35px;
+        color: #ccc;
+        line-height: 1.6;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 20px;
+      }
+
+      .btn-primary {
+        padding: 15px 35px;
+        background: var(--primary-gradient);
         border: none;
-        border-radius: 2px;
+        border-radius: 50px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
       }
 
-      /* Hover effect taake handle thora bara lage */
-      .custom-slider::-webkit-slider-thumb:hover {
-        transform: scale(1.1);
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(229, 116, 31, 0.3);
+      }
+
+      /* --- Video Section --- */
+      .video-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .video-wrapper video {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(15, 15, 15, 0.4),
+          transparent
+        );
+      }
+
+      /* --- Responsive Design --- */
+      @media (max-width: 992px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding-top: 100px;
+        }
+        .hero {
+          height: auto;
+          padding-bottom: 50px;
+        }
+        .btn-group {
+          justify-content: center;
+        }
+        header {
+          padding: 15px 25px;
+        }
+        nav {
+          display: none;
+        } /* Mobile menu simplified */
+        .video-wrapper video {
+          height: 350px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="slider-wrapper">
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="40"
-        class="custom-slider"
-        id="mySlider" />
-    </div>
+    <header>
+      <div class="logo">LACE CRAFT PRO</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Designs</a></li>
+          <li><a href="#">Factory View</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
+    <section class="hero">
+      <div class="hero-container">
+        <div
+          class="hero-content"
+          data-aos="fade-right"
+          data-aos-duration="1000">
+          <h1>Modern Fashion Ki Pehchan <span>Premium Laces</span></h1>
+          <p
+            >Hum banate hain jaded dor ke mutabiq khoobsurat aur mazboot laces
+            jo aapke kapron ko daitay hain aik professional aur classy look.
+            Hamari factory mein technology aur fann (art) ka behtareen milap
+            hota hai.</p
+          >
+          <div class="btn-group">
+            <button class="btn-primary">Explore Designs</button>
+            <button
+              style="background: transparent; border: 1px solid white"
+              class="btn-primary"
+              >Live Tour</button
+            >
+          </div>
+        </div>
+
+        <div
+          class="video-wrapper"
+          data-aos="zoom-in-up"
+          data-aos-duration="1200">
+          <div class="video-overlay"></div>
+          <video autoplay muted loop playsinline>
+            <source
+              src="https://assets.mixkit.co/videos/preview/mixkit-sewing-machine-stitching-a-piece-of-fabric-15106-large.mp4"
+              type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      const slider = document.getElementById("mySlider");
-
-      // Function jo background color ko handle tak fill karega
-      function handleProgress() {
-        const value = slider.value;
-        const min = slider.min || 0;
-        const max = slider.max || 100;
-        const percent = ((value - min) / (max - min)) * 100;
-
-        // Handle tak yellow/orange, baaki grey
-        slider.style.background = `linear-gradient(to right, #FECE26 0%, #E5741F ${percent}%, #333 ${percent}%, #333 100%)`;
-      }
-
-      // Jab user slider hilaaye
-      slider.oninput = handleProgress;
-
-      // Page khulne par pehli baar run karein
-      handleProgress();
+      AOS.init({
+        once: true, // Animation sirf ek baar chale
+      });
     </script>
   </body>
 </html>
