@@ -216,20 +216,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Advanced Filter Wrapper Container JS Logic
+// const filterWrapper = document.querySelector(
+//   ".aside-bar-advanced-filter-wrapper",
+// );
+// const filterList = document.querySelector(
+//   ".aside-bar-advanced-filter-list-container",
+// );
+
+// filterWrapper.addEventListener("click", () => {
+//   // Ye line 'active' class ko add/remove karegi
+//   filterList.classList.toggle("active");
+// });
+
 const filterWrapper = document.querySelector(
   ".aside-bar-advanced-filter-wrapper",
 );
-const filterList = document.querySelector(".aside-bar-advanced-filter-list");
+const filterList = document.querySelector(
+  ".aside-bar-advanced-filter-list-container",
+);
 
 filterWrapper.addEventListener("click", () => {
-  // Check karein ke list pehle se khuli hai ya nahi
-  const isOpen = filterList.style.maxHeight;
+  // Wrapper par class toggle hogi (Chevron rotate karne ke liye)
+  filterWrapper.classList.toggle("active");
 
-  if (isOpen && isOpen !== "0px") {
-    // Agar khuli hai to band kar do
-    filterList.style.maxHeight = "0px";
-  } else {
-    // Agar band hai to scrollHeight use karke smoothly kholo
-    filterList.style.maxHeight = filterList.scrollHeight + "px";
-  }
+  // List par class toggle hogi (Show/Hide karne ke liye)
+  filterList.classList.toggle("active");
 });

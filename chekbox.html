@@ -3,260 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elite Laces | Modern Lace Factory</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-      rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Professional Country Dropdown</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
       :root {
-        --primary-gradient: linear-gradient(135deg, #fece26 0%, #e5741f 100%);
-        --dark-bg: #0f0f0f;
-        --glass: rgba(255, 255, 255, 0.1);
+        --primary-color: #2563eb;
+        --bg-color: #f8fafc;
+        --text-color: #1e293b;
+        --transition-speed: 0.4s;
       }
 
       body {
-        background-color: var(--dark-bg);
-        color: white;
-        overflow-x: hidden;
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-color);
+        display: flex;
+        justify-content: center;
+        padding-top: 100px;
+        margin: 0;
       }
 
-      /* --- Animated Header --- */
-      header {
-        position: fixed;
-        top: 0;
+      .dropdown-container {
+        width: 280px;
+        position: relative;
+      }
+
+      /* Dropdown Button Styling */
+      .dropdown-btn {
         width: 100%;
-        padding: 20px 50px;
+        padding: 14px 20px;
+        background-color: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 1000;
-        background: rgba(15, 15, 15, 0.8);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        animation: slideDown 0.8s ease;
-      }
-
-      @keyframes slideDown {
-        from {
-          transform: translateY(-100%);
-        }
-        to {
-          transform: translateY(0);
-        }
-      }
-
-      .logo {
-        font-size: 24px;
-        font-weight: 700;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-
-      nav ul li {
-        margin-left: 30px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-        font-weight: 400;
-        transition: 0.3s;
-        opacity: 0.8;
-      }
-
-      nav ul li a:hover {
-        opacity: 1;
-        color: #fece26;
-      }
-
-      /* --- Hero Section --- */
-      .hero {
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        padding: 0 8%;
-        background: radial-gradient(
-          circle at top left,
-          rgba(229, 116, 31, 0.15),
-          transparent
-        );
-        overflow: hidden;
-      }
-
-      .hero-container {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 40px;
-        align-items: center;
-        width: 100%;
-      }
-
-      .hero-content h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        line-height: 1.1;
-        margin-bottom: 20px;
-      }
-
-      .hero-content span {
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      .hero-content p {
-        font-size: 1.1rem;
-        margin-bottom: 35px;
-        color: #ccc;
-        line-height: 1.6;
-      }
-
-      .btn-group {
-        display: flex;
-        gap: 20px;
-      }
-
-      .btn-primary {
-        padding: 15px 35px;
-        background: var(--primary-gradient);
-        border: none;
-        border-radius: 50px;
-        color: white;
-        font-weight: 600;
         cursor: pointer;
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       }
 
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 20px rgba(229, 116, 31, 0.3);
+      .dropdown-btn:hover {
+        border-color: var(--primary-color);
       }
 
-      /* --- Video Section --- */
-      .video-wrapper {
-        position: relative;
-        border-radius: 20px;
+      /* Arrow Icon Animation */
+      .arrow {
+        border: solid #64748b;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        transition: transform var(--transition-speed);
+      }
+
+      .active .arrow {
+        transform: rotate(-135deg);
+        border-color: var(--primary-color);
+      }
+
+      /* The Magic: Grid Transition Logic */
+      .dropdown-menu-wrapper {
+        display: grid;
+        grid-template-rows: 0fr; /* Band halat mein 0fr */
+        transition: grid-template-rows var(--transition-speed)
+          cubic-bezier(0.4, 0, 0.2, 1);
         overflow: hidden;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: white;
+        border-radius: 12px;
+        margin-top: 8px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
       }
 
-      .video-wrapper video {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        display: block;
+      /* Jab class active hogi */
+      .active + .dropdown-menu-wrapper {
+        grid-template-rows: 1fr; /* Smoothly opens to full content height */
       }
 
-      .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to right,
-          rgba(15, 15, 15, 0.4),
-          transparent
-        );
+      .menu-inner {
+        min-height: 0; /* Animation ke liye lazmi hai */
       }
 
-      /* --- Responsive Design --- */
-      @media (max-width: 992px) {
-        .hero-container {
-          grid-template-columns: 1fr;
-          text-align: center;
-          padding-top: 100px;
-        }
-        .hero {
-          height: auto;
-          padding-bottom: 50px;
-        }
-        .btn-group {
-          justify-content: center;
-        }
-        header {
-          padding: 15px 25px;
-        }
-        nav {
-          display: none;
-        } /* Mobile menu simplified */
-        .video-wrapper video {
-          height: 350px;
-        }
+      /* List Items Styling */
+      .country-list {
+        list-style: none;
+        padding: 8px;
+        margin: 0;
+      }
+
+      .country-item {
+        padding: 12px 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-color);
+      }
+
+      .country-item:hover {
+        background-color: #f1f5f9;
+        color: var(--primary-color);
+      }
+
+      .flag {
+        font-size: 1.2rem;
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="logo">LACE CRAFT PRO</div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Designs</a></li>
-          <li><a href="#">Factory View</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="dropdown-container">
+      <button class="dropdown-btn" id="dropdownToggle">
+        <span>Select Country</span>
+        <i class="arrow"></i>
+      </button>
 
-    <section class="hero">
-      <div class="hero-container">
-        <div
-          class="hero-content"
-          data-aos="fade-right"
-          data-aos-duration="1000">
-          <h1>Modern Fashion Ki Pehchan <span>Premium Laces</span></h1>
-          <p
-            >Hum banate hain jaded dor ke mutabiq khoobsurat aur mazboot laces
-            jo aapke kapron ko daitay hain aik professional aur classy look.
-            Hamari factory mein technology aur fann (art) ka behtareen milap
-            hota hai.</p
-          >
-          <div class="btn-group">
-            <button class="btn-primary">Explore Designs</button>
-            <button
-              style="background: transparent; border: 1px solid white"
-              class="btn-primary"
-              >Live Tour</button
+      <div class="dropdown-menu-wrapper">
+        <div class="menu-inner">
+          <ul class="country-list">
+            <li class="country-item"><span class="flag">🇵🇰</span> Pakistan</li>
+            <li class="country-item"><span class="flag">🇹🇷</span> Turkey</li>
+            <li class="country-item"
+              ><span class="flag">🇸🇦</span> Saudi Arabia</li
             >
-          </div>
-        </div>
-
-        <div
-          class="video-wrapper"
-          data-aos="zoom-in-up"
-          data-aos-duration="1200">
-          <div class="video-overlay"></div>
-          <video autoplay muted loop playsinline>
-            <source
-              src="https://assets.mixkit.co/videos/preview/mixkit-sewing-machine-stitching-a-piece-of-fabric-15106-large.mp4"
-              type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            <li class="country-item"><span class="flag">🇦🇪</span> UAE</li>
+            <li class="country-item"><span class="flag">🇶🇦</span> Qatar</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init({
-        once: true, // Animation sirf ek baar chale
+      const toggleBtn = document.getElementById("dropdownToggle");
+
+      // Button click par toggle class
+      toggleBtn.addEventListener("click", (e) => {
+        // Hum button par 'active' class toggle kar rahe hain
+        toggleBtn.classList.toggle("active");
+
+        // Event bubbling rokne ke liye
+        e.stopPropagation();
+      });
+
+      // Agar dropdown ke bahar click ho to band ho jaye (Professional behavior)
+      window.addEventListener("click", () => {
+        if (toggleBtn.classList.contains("active")) {
+          toggleBtn.classList.remove("active");
+        }
+      });
+
+      // Items par click karne ka logic
+      const items = document.querySelectorAll(".country-item");
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const countryName = item.innerText;
+          toggleBtn.querySelector("span").innerText = countryName;
+          toggleBtn.classList.remove("active");
+        });
       });
     </script>
   </body>
