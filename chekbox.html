@@ -3,166 +3,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Professional Country Dropdown</title>
+    <title>Grid: Auto vs FR Explained</title>
     <style>
       :root {
-        --primary-color: #2563eb;
-        --bg-color: #f8fafc;
-        --text-color: #1e293b;
-        --transition-speed: 0.4s;
+        --primary: #4f46e5;
+        --accent: #f59e0b;
+        --bg: #f8fafc;
+        --card: #ffffff;
       }
 
       body {
         font-family: "Inter", sans-serif;
-        background-color: var(--bg-color);
-        display: flex;
-        justify-content: center;
-        padding-top: 100px;
-        margin: 0;
+        background-color: var(--bg);
+        padding: 40px;
+        line-height: 1.6;
+        scrollbar-gutter: stable both-edges;
       }
 
-      .dropdown-container {
-        width: 280px;
-        position: relative;
-      }
-
-      /* Dropdown Button Styling */
-      .dropdown-btn {
-        width: 100%;
-        padding: 14px 20px;
-        background-color: white;
-        border: 1px solid #e2e8f0;
+      .section {
+        background: var(--card);
+        padding: 25px;
         border-radius: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--text-color);
-        transition: all 0.3s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        margin-bottom: 50px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
-      .dropdown-btn:hover {
-        border-color: var(--primary-color);
+      h2 {
+        color: var(--primary);
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 10px;
+      }
+      code {
+        background: #fee2e2;
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #b91c1c;
       }
 
-      /* Arrow Icon Animation */
-      .arrow {
-        border: solid #64748b;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(45deg);
-        transition: transform var(--transition-speed);
-      }
-
-      .active .arrow {
-        transform: rotate(-135deg);
-        border-color: var(--primary-color);
-      }
-
-      /* The Magic: Grid Transition Logic */
-      .dropdown-menu-wrapper {
+      /* Grid Basics */
+      .grid-container {
         display: grid;
-        grid-template-rows: 0fr; /* Band halat mein 0fr */
-        transition: grid-template-rows var(--transition-speed)
-          cubic-bezier(0.4, 0, 0.2, 1);
-        overflow: hidden;
-        background-color: white;
-        border-radius: 12px;
-        margin-top: 8px;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Jab class active hogi */
-      .active + .dropdown-menu-wrapper {
-        grid-template-rows: 1fr; /* Smoothly opens to full content height */
-      }
-
-      .menu-inner {
-        min-height: 0; /* Animation ke liye lazmi hai */
-      }
-
-      /* List Items Styling */
-      .country-list {
-        list-style: none;
-        padding: 8px;
-        margin: 0;
-      }
-
-      .country-item {
-        padding: 12px 16px;
+        gap: 15px;
+        background: #e2e8f0;
+        padding: 15px;
         border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text-color);
+        margin-top: 20px;
       }
 
-      .country-item:hover {
-        background-color: #f1f5f9;
-        color: var(--primary-color);
+      .item {
+        background: var(--primary);
+        color: white;
+        padding: 20px;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: bold;
       }
 
-      .flag {
-        font-size: 1.2rem;
+      .item-alt {
+        background: var(--accent);
+      }
+
+      /* SCENARIO 1: AUTO (Content Driven) */
+      .grid-auto {
+        grid-template-columns: auto auto auto;
+      }
+
+      /* SCENARIO 2: FR (Space Driven) */
+      .grid-fr {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      /* SCENARIO 3: MIXED (The Professional Way) */
+      .grid-mixed {
+        grid-template-columns: 200px auto 1fr;
+      }
+
+      .label {
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: #64748b;
       }
     </style>
   </head>
   <body>
-    <div class="dropdown-container">
-      <button class="dropdown-btn" id="dropdownToggle">
-        <span>Select Country</span>
-        <i class="arrow"></i>
-      </button>
+    <h1 style="text-align: center"
+      >CSS Grid: <code>auto</code> vs <code>fr</code></h1
+    >
 
-      <div class="dropdown-menu-wrapper">
-        <div class="menu-inner">
-          <ul class="country-list">
-            <li class="country-item"><span class="flag">🇵🇰</span> Pakistan</li>
-            <li class="country-item"><span class="flag">🇹🇷</span> Turkey</li>
-            <li class="country-item"
-              ><span class="flag">🇸🇦</span> Saudi Arabia</li
-            >
-            <li class="country-item"><span class="flag">🇦🇪</span> UAE</li>
-            <li class="country-item"><span class="flag">🇶🇦</span> Qatar</li>
-          </ul>
-        </div>
+    <div class="section">
+      <h2>1. The "auto" Logic (Content First)</h2>
+      <p
+        ><code>auto</code> column sirf utni jagah leta hai jitni uske andar ke
+        <b>content</b> ko chahiye. Agar content chota hai, toh column chota ho
+        jayega.</p
+      >
+
+      <div class="grid-container grid-auto">
+        <div class="item">Short</div>
+        <div class="item">I am a very long piece of content</div>
+        <div class="item">Mid</div>
       </div>
+      <span class="label"
+        >Yahan har box apne text ke hisaab se adjust ho raha hai. Baki space
+        khali bach sakti hai.</span
+      >
     </div>
 
-    <script>
-      const toggleBtn = document.getElementById("dropdownToggle");
+    <div class="section">
+      <h2>2. The "fr" Logic (Available Space First)</h2>
+      <p
+        ><code>1fr</code> ka matlab hai "bachi hui poori space ko barabar baant
+        do". Ye content ko nahi dekhta, ye <b>container ki width</b> ko dekhta
+        hai.</p
+      >
 
-      // Button click par toggle class
-      toggleBtn.addEventListener("click", (e) => {
-        // Hum button par 'active' class toggle kar rahe hain
-        toggleBtn.classList.toggle("active");
+      <div class="grid-container grid-fr">
+        <div class="item item-alt">1fr</div>
+        <div class="item item-alt">1fr</div>
+        <div class="item item-alt">1fr</div>
+      </div>
+      <span class="label"
+        >Yahan teeno boxes barabar hain, bhale hi text chota ho ya bara.</span
+      >
+    </div>
 
-        // Event bubbling rokne ke liye
-        e.stopPropagation();
-      });
+    <div class="section">
+      <h2>3. Professional Scenario (Fixed + Auto + Flexible)</h2>
+      <p
+        >Asli maza tab aata hai jab hum inhein mix karte hain. common pattern:
+        <code>200px auto 1fr</code></p
+      >
 
-      // Agar dropdown ke bahar click ho to band ho jaye (Professional behavior)
-      window.addEventListener("click", () => {
-        if (toggleBtn.classList.contains("active")) {
-          toggleBtn.classList.remove("active");
-        }
-      });
-
-      // Items par click karne ka logic
-      const items = document.querySelectorAll(".country-item");
-      items.forEach((item) => {
-        item.addEventListener("click", () => {
-          const countryName = item.innerText;
-          toggleBtn.querySelector("span").innerText = countryName;
-          toggleBtn.classList.remove("active");
-        });
-      });
-    </script>
+      <div class="grid-container grid-mixed">
+        <div class="item" style="background: #10b981">Sidebar (200px)</div>
+        <div class="item" style="background: #3b82f6">Middle (Auto)</div>
+        <div class="item" style="background: #8b5cf6"
+          >Main Content (1fr - Takes all remaining space)</div
+        >
+      </div>
+      <ul class="label">
+        <li><b>200px:</b> Hamesha fix rahega.</li>
+        <li><b>auto:</b> Jitna middle text hoga, utni jagah lega.</li>
+        <li
+          ><b>1fr:</b> Jitni bhi baki screen bachi, ye us par qabza kar
+          lega.</li
+        >
+      </ul>
+    </div>
   </body>
 </html>
