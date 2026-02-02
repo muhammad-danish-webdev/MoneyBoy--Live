@@ -147,8 +147,8 @@
                                 }
 
                                 &.aside-bar-advanced-filter-wrapper.active {
-                                    svg {
-                                        transform: scale(90deg);
+                                    .custom-select-chevron {
+                                        transform: rotate(180deg);
                                     }
                                 }
                             }
@@ -158,7 +158,8 @@
                                 grid-template-rows: 0fr;
                                 transition: all .4s ease;
                                 opacity: 0;
-                                height: 100%;
+                                height: 0;
+                                max-height: fit-content;
 
                                 .aside-bar-advanced-filter-list {
                                     display: flex;
@@ -590,17 +591,13 @@
                                             transform: rotate(45deg);
                                         }
                                     }
-
-                                    /* Jab click hoga to ye class add hogi (Show) */
-                                    &.aside-bar-advanced-filter-list.active {
-                                        max-height: 1000px;
-                                    }
                                 }
 
                                 &.aside-bar-advanced-filter-list-container.active {
                                     grid-template-rows: 1fr;
                                     /* Smoothly open to exact height */
                                     opacity: 1;
+                                    height: 100%;
                                 }
                             }
                         }
