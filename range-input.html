@@ -3,136 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dual Range Slider</title>
+    <link rel="stylesheet" href="assets/css/search-grid/search-grid.css" />
+    <title>Responsive Card</title>
     <style>
-      body {
-        background-color: #000;
+      /* Essential Inline Styles for Layout */
+      .card-container {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+        flex-wrap: wrap; /* Allows wrap on mobile (Mobile pe wrap ho jaye ga) */
+        background: #1a1a1a;
+        border-radius: 15px;
+        overflow: hidden;
+        max-width: 900px; /* Only max-width for container (Sirf max-width lagayi hai) */
+        margin: 20px auto;
+        color: white;
+        font-family: sans-serif;
       }
 
-      .slider-wrapper {
+      .image-section {
+        flex: 1 1 300px; /* Grows and shrinks (Barhta aur ghat-ta hai) */
         position: relative;
-        width: 80%;
-        max-width: 600px;
-        height: 40px;
       }
 
-      /* Base Track (Grey Line) */
-      .slider-track {
-        position: absolute;
+      .image-section img {
         width: 100%;
-        height: 4px;
-        background-color: #444;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 2px;
-        z-index: 1;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
-      /* Active Range (Yellow Line) */
-      .slider-range {
-        position: absolute;
-        height: 4px;
-        background: #ffd700;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 2;
-        border-radius: 2px;
+      .content-section {
+        flex: 2 1 400px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
 
-      /* Inputs Styling */
-      input[type="range"] {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+      .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .stats-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 15px 0;
+      }
+
+      .stat-tag {
+        background: #333;
+        padding: 5px 12px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+      }
+
+      .price-box {
+        background: #111;
+        padding: 15px;
+        border-radius: 12px;
+        flex: 0 1 250px; /* Responsive sidebar (Responsive side wala hissa) */
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid #222;
+      }
+
+      .price-text {
+        color: #ffb400;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .contact-btn {
         width: 100%;
-        outline: none;
-        position: absolute;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-        background-color: transparent;
-        pointer-events: none; /* Pointer ignore karega track ko */
-        z-index: 3;
+        padding: 12px;
+        margin-top: 15px;
+        background: transparent;
+        border: 2px solid #ffb400;
+        color: #ffb400;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
       }
 
-      /* Custom Handle (Thumb) */
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        height: 24px;
-        width: 18px;
-        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
-        cursor: pointer;
-        border-radius: 3px;
-        pointer-events: auto; /* Sirf handle click hoga */
-        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-      }
-
-      input[type="range"]::-moz-range-thumb {
-        height: 24px;
-        width: 18px;
-        background: linear-gradient(180deg, #ffd700 0%, #ffa500 100%);
-        cursor: pointer;
-        border-radius: 3px;
-        pointer-events: auto;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
-        border: none;
+      /* Mobile Adjustments */
+      @media (max-width: 600px) {
+        .content-section {
+          flex-direction: column;
+        }
+        .price-box {
+          width: 100%;
+          margin-top: 20px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="slider-wrapper">
-      <div class="slider-track"></div>
-      <div class="slider-range" id="range-fill"></div>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="20"
-        id="slider-1"
-        oninput="updateSlider()" />
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value="70"
-        id="slider-2"
-        oninput="updateSlider()" />
+    <div class="card-container">
+      <div class="image-section">
+        <img src="assets/images/profile.jpg" alt="Jonathan Doe" />
+      </div>
+
+      <div class="content-section">
+        <div>
+          <div class="header-row">
+            <h2>Jonathan Doe <span style="color: #4ade80">●</span></h2>
+            <div class="location">📍 Los Angeles, California</div>
+          </div>
+
+          <div class="stats-row">
+            <span class="stat-tag">28yo</span>
+            <span class="stat-tag">184cm</span>
+            <span class="stat-tag">85kg</span>
+            <span class="stat-tag">20cm</span>
+            <span class="stat-tag">Versatile</span>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-end;
+          ">
+          <div class="price-box">
+            <div class="price-row">
+              <span>From</span>
+              <span class="price-text">€145/h</span>
+            </div>
+            <div class="price-row">
+              <span>Visit from</span>
+              <span class="price-text">€275/h</span>
+            </div>
+            <div class="price-row" style="border: none">
+              <span>Multi-hour</span>
+              <span class="price-text">€2000/h</span>
+            </div>
+            <button class="contact-btn">View Contact Info</button>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <script>
-      const sliderOne = document.getElementById("slider-1");
-      const sliderTwo = document.getElementById("slider-2");
-      const rangeFill = document.getElementById("range-fill");
-      const minGap = 0;
-
-      function updateSlider() {
-        // Check karein ke sliders ek dusre ko cross na karein
-        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
-          // Agar cross ho rahe hon to purani position par rakhein
-          if (event.target.id === "slider-1") {
-            sliderOne.value = parseInt(sliderTwo.value) - minGap;
-          } else {
-            sliderTwo.value = parseInt(sliderOne.value) + minGap;
-          }
-        }
-
-        // Yellow color update karein handles ke beech mein
-        const percent1 = (sliderOne.value / sliderOne.max) * 100;
-        const percent2 = (sliderTwo.value / sliderTwo.max) * 100;
-
-        rangeFill.style.left = percent1 + "%";
-        rangeFill.style.width = percent2 - percent1 + "%";
-      }
-
-      // Initial call taake load hote hi set ho jaye
-      updateSlider();
-    </script>
   </body>
 </html>

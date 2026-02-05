@@ -48,16 +48,13 @@
 }
 
 /* Search Near Me Button */
-.search-near-me-btn {
-    padding: 18px 0;
+.text-gradient-btn {
     width: 100%;
     background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
     border: none;
     border-radius: 20px;
     font-family: "Bambino";
     font-weight: 400;
-    font-size: 20px;
-    line-height: 26px;
     z-index: 1;
     transition: all .3s ease;
     position: relative;
