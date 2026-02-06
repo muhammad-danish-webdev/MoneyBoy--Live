@@ -858,13 +858,6 @@
                                             line-height: 18px;
                                             color: var(--white);
                                         }
-
-                                        .status-indicator {
-                                            width: 8px;
-                                            height: 8px;
-                                            border-radius: 50%;
-                                            background-color: var(--green);
-                                        }
                                     }
 
                                     .provider-card-personal-detail {
@@ -1051,6 +1044,73 @@
                     }
                 }
             }
+
+            /* ###########################################  */
+            /*      END :: Search Main Cards Body           */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* ###########################################  */
+            /* #############################################  */
+            /* START :: Spotlight Featured MoneyBoy Side Bar  */
+            /* #############################################  */
+            .search-spotlight-featured-sidebar {
+                .search-spotlight-featured-members {
+                    h3 {
+                        background: linear-gradient(161.51deg, #AAAAAA 12.53%, #FFFFFF 107.92%);
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 24px;
+                    }
+
+                    .spotlight-members-list {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        .spotlight-member-card {
+                            aspect-ratio: 366/183;
+                            position: relative;
+                            top: 0;
+                            width: 366px;
+
+                            .spotlight-member-image {
+                                position: absolute;
+                                inset: 0;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+
+                            .spotlight-member-content {
+                                .member-content-header {
+                                    .spotlight-profile-badge {
+                                        img {}
+                                    }
+
+                                    .member-name {}
+
+                                    .status-indecator {}
+
+                                    .spotlight-member-location {
+                                        svg {
+                                            path {}
+                                        }
+
+                                        .location-state {}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* #############################################  */
+            /* END :: Spotlight Featured MoneyBoy Side Bar  */
+            /* #############################################  */
         }
     }
 }

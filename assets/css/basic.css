@@ -33,6 +33,13 @@
     src: url('../fonts/Bambino.otf');
 }
 
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--green);
+}
+
 /* Header Button  */
 .header-btn {
     padding: 8px 14px;
