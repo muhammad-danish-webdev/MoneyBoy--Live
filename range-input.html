@@ -3,152 +3,77 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/search-grid/search-grid.css" />
-    <title>Responsive Card</title>
+    <title>Pointer Events vs User Select</title>
     <style>
-      /* Essential Inline Styles for Layout */
-      .card-container {
-        display: flex;
-        flex-wrap: wrap; /* Allows wrap on mobile (Mobile pe wrap ho jaye ga) */
-        background: #1a1a1a;
-        border-radius: 15px;
-        overflow: hidden;
-        max-width: 900px; /* Only max-width for container (Sirf max-width lagayi hai) */
-        margin: 20px auto;
+      body {
+        background-color: #121212;
         color: white;
-        font-family: sans-serif;
-      }
-
-      .image-section {
-        flex: 1 1 300px; /* Grows and shrinks (Barhta aur ghat-ta hai) */
-        position: relative;
-      }
-
-      .image-section img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .content-section {
-        flex: 2 1 400px;
-        padding: 20px;
+        font-family: Arial, sans-serif;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .header-row {
-        display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin-bottom: 15px;
+        padding: 50px;
       }
 
-      .stats-row {
+      .container {
         display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin: 15px 0;
+        gap: 20px;
+        margin-top: 30px;
       }
 
-      .stat-tag {
-        background: #333;
-        padding: 5px 12px;
-        border-radius: 8px;
-        font-size: 0.9rem;
-      }
-
-      .price-box {
-        background: #111;
-        padding: 15px;
-        border-radius: 12px;
-        flex: 0 1 250px; /* Responsive sidebar (Responsive side wala hissa) */
-      }
-
-      .price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        border-bottom: 1px solid #222;
-      }
-
-      .price-text {
-        color: #ffb400;
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-
-      .contact-btn {
-        width: 100%;
-        padding: 12px;
-        margin-top: 15px;
-        background: transparent;
-        border: 2px solid #ffb400;
-        color: #ffb400;
-        border-radius: 25px;
+      .box {
+        width: 250px;
+        padding: 20px;
+        border: 2px solid gold;
+        text-align: center;
+        transition: 0.3s;
         cursor: pointer;
-        font-weight: bold;
       }
 
-      /* Mobile Adjustments */
-      @media (max-width: 600px) {
-        .content-section {
-          flex-direction: column;
-        }
-        .price-box {
-          width: 100%;
-          margin-top: 20px;
-        }
+      /* Hover Effect for all boxes */
+      .box:hover {
+        background-color: gold;
+        color: black;
+      }
+
+      /* 1. Pointer Events: None */
+      /* Yeh click aur hover ko bilkul ignore kar dega */
+      .no-pointer {
+        pointer-events: none;
+        border-color: #ff4d4d;
+      }
+
+      /* 2. User Select: None */
+      /* Yeh click hone dega lekin text select nahi karne dega */
+      .no-select {
+        user-select: none;
+        border-color: #4da3ff;
+      }
+
+      .label {
+        margin-bottom: 10px;
+        font-weight: bold;
+        display: block;
       }
     </style>
   </head>
   <body>
-    <div class="card-container">
-      <div class="image-section">
-        <img src="assets/images/profile.jpg" alt="Jonathan Doe" />
+    <h1>Difference Guide</h1>
+
+    <div class="container">
+      <div>
+        <span class="label">Pointer Events: None</span>
+        <div class="box no-pointer" onclick="alert('Box 1 Clicked!')">
+          Main click nahi ho sakta aur na hi mujh par hover kaam karega. (I
+          cannot be clicked and even hover won't work on me.)
+        </div>
       </div>
 
-      <div class="content-section">
-        <div>
-          <div class="header-row">
-            <h2>Jonathan Doe <span style="color: #4ade80">●</span></h2>
-            <div class="location">📍 Los Angeles, California</div>
-          </div>
-
-          <div class="stats-row">
-            <span class="stat-tag">28yo</span>
-            <span class="stat-tag">184cm</span>
-            <span class="stat-tag">85kg</span>
-            <span class="stat-tag">20cm</span>
-            <span class="stat-tag">Versatile</span>
-          </div>
-        </div>
-
-        <div
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: flex-end;
-          ">
-          <div class="price-box">
-            <div class="price-row">
-              <span>From</span>
-              <span class="price-text">€145/h</span>
-            </div>
-            <div class="price-row">
-              <span>Visit from</span>
-              <span class="price-text">€275/h</span>
-            </div>
-            <div class="price-row" style="border: none">
-              <span>Multi-hour</span>
-              <span class="price-text">€2000/h</span>
-            </div>
-            <button class="contact-btn">View Contact Info</button>
-          </div>
+      <div>
+        <span class="label">User Select: None</span>
+        <div class="box no-select" onclick="alert('Box 2 Clicked!')">
+          Mujhe click karo (Alert aayega), lekin mera text select nahi kar
+          sakte. (Click me (Alert will show), but you cannot select my text.)
         </div>
       </div>
     </div>

@@ -128,6 +128,7 @@
                                     font-family: var(--ff-bambino);
                                     letter-spacing: 1.5px;
                                     transition: all .3s ease;
+                                    user-select: none;
                                 }
 
                                 .custom-select-chevron {
