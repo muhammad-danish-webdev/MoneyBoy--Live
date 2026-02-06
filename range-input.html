@@ -3,79 +3,117 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pointer Events vs User Select</title>
+    <title>Independent Scroll Layout</title>
     <style>
+      /* 1. Global Resets */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
-        background-color: #121212;
-        color: white;
         font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 50px;
+        background-color: #1a1a1a;
+        color: white;
+        /* Poori screen ko lock karne ke liye (To lock the full screen) */
+        height: 100vh;
+        overflow: hidden;
       }
 
-      .container {
+      /* 2. Main Wrapper */
+      .search-content-wrapper-container {
         display: flex;
-        gap: 20px;
-        margin-top: 30px;
+        height: 100vh; /* Viewport height */
+        width: 100%;
       }
 
-      .box {
-        width: 250px;
+      /* 3. Independent Scroll Styling */
+      .scrollable-section {
+        height: 100vh;
+        overflow-y: auto; /* Sirf scroll tab aye jab content zyada ho */
         padding: 20px;
-        border: 2px solid gold;
-        text-align: center;
-        transition: 0.3s;
-        cursor: pointer;
       }
 
-      /* Hover Effect for all boxes */
-      .box:hover {
-        background-color: gold;
-        color: black;
+      /* Custom Scrollbar for better look */
+      .scrollable-section::-webkit-scrollbar {
+        width: 5px;
+      }
+      .scrollable-section::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 10px;
       }
 
-      /* 1. Pointer Events: None */
-      /* Yeh click aur hover ko bilkul ignore kar dega */
-      .no-pointer {
-        pointer-events: none;
-        border-color: #ff4d4d;
+      /* 4. Left Sidebar (Fixed Width) */
+      .search-page-aside-bar-section {
+        width: 250px;
+        background-color: #222;
+        flex-shrink: 0;
+        border-right: 1px solid #333;
       }
 
-      /* 2. User Select: None */
-      /* Yeh click hone dega lekin text select nahi karne dega */
-      .no-select {
-        user-select: none;
-        border-color: #4da3ff;
+      /* 5. Main Content (Fluid) */
+      .search-main-cards-section {
+        flex: 1;
+        background-color: #111;
       }
 
-      .label {
-        margin-bottom: 10px;
-        font-weight: bold;
-        display: block;
+      /* 6. Right Sidebar (20% Width) */
+      .search-spotlight-featured-sidebar {
+        width: 20%;
+        background-color: #222;
+        flex-shrink: 0;
+        border-left: 1px solid #333;
+      }
+
+      /* Dummy Content for Scrolling */
+      .content-box {
+        height: 200px;
+        background: #333;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #aaa;
       }
     </style>
   </head>
   <body>
-    <h1>Difference Guide</h1>
+    <div class="search-content-wrapper-container">
+      <aside class="search-page-aside-bar-section scrollable-section">
+        <h2>Left Sidebar</h2>
+        <div class="content-box">Link 1</div>
+        <div class="content-box">Link 2</div>
+        <div class="content-box">Link 3</div>
+        <div class="content-box">Link 4</div>
+        <div class="content-box">Link 5</div>
+        <div class="content-box">Link 6</div>
+      </aside>
 
-    <div class="container">
-      <div>
-        <span class="label">Pointer Events: None</span>
-        <div class="box no-pointer" onclick="alert('Box 1 Clicked!')">
-          Main click nahi ho sakta aur na hi mujh par hover kaam karega. (I
-          cannot be clicked and even hover won't work on me.)
-        </div>
-      </div>
+      <main class="search-main-cards-section scrollable-section">
+        <h2>Main Content Area</h2>
+        <div class="content-box">Post 1</div>
+        <div class="content-box">Post 2</div>
+        <div class="content-box">Post 3</div>
+        <div class="content-box">Post 4</div>
+        <div class="content-box">Post 5</div>
+        <div class="content-box">Post 6</div>
+      </main>
 
-      <div>
-        <span class="label">User Select: None</span>
-        <div class="box no-select" onclick="alert('Box 2 Clicked!')">
-          Mujhe click karo (Alert aayega), lekin mera text select nahi kar
-          sakte. (Click me (Alert will show), but you cannot select my text.)
-        </div>
-      </div>
+      <aside class="search-spotlight-featured-sidebar scrollable-section">
+        <h2>Right Sidebar</h2>
+        <div class="content-box">Ad 1</div>
+        <div class="content-box">Ad 2</div>
+        <div class="content-box">Ad 3</div>
+        <div class="content-box">Ad 4</div>
+        <div class="content-box">Ad 5</div>
+        <div class="content-box">Ad 6</div>
+      </aside>
     </div>
   </body>
 </html>
