@@ -1,5 +1,7 @@
 .header-section {
     background-color: black;
+    position: relative;
+    top: 0;
 }
 
 .search-content-wrapper-section {
@@ -11,7 +13,6 @@
 
             .search-page-aside-bar-section {
                 background-color: black;
-                padding-top: 110px;
 
                 .search-page-aside-bar-container {
                     height: 100%;
@@ -161,12 +162,13 @@
                             }
 
                             .aside-bar-advanced-filter-list-container {
-                                display: none;
+                                display: grid;
                                 grid-template-rows: 0fr;
                                 transition: all .4s ease;
                                 opacity: 0;
                                 height: 0;
                                 max-height: 100%;
+                                visibility: hidden;
 
                                 .aside-bar-advanced-filter-list {
                                     display: flex;
@@ -615,10 +617,10 @@
 
                                 &.aside-bar-advanced-filter-list-container.active {
                                     grid-template-rows: 1fr;
-                                    display: grid;
                                     /* Smoothly open to exact height */
                                     opacity: 1;
                                     height: 100%;
+                                    visibility: visible;
                                 }
                             }
 
@@ -666,7 +668,6 @@
             /* ###########################################  */
             /* Search Main Cards Section  */
             .search-main-cards-section {
-                margin-top: 100px;
                 width: 100%;
 
                 .search-main-cards-container {
