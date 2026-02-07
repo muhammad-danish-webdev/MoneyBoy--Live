@@ -875,6 +875,8 @@
                                         gap: 12px;
 
                                         .provider-summary-content {
+                                            width: 100%;
+
                                             .member-location-travel-tags {
                                                 display: flex;
                                                 align-items: center;
@@ -971,36 +973,35 @@
                                         }
 
                                         .provider-pricing-list {
-                                            width: 100%;
                                             background: black;
                                             border-radius: 8px;
                                             margin-top: -32px;
-                                            aspect-ratio: 6/2;
+                                            margin-left: auto;
 
                                             .provider-pricing-item {
                                                 padding: 5px 8px;
 
                                                 .pricing-head {
+                                                    min-width: max-content;
+                                                    max-width: max-content;
                                                     font-size: 11px;
                                                     line-height: 12px;
                                                     color: var(--white);
                                                     font-family: var(--ff-hellix);
+                                                    /* padding-bottom: 3px; */
                                                 }
 
                                                 .pricing-tag {
                                                     align-items: center;
                                                     display: flex;
                                                     justify-content: space-between;
-
-                                                    .pricing-tag-image {
-                                                        img {}
-                                                    }
-
-                                                    svg {}
                                                 }
                                             }
 
                                             :nth-child(2).provider-pricing-item {
+                                                background-color: #2A221F;
+                                                margin-inline: 1px;
+
                                                 .pricing-head {}
 
                                                 .pricing-tag {
@@ -1015,6 +1016,11 @@
                                             }
 
                                             :nth-child(3).provider-pricing-item {
+                                                margin: 1px;
+                                                border-bottom-left-radius: 8px;
+                                                border-bottom-right-radius: 8px;
+                                                background-color: #2A221F;
+
                                                 .pricing-head {}
 
                                                 .pricing-tag {
