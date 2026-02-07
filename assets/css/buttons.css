@@ -13,6 +13,7 @@
     transition: all .3s ease;
     position: relative;
     overflow: hidden;
+    min-height: max-content;
 
     span {
         transition: all .3s ease;
@@ -49,6 +50,7 @@
 
 /* Search Near Me Button */
 .text-gradient-btn {
+    min-height: max-content;
     width: 100%;
     background: linear-gradient(85.82deg, #FECE26 3.6%, #FE990B 97.13%);
     border: none;

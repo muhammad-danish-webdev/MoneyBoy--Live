@@ -15,8 +15,7 @@
 
             .search-page-aside-bar-section {
                 background-color: black;
-                flex-shrink: 0;
-                height: 168vh;
+                height: 86vh;
                 overflow-y: auto;
 
                 .search-page-aside-bar-container {
@@ -675,6 +674,8 @@
             .search-main-cards-section {
                 width: 100%;
                 flex: 1;
+                height: 86vh;
+                overflow-y: auto;
 
                 .search-main-cards-container {
                     width: 100%;
@@ -882,17 +883,12 @@
                                                 align-items: center;
                                                 gap: 5px;
 
-                                                svg {
-                                                    margin-bottom: 5px;
-                                                }
-
                                                 .location-text {
                                                     font-family: var(--ff-hellix);
                                                     font-weight: 500;
                                                     font-size: 12px;
-                                                    line-height: 10px;
+                                                    line-height: 28px;
                                                     color: var(--white);
-                                                    margin-bottom: 5px;
                                                     min-width: max-content;
                                                 }
 
@@ -958,11 +954,14 @@
                                                     font-weight: 400;
                                                     line-height: 12px;
                                                     color: var(--white);
-                                                    padding: 3px 8px;
+                                                    padding: 3px 0;
                                                     border-radius: 6px;
                                                     backdrop-filter: blur(16px);
                                                     font-family: var(--ff-hellix);
                                                     background-color: #4a4b4e;
+                                                    display: flex;
+                                                    justify-content: center;
+                                                    width: 100%;
                                                 }
                                             }
 
@@ -1069,6 +1068,8 @@
             /* #############################################  */
             .search-spotlight-featured-sidebar {
                 flex: 0 0 20%;
+                height: 80vh;
+                overflow-y: auto;
 
                 .search-spotlight-featured-members {
                     h3 {

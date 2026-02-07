@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Independent Scroll Layout</title>
+    <title>Perfect Stable Scroll Layout</title>
     <style>
-      /* 1. Global Resets */
       * {
         margin: 0;
         padding: 0;
@@ -13,107 +12,116 @@
       }
 
       body {
-        font-family: Arial, sans-serif;
-        background-color: #1a1a1a;
-        color: white;
-        /* Poori screen ko lock karne ke liye (To lock the full screen) */
+        font-family: "Segoe UI", sans-serif;
+        background-color: #000;
+        color: #fff;
         height: 100vh;
         overflow: hidden;
       }
 
-      /* 2. Main Wrapper */
       .search-content-wrapper-container {
         display: flex;
-        height: 100vh; /* Viewport height */
+        height: 100vh;
         width: 100%;
       }
 
-      /* 3. Independent Scroll Styling */
-      .scrollable-section {
+      /* 1. Main Scroll Logic */
+      .scroll-section {
         height: 100vh;
-        overflow-y: auto; /* Sirf scroll tab aye jab content zyada ho */
+        overflow-y: auto;
+        /* Yeh property hamesha jagah reserve rakhegi (This will always reserve space) */
+        scrollbar-gutter: stable;
+        transition: scrollbar-color 0.3s ease;
+      }
+
+      /* 2. Custom Scrollbar Styling (Transparent by default) */
+      .scroll-section::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .scroll-section::-webkit-scrollbar-thumb {
+        /* Normal halat mein transparent (Transparent in normal state) */
+        background-color: rgba(68, 68, 68, 0);
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+      }
+
+      /* 3. Jab scrolling class add hogi tab color nazar aayega (Color shows when class is added) */
+      .scroll-section.is-scrolling::-webkit-scrollbar-thumb {
+        background-color: rgba(68, 68, 68, 1); /* Dark grey on scroll */
+      }
+
+      /* 4. Layout Styling */
+      .search-page-aside-bar-section {
+        width: 400px;
+        background-color: #121212;
+        flex-shrink: 0;
+        border-right: 1px solid #222;
         padding: 20px;
       }
 
-      /* Custom Scrollbar for better look */
-      .scrollable-section::-webkit-scrollbar {
-        width: 5px;
-      }
-      .scrollable-section::-webkit-scrollbar-thumb {
-        background: #555;
-        border-radius: 10px;
-      }
-
-      /* 4. Left Sidebar (Fixed Width) */
-      .search-page-aside-bar-section {
-        width: 250px;
-        background-color: #222;
-        flex-shrink: 0;
-        border-right: 1px solid #333;
-      }
-
-      /* 5. Main Content (Fluid) */
       .search-main-cards-section {
         flex: 1;
-        background-color: #111;
+        background-color: #000;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
       }
 
-      /* 6. Right Sidebar (20% Width) */
       .search-spotlight-featured-sidebar {
-        width: 20%;
-        background-color: #222;
+        width: 300px;
+        background-color: #121212;
         flex-shrink: 0;
-        border-left: 1px solid #333;
+        border-left: 1px solid #222;
+        padding: 20px;
       }
 
-      /* Dummy Content for Scrolling */
       .content-box {
         height: 200px;
-        background: #333;
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 12px;
         margin-bottom: 20px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      h2 {
-        margin-bottom: 20px;
-        color: #aaa;
       }
     </style>
   </head>
   <body>
     <div class="search-content-wrapper-container">
-      <aside class="search-page-aside-bar-section scrollable-section">
-        <h2>Left Sidebar</h2>
-        <div class="content-box">Link 1</div>
-        <div class="content-box">Link 2</div>
-        <div class="content-box">Link 3</div>
-        <div class="content-box">Link 4</div>
-        <div class="content-box">Link 5</div>
-        <div class="content-box">Link 6</div>
+      <aside class="search-page-aside-bar-section scroll-section">
+        <h2>Sidebar</h2>
+        <div class="content-box"></div><div class="content-box"></div
+        ><div class="content-box"></div> <div class="content-box"></div
+        ><div class="content-box"></div>
       </aside>
 
-      <main class="search-main-cards-section scrollable-section">
-        <h2>Main Content Area</h2>
-        <div class="content-box">Post 1</div>
-        <div class="content-box">Post 2</div>
-        <div class="content-box">Post 3</div>
-        <div class="content-box">Post 4</div>
-        <div class="content-box">Post 5</div>
-        <div class="content-box">Post 6</div>
+      <main class="search-main-cards-section scroll-section">
+        <div class="content-box"></div><div class="content-box"></div
+        ><div class="content-box"></div> <div class="content-box"></div
+        ><div class="content-box"></div><div class="content-box"></div>
       </main>
 
-      <aside class="search-spotlight-featured-sidebar scrollable-section">
-        <h2>Right Sidebar</h2>
-        <div class="content-box">Ad 1</div>
-        <div class="content-box">Ad 2</div>
-        <div class="content-box">Ad 3</div>
-        <div class="content-box">Ad 4</div>
-        <div class="content-box">Ad 5</div>
-        <div class="content-box">Ad 6</div>
+      <aside class="search-spotlight-featured-sidebar scroll-section">
+        <h2>Featured</h2>
+        <div class="content-box"></div><div class="content-box"></div
+        ><div class="content-box"></div> <div class="content-box"></div
+        ><div class="content-box"></div>
       </aside>
     </div>
+
+    <script>
+      const scrollSections = document.querySelectorAll(".scroll-section");
+
+      scrollSections.forEach((section) => {
+        let isScrolling;
+        section.addEventListener("scroll", () => {
+          section.classList.add("is-scrolling");
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(() => {
+            section.classList.remove("is-scrolling");
+          }, 800);
+        });
+      });
+    </script>
   </body>
 </html>
