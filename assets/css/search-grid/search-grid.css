@@ -404,6 +404,7 @@
                                         .location-custom-range-input {
                                             .location-custom-input {
                                                 -webkit-appearance: none;
+                                                /* Default browser styling khatam karne ke liye */
                                                 width: 100%;
                                                 height: 4px;
                                                 border-radius: 10px;
