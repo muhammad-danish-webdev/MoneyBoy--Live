@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfect Stable Scroll Layout</title>
+    <title>Inset Floating Scrollbar Project</title>
     <style>
+      /* 1. Global Reset */
       * {
         margin: 0;
         padding: 0;
@@ -19,106 +20,133 @@
         overflow: hidden;
       }
 
+      /* 2. Main Wrapper */
       .search-content-wrapper-container {
         display: flex;
         height: 100vh;
         width: 100%;
       }
 
-      /* 1. Main Scroll Logic */
+      /* 3. Scroll & Inset Logic */
       .scroll-section {
         height: 100vh;
         overflow-y: auto;
-        /* Yeh property hamesha jagah reserve rakhegi (This will always reserve space) */
+        /* Width reserve rakhta hai taake layout shake na ho */
         scrollbar-gutter: stable;
-        transition: scrollbar-color 0.3s ease;
       }
 
-      /* 2. Custom Scrollbar Styling (Transparent by default) */
+      /* Scrollbar Width */
       .scroll-section::-webkit-scrollbar {
-        width: 8px;
+        width: 14px; /* Thora bara rakha hai taake side gaps waziha hon */
       }
 
+      /* Scrollbar Track (Peeche wali black ground) */
+      .scroll-section::-webkit-scrollbar-track {
+        background-color: #000;
+      }
+
+      /* Scrollbar Thumb (The Capsule) */
       .scroll-section::-webkit-scrollbar-thumb {
-        /* Normal halat mein transparent (Transparent in normal state) */
-        background-color: rgba(68, 68, 68, 0);
-        border-radius: 10px;
+        /* Default halat mein transparent taake sirf scroll pe dikhe */
+        background-color: rgba(59, 59, 77, 0);
+
+        /* Charon taraf space banane ke liye (Space on all sides) */
+        border: 4px solid transparent;
+
+        /* Background ko border ke andar mehdood karne ke liye */
+        background-clip: padding-box;
+
+        border-radius: 20px;
         transition: background-color 0.3s ease;
       }
 
-      /* 3. Jab scrolling class add hogi tab color nazar aayega (Color shows when class is added) */
+      /* Jab scrolling ho rahi ho tab thumb nazar aaye */
       .scroll-section.is-scrolling::-webkit-scrollbar-thumb {
-        background-color: rgba(68, 68, 68, 1); /* Dark grey on scroll */
+        background-color: #3b3b4d; /* Aapki image wala color */
       }
 
-      /* 4. Layout Styling */
-      .search-page-aside-bar-section {
+      /* 4. Layout Design */
+      .sidebar-left {
         width: 400px;
         background-color: #121212;
-        flex-shrink: 0;
         border-right: 1px solid #222;
         padding: 20px;
       }
 
-      .search-main-cards-section {
+      .main-content {
         flex: 1;
-        background-color: #000;
+        background-color: #080808;
         padding: 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
       }
 
-      .search-spotlight-featured-sidebar {
+      .sidebar-right {
         width: 300px;
         background-color: #121212;
-        flex-shrink: 0;
         border-left: 1px solid #222;
         padding: 20px;
       }
 
-      .content-box {
+      /* Dummy Content Boxes */
+      .content-card {
         height: 200px;
         background: #1a1a1a;
         border: 1px solid #333;
         border-radius: 12px;
         margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
     <div class="search-content-wrapper-container">
-      <aside class="search-page-aside-bar-section scroll-section">
-        <h2>Sidebar</h2>
-        <div class="content-box"></div><div class="content-box"></div
-        ><div class="content-box"></div> <div class="content-box"></div
-        ><div class="content-box"></div>
+      <aside class="sidebar-left scroll-section">
+        <h2 style="margin-bottom: 20px">List</h2>
+        <div class="content-card">Item 1</div>
+        <div class="content-card">Item 2</div>
+        <div class="content-card">Item 3</div>
+        <div class="content-card">Item 4</div>
+        <div class="content-card">Item 5</div>
       </aside>
 
-      <main class="search-main-cards-section scroll-section">
-        <div class="content-box"></div><div class="content-box"></div
-        ><div class="content-box"></div> <div class="content-box"></div
-        ><div class="content-box"></div><div class="content-box"></div>
+      <main class="main-content scroll-section">
+        <h2 style="margin-bottom: 20px">Main Grid</h2>
+        <div class="content-card">Card A</div>
+        <div class="content-card">Card B</div>
+        <div class="content-card">Card C</div>
+        <div class="content-card">Card D</div>
+        <div class="content-card">Card E</div>
+        <div class="content-card">Card F</div>
       </main>
 
-      <aside class="search-spotlight-featured-sidebar scroll-section">
-        <h2>Featured</h2>
-        <div class="content-box"></div><div class="content-box"></div
-        ><div class="content-box"></div> <div class="content-box"></div
-        ><div class="content-box"></div>
+      <aside class="sidebar-right scroll-section">
+        <h2 style="margin-bottom: 20px">Info</h2>
+        <div class="content-card">Detail 1</div>
+        <div class="content-card">Detail 2</div>
+        <div class="content-card">Detail 3</div>
+        <div class="content-card">Detail 4</div>
       </aside>
     </div>
 
     <script>
-      const scrollSections = document.querySelectorAll(".scroll-section");
+      // Scroll detection logic
+      const scrollContainers = document.querySelectorAll(".scroll-section");
 
-      scrollSections.forEach((section) => {
-        let isScrolling;
-        section.addEventListener("scroll", () => {
-          section.classList.add("is-scrolling");
-          window.clearTimeout(isScrolling);
-          isScrolling = setTimeout(() => {
-            section.classList.remove("is-scrolling");
+      scrollContainers.forEach((container) => {
+        let scrollTimer;
+        container.addEventListener("scroll", () => {
+          // Class add karo jab scroll ho
+          container.classList.add("is-scrolling");
+
+          // Timer reset karo
+          window.clearTimeout(scrollTimer);
+
+          // 800ms baad class remove kardo
+          scrollTimer = setTimeout(() => {
+            container.classList.remove("is-scrolling");
           }, 800);
         });
       });
