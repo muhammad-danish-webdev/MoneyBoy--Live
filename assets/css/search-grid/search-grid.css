@@ -23,7 +23,7 @@
                     display: flex;
 
                     .aside-bar-content-container {
-                        padding: 0 30px 20px 0;
+                        padding: 0 10px 20px 0;
                         max-height: 100%;
 
                         h2 {
@@ -1112,7 +1112,7 @@
                     }
 
                     .spotlight-members-list {
-                        margin-top: 20px;
+                        /* margin-top: 20px; */
                         display: flex;
                         flex-direction: column;
                         gap: 20px;
