@@ -665,6 +665,7 @@
                 &::-webkit-scrollbar {
                     width: 10px;
                     background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.048) 13.36%, rgba(221, 229, 255, 0.27) 114.95%), linear-gradient(10deg, rgba(2, 28, 120, 0.01), rgba(2, 28, 120, 0.092));
+                    border-radius: 10px;
                 }
 
                 &::-webkit-scrollbar-thumb {
@@ -673,6 +674,25 @@
                     border: 1px solid transparent;
                     background-clip: padding-box;
                 }
+            }
+
+            .search-page-aside-bar-section::-webkit-scrollbar,
+            .search-page-aside-bar-section::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                background: none;
+            }
+
+            .search-page-aside-bar-section.is-scrolling::-webkit-scrollbar {
+                width: 10px;
+                background: linear-gradient(34.01deg, rgba(255, 255, 255, 0.048) 13.36%, rgba(221, 229, 255, 0.27) 114.95%), linear-gradient(10deg, rgba(2, 28, 120, 0.01), rgba(2, 28, 120, 0.092));
+                border-radius: 10px;
+            }
+
+            .search-page-aside-bar-section.is-scrolling::-webkit-scrollbar-thumb {
+                background-color: black;
+                border-radius: 6px;
+                border: 1px solid transparent;
+                background-clip: padding-box;
             }
 
             /* ###########################################  */
@@ -686,8 +706,6 @@
             .search-main-cards-section {
                 width: 100%;
                 flex: 1;
-                height: 86vh;
-                overflow-y: auto;
 
                 .search-main-cards-container {
                     width: 100%;
@@ -1080,8 +1098,6 @@
             /* #############################################  */
             .search-spotlight-featured-sidebar {
                 flex: 0 0 20%;
-                height: 80vh;
-                overflow-y: auto;
 
                 .search-spotlight-featured-members {
                     h3 {
