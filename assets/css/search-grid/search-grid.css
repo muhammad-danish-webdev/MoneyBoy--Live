@@ -863,7 +863,22 @@
                                 }
 
                                 .heart-icon {
-                                    svg {}
+                                    svg {
+                                        transition: all .3s ease;
+                                        cursor: pointer;
+
+                                        path {
+                                            transition: all .3s ease;
+                                        }
+                                    }
+
+                                    &:focus {
+                                        transform: scale(.7);
+                                    }
+
+                                    &:hover {
+                                        transform: scale(1.4);
+                                    }
                                 }
                             }
 
@@ -1066,10 +1081,6 @@
                                     }
                                 }
                             }
-                        }
-
-                        :nth-child(1).search-provider-profile-card-wrapper {
-                            grid-column: 1;
                         }
 
                         :nth-child(2).search-provider-profile-card-wrapper {

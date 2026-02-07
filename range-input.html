@@ -3,153 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inset Floating Scrollbar Project</title>
+    <title>Clickable SVG Heart Icon</title>
     <style>
-      /* 1. Global Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        font-family: "Segoe UI", sans-serif;
-        background-color: #000;
-        color: #fff;
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      /* 2. Main Wrapper */
-      .search-content-wrapper-container {
         display: flex;
-        height: 100vh;
-        width: 100%;
-      }
-
-      /* 3. Scroll & Inset Logic */
-      .scroll-section {
-        height: 100vh;
-        overflow-y: auto;
-        /* Width reserve rakhta hai taake layout shake na ho */
-        scrollbar-gutter: stable;
-      }
-
-      /* Scrollbar Width */
-      .scroll-section::-webkit-scrollbar {
-        width: 14px; /* Thora bara rakha hai taake side gaps waziha hon */
-      }
-
-      /* Scrollbar Track (Peeche wali black ground) */
-      .scroll-section::-webkit-scrollbar-track {
-        background-color: #000;
-      }
-
-      /* Scrollbar Thumb (The Capsule) */
-      .scroll-section::-webkit-scrollbar-thumb {
-        /* Default halat mein transparent taake sirf scroll pe dikhe */
-        background-color: rgba(59, 59, 77, 0);
-
-        /* Charon taraf space banane ke liye (Space on all sides) */
-        border: 4px solid transparent;
-
-        /* Background ko border ke andar mehdood karne ke liye */
-        background-clip: padding-box;
-
-        border-radius: 20px;
-        transition: background-color 0.3s ease;
-      }
-
-      /* Jab scrolling ho rahi ho tab thumb nazar aaye */
-      .scroll-section.is-scrolling::-webkit-scrollbar-thumb {
-        background-color: #3b3b4d; /* Aapki image wala color */
-      }
-
-      /* 4. Layout Design */
-      .sidebar-left {
-        width: 400px;
-        background-color: #121212;
-        border-right: 1px solid #222;
-        padding: 20px;
-      }
-
-      .main-content {
-        flex: 1;
-        background-color: #080808;
-        padding: 20px;
-      }
-
-      .sidebar-right {
-        width: 300px;
-        background-color: #121212;
-        border-left: 1px solid #222;
-        padding: 20px;
-      }
-
-      /* Dummy Content Boxes */
-      .content-card {
-        height: 200px;
-        background: #1a1a1a;
-        border: 1px solid #333;
-        border-radius: 12px;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
         justify-content: center;
-        color: #555;
-        font-weight: bold;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #1a1a1a;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Heart Icon Wrapper Styling */
+      .heart-container {
+        width: 100px; /* Container ki width */
+        height: 100px; /* Container ki height */
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: #333; /* Background for visibility */
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      /* SVG Heart Styling */
+      .heart-icon {
+        width: 60px; /* SVG ki actual width */
+        height: 60px; /* SVG ki actual height */
+        fill: #ccc; /* Default Grey color */
+        stroke: #999; /* Border color */
+        stroke-width: 2px;
+        transform-origin: center; /* Scale center se ho */
+        transition:
+          fill 0.3s ease,
+          transform 0.1s ease-out; /* Smooth transitions */
+      }
+
+      /* Jab heart par mouse hover kare (Optional) */
+      .heart-container:hover .heart-icon {
+        fill: #e0e0e0;
+        stroke: #bbb;
+      }
+
+      /* === Click Logic (No JS) === */
+      /* Jab heart ko click karein tab yeh styles apply honge */
+      .heart-container:active .heart-icon {
+        fill: #ff0000; /* Red color on click */
+        transform: scale(0.8); /* Scale down to 80% on click */
+        stroke: #cc0000; /* Darker red border */
+      }
+
+      /* Text for demonstration */
+      p {
+        position: absolute;
+        bottom: 20px;
+        color: #888;
+        font-size: 14px;
       }
     </style>
   </head>
   <body>
-    <div class="search-content-wrapper-container">
-      <aside class="sidebar-left scroll-section">
-        <h2 style="margin-bottom: 20px">List</h2>
-        <div class="content-card">Item 1</div>
-        <div class="content-card">Item 2</div>
-        <div class="content-card">Item 3</div>
-        <div class="content-card">Item 4</div>
-        <div class="content-card">Item 5</div>
-      </aside>
-
-      <main class="main-content scroll-section">
-        <h2 style="margin-bottom: 20px">Main Grid</h2>
-        <div class="content-card">Card A</div>
-        <div class="content-card">Card B</div>
-        <div class="content-card">Card C</div>
-        <div class="content-card">Card D</div>
-        <div class="content-card">Card E</div>
-        <div class="content-card">Card F</div>
-      </main>
-
-      <aside class="sidebar-right scroll-section">
-        <h2 style="margin-bottom: 20px">Info</h2>
-        <div class="content-card">Detail 1</div>
-        <div class="content-card">Detail 2</div>
-        <div class="content-card">Detail 3</div>
-        <div class="content-card">Detail 4</div>
-      </aside>
+    <div class="heart-container">
+      <svg class="heart-icon" viewBox="0 0 24 24">
+        <path
+          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </svg>
     </div>
-
-    <script>
-      // Scroll detection logic
-      const scrollContainers = document.querySelectorAll(".scroll-section");
-
-      scrollContainers.forEach((container) => {
-        let scrollTimer;
-        container.addEventListener("scroll", () => {
-          // Class add karo jab scroll ho
-          container.classList.add("is-scrolling");
-
-          // Timer reset karo
-          window.clearTimeout(scrollTimer);
-
-          // 800ms baad class remove kardo
-          scrollTimer = setTimeout(() => {
-            container.classList.remove("is-scrolling");
-          }, 800);
-        });
-      });
-    </script>
+    <p>Click the heart icon!</p>
   </body>
 </html>
