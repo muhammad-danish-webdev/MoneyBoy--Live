@@ -3,156 +3,123 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grid: Auto vs FR Explained</title>
+    <title>Smooth Scroll Project</title>
     <style>
-      :root {
-        --primary: #4f46e5;
-        --accent: #f59e0b;
-        --bg: #f8fafc;
-        --card: #ffffff;
+      /* ASLI JADU YAHAN HAI (The real magic is here) */
+      html {
+        scroll-behavior: smooth;
       }
 
       body {
-        font-family: "Inter", sans-serif;
-        background-color: var(--bg);
-        padding: 40px;
-        line-height: 1.6;
-        scrollbar-gutter: stable both-edges;
-      }
-
-      .section {
-        background: var(--card);
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        margin-bottom: 50px;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      h2 {
-        color: var(--primary);
-        border-bottom: 2px solid #e2e8f0;
-        padding-bottom: 10px;
-      }
-      code {
-        background: #fee2e2;
-        padding: 2px 6px;
-        border-radius: 4px;
-        color: #b91c1c;
-      }
-
-      /* Grid Basics */
-      .grid-container {
-        display: grid;
-        gap: 15px;
-        background: #e2e8f0;
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 20px;
-      }
-
-      .item {
-        background: var(--primary);
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #111;
         color: white;
-        padding: 20px;
-        border-radius: 6px;
-        text-align: center;
+      }
+
+      /* Fixed Navigation Menu */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        z-index: 1000;
+        border-bottom: 1px solid #333;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 20px;
         font-weight: bold;
+        transition: color 0.3s;
       }
 
-      .item-alt {
-        background: var(--accent);
+      nav a:hover {
+        color: #ff4757;
       }
 
-      /* SCENARIO 1: AUTO (Content Driven) */
-      .grid-auto {
-        grid-template-columns: auto auto auto;
+      /* Sections Styling */
+      section {
+        height: 100vh; /* Har section screen ki poori height lega */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid #222;
       }
 
-      /* SCENARIO 2: FR (Space Driven) */
-      .grid-fr {
-        grid-template-columns: 1fr 1fr 1fr;
+      h1 {
+        font-size: 4rem;
+        margin: 0;
       }
 
-      /* SCENARIO 3: MIXED (The Professional Way) */
-      .grid-mixed {
-        grid-template-columns: 200px auto 1fr;
+      p {
+        font-size: 1.2rem;
+        color: #888;
       }
 
-      .label {
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #64748b;
+      /* Different backgrounds for visual distinction */
+      #home {
+        background-color: #1a1a1a;
+      }
+      #about {
+        background-color: #2f3542;
+      }
+      #services {
+        background-color: #2ed573;
+        color: black;
+      }
+      #contact {
+        background-color: #3742fa;
+      }
+
+      /* Back to top button */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ff4757;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 12px;
       }
     </style>
   </head>
   <body>
-    <h1 style="text-align: center"
-      >CSS Grid: <code>auto</code> vs <code>fr</code></h1
-    >
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-    <div class="section">
-      <h2>1. The "auto" Logic (Content First)</h2>
-      <p
-        ><code>auto</code> column sirf utni jagah leta hai jitni uske andar ke
-        <b>content</b> ko chahiye. Agar content chota hai, toh column chota ho
-        jayega.</p
-      >
+    <section id="home">
+      <h1>Welcome Home</h1>
+      <p>Click the links above to see smooth scrolling.</p>
+    </section>
 
-      <div class="grid-container grid-auto">
-        <div class="item">Short</div>
-        <div class="item">I am a very long piece of content</div>
-        <div class="item">Mid</div>
-      </div>
-      <span class="label"
-        >Yahan har box apne text ke hisaab se adjust ho raha hai. Baki space
-        khali bach sakti hai.</span
-      >
-    </div>
+    <section id="about">
+      <h1>About Us</h1>
+      <p>We build smooth web experiences.</p>
+    </section>
 
-    <div class="section">
-      <h2>2. The "fr" Logic (Available Space First)</h2>
-      <p
-        ><code>1fr</code> ka matlab hai "bachi hui poori space ko barabar baant
-        do". Ye content ko nahi dekhta, ye <b>container ki width</b> ko dekhta
-        hai.</p
-      >
+    <section id="services">
+      <h1>Our Services</h1>
+      <p>Performance, GPU, and Clean UI.</p>
+    </section>
 
-      <div class="grid-container grid-fr">
-        <div class="item item-alt">1fr</div>
-        <div class="item item-alt">1fr</div>
-        <div class="item item-alt">1fr</div>
-      </div>
-      <span class="label"
-        >Yahan teeno boxes barabar hain, bhale hi text chota ho ya bara.</span
-      >
-    </div>
+    <section id="contact">
+      <h1>Contact Now</h1>
+      <p>Feel free to reach out to us.</p>
+    </section>
 
-    <div class="section">
-      <h2>3. Professional Scenario (Fixed + Auto + Flexible)</h2>
-      <p
-        >Asli maza tab aata hai jab hum inhein mix karte hain. common pattern:
-        <code>200px auto 1fr</code></p
-      >
-
-      <div class="grid-container grid-mixed">
-        <div class="item" style="background: #10b981">Sidebar (200px)</div>
-        <div class="item" style="background: #3b82f6">Middle (Auto)</div>
-        <div class="item" style="background: #8b5cf6"
-          >Main Content (1fr - Takes all remaining space)</div
-        >
-      </div>
-      <ul class="label">
-        <li><b>200px:</b> Hamesha fix rahega.</li>
-        <li><b>auto:</b> Jitna middle text hoga, utni jagah lega.</li>
-        <li
-          ><b>1fr:</b> Jitni bhi baki screen bachi, ye us par qabza kar
-          lega.</li
-        >
-      </ul>
-    </div>
+    <a href="#home" class="back-to-top">↑ Top</a>
   </body>
 </html>
