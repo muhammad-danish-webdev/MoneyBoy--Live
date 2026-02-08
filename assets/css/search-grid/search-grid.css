@@ -4,6 +4,137 @@
     top: 0;
 }
 
+/* Search Page Basics  */
+/* Card Provider Status Badge :: PRO  */
+.provider-status-bedge {
+    background-color: #00000096;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 4px 0px #FE990B1A;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 5px 13px;
+
+    svg {}
+
+    span {
+        font-size: 10px;
+        line-height: 10px;
+        color: var(--white);
+        font-family: var(--ff-hellix);
+    }
+}
+
+/* Provider Pricing List  */
+.provider-pricing-list {
+    background: black;
+    border-radius: 8px;
+    margin-top: -32px;
+    margin-left: auto;
+
+    .provider-pricing-item {
+        padding: 5px 8px;
+
+        .pricing-head {
+            min-width: max-content;
+            max-width: max-content;
+            font-size: 11px;
+            line-height: 12px;
+            color: var(--white);
+            font-family: var(--ff-hellix);
+            /* padding-bottom: 3px; */
+        }
+
+        .pricing-tag {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    :nth-child(2).provider-pricing-item {
+        background-color: #2A221F;
+        margin-inline: 1px;
+
+        .pricing-head {}
+
+        .pricing-tag {
+            display: flex;
+
+            .pricing-tag-image {
+                img {}
+            }
+
+            svg {}
+        }
+    }
+
+    :nth-child(3).provider-pricing-item {
+        margin: 1px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background-color: #2A221F;
+
+        .pricing-head {}
+
+        .pricing-tag {
+            display: flex;
+
+            .pricing-tag-image {
+                img {}
+            }
+
+            svg {}
+        }
+    }
+}
+
+/* Heart SVG Icon  */
+.heart-icon {
+    svg {
+        transition: all .2s ease;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+
+            path {
+                fill: red;
+                stroke: red;
+            }
+        }
+
+        &:active {
+            transform: scale(.9);
+        }
+    }
+}
+
+/* Provider Name Plate  */
+.provider-nameplate {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .provider-profile-badge {
+        margin-left: 8px;
+
+        img {
+            width: 34px;
+            height: 30px;
+        }
+    }
+
+    .provider-name {
+        font-family: var(--ff-bambino);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: var(--white);
+    }
+}
+
 .search-content-wrapper-section {
     background-color: black;
     padding-top: 20px;
@@ -842,46 +973,6 @@
                                 right: 15px;
                                 display: flex;
                                 justify-content: space-between;
-
-                                .provider-status-bedge {
-                                    background-color: #00000096;
-                                    backdrop-filter: blur(10px);
-                                    box-shadow: 0px 4px 4px 0px #FE990B1A;
-                                    border-radius: 18px;
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 2px;
-                                    padding: 5px 13px;
-
-                                    svg {}
-
-                                    span {
-                                        font-size: 10px;
-                                        line-height: 10px;
-                                        color: var(--white);
-                                        font-family: var(--ff-hellix);
-                                    }
-                                }
-
-                                .heart-icon {
-                                    svg {
-                                        transition: all .2s ease;
-                                        cursor: pointer;
-
-                                        &:hover {
-                                            transform: scale(1.1);
-
-                                            path {
-                                                fill: red;
-                                                stroke: red;
-                                            }
-                                        }
-
-                                        &:active {
-                                            transform: scale(.9);
-                                        }
-                                    }
-                                }
                             }
 
                             .provider-card-content-details {
@@ -891,30 +982,6 @@
                                 right: 0;
 
                                 .provider-summary-details {
-                                    .provider-nameplate {
-                                        display: flex;
-                                        align-items: center;
-                                        gap: 6px;
-
-                                        .provider-profile-badge {
-                                            margin-left: 8px;
-
-                                            img {
-                                                width: 34px;
-                                                height: 30px;
-                                            }
-                                        }
-
-                                        .provider-name {
-                                            font-family: var(--ff-bambino);
-                                            font-weight: 400;
-                                            font-size: 16px;
-                                            font-weight: 400;
-                                            line-height: 18px;
-                                            color: var(--white);
-                                        }
-                                    }
-
                                     .provider-card-personal-detail {
                                         background-color: #1D1E22;
                                         display: flex;
@@ -1015,69 +1082,6 @@
                                             .member-info-btn {
                                                 padding: 4px 0;
                                                 border-radius: 7px;
-                                            }
-                                        }
-
-                                        .provider-pricing-list {
-                                            background: black;
-                                            border-radius: 8px;
-                                            margin-top: -32px;
-                                            margin-left: auto;
-
-                                            .provider-pricing-item {
-                                                padding: 5px 8px;
-
-                                                .pricing-head {
-                                                    min-width: max-content;
-                                                    max-width: max-content;
-                                                    font-size: 11px;
-                                                    line-height: 12px;
-                                                    color: var(--white);
-                                                    font-family: var(--ff-hellix);
-                                                    /* padding-bottom: 3px; */
-                                                }
-
-                                                .pricing-tag {
-                                                    align-items: center;
-                                                    display: flex;
-                                                    justify-content: space-between;
-                                                }
-                                            }
-
-                                            :nth-child(2).provider-pricing-item {
-                                                background-color: #2A221F;
-                                                margin-inline: 1px;
-
-                                                .pricing-head {}
-
-                                                .pricing-tag {
-                                                    display: flex;
-
-                                                    .pricing-tag-image {
-                                                        img {}
-                                                    }
-
-                                                    svg {}
-                                                }
-                                            }
-
-                                            :nth-child(3).provider-pricing-item {
-                                                margin: 1px;
-                                                border-bottom-left-radius: 8px;
-                                                border-bottom-right-radius: 8px;
-                                                background-color: #2A221F;
-
-                                                .pricing-head {}
-
-                                                .pricing-tag {
-                                                    display: flex;
-
-                                                    .pricing-tag-image {
-                                                        img {}
-                                                    }
-
-                                                    svg {}
-                                                }
                                             }
                                         }
                                     }
@@ -1099,288 +1103,6 @@
                     }
 
                     /* Provider Profile Cards Container :: LIST View Layout  */
-                    .search-provider-cards-list-view {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        gap: 22px;
-                        margin-top: 16px;
-
-                        .search-provider-profile-card-wrapper {
-                            position: relative;
-                            display: flex;
-
-                            .provider-card-image {
-                                position: relative;
-
-                                img {
-                                    width: 100%;
-                                    height: 100%;
-                                    object-fit: cover;
-                                    border-radius: 10px;
-                                    object-position: top;
-                                }
-                            }
-
-                            .provider-card-header {
-                                background-color: red;
-                                position: absolute;
-                                top: 10px;
-                                left: 10px;
-                                right: 10px;
-                                display: flex;
-                                justify-content: space-between;
-
-                                .provider-status-bedge {
-                                    background-color: #00000096;
-                                    backdrop-filter: blur(10px);
-                                    box-shadow: 0px 4px 4px 0px #FE990B1A;
-                                    border-radius: 18px;
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 2px;
-                                    padding: 5px 13px;
-
-                                    svg {}
-
-                                    span {
-                                        font-size: 10px;
-                                        line-height: 10px;
-                                        color: var(--white);
-                                        font-family: var(--ff-hellix);
-                                    }
-                                }
-
-                                .heart-icon {
-                                    svg {
-                                        transition: all .2s ease;
-                                        cursor: pointer;
-
-                                        &:hover {
-                                            transform: scale(1.1);
-
-                                            path {
-                                                fill: red;
-                                                stroke: red;
-                                            }
-                                        }
-
-                                        &:active {
-                                            transform: scale(.9);
-                                        }
-                                    }
-                                }
-                            }
-
-                            .provider-card-content-details {
-                                position: relative;
-
-                                .provider-summary-details {
-                                    .provider-nameplate {
-                                        display: flex;
-                                        align-items: center;
-                                        gap: 6px;
-
-                                        .provider-profile-badge {
-                                            margin-left: 8px;
-
-                                            img {
-                                                width: 34px;
-                                                height: 30px;
-                                            }
-                                        }
-
-                                        .provider-name {
-                                            font-family: var(--ff-bambino);
-                                            font-weight: 400;
-                                            font-size: 16px;
-                                            font-weight: 400;
-                                            line-height: 18px;
-                                            color: var(--white);
-                                        }
-                                    }
-
-                                    .provider-card-personal-detail {
-                                        background-color: #1D1E22;
-                                        display: flex;
-                                        padding: 5px 5px 8px 8px;
-                                        border-radius: 10px;
-                                        gap: 12px;
-
-                                        .provider-summary-content {
-                                            width: 100%;
-
-                                            .member-location-travel-tags {
-                                                display: flex;
-                                                align-items: center;
-                                                gap: 5px;
-
-                                                .location-text {
-                                                    font-family: var(--ff-hellix);
-                                                    font-weight: 500;
-                                                    font-size: 12px;
-                                                    line-height: 28px;
-                                                    color: var(--white);
-                                                    min-width: max-content;
-                                                }
-
-                                                .date-range {
-                                                    display: flex;
-                                                    align-items: center;
-                                                    gap: 3px;
-                                                    border: 1px solid #FFFFFF36;
-                                                    background: black;
-                                                    display: flex;
-                                                    padding: 1px 2px 1px 4px;
-                                                    border-radius: 5px;
-                                                    gap: 6px;
-
-                                                    .travel-icon {
-                                                        img {
-                                                            width: 16px;
-                                                            height: 16px;
-                                                        }
-                                                    }
-
-                                                    .start-date {
-                                                        font-family: var(--ff-hellix);
-                                                        font-weight: 400;
-                                                        font-size: 9px;
-                                                        line-height: 12px;
-                                                        color: var(--black);
-                                                        padding: 2px;
-                                                        border-radius: 3px;
-                                                        background-color: white;
-
-                                                        span {
-                                                            font-weight: 600;
-                                                            font-size: 9px;
-                                                        }
-                                                    }
-
-                                                    .end-date {
-                                                        font-family: var(--ff-hellix);
-                                                        font-weight: 400;
-                                                        font-size: 9px;
-                                                        line-height: 12px;
-                                                        color: var(--black);
-                                                        padding: 2px;
-                                                        border-radius: 3px;
-                                                        background-color: white;
-
-                                                        span {
-                                                            font-weight: 600;
-                                                            font-size: 9px;
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-                                            .member-physical-attributes-list {
-                                                display: flex;
-                                                gap: 4px;
-                                                margin: 6px 0;
-
-                                                .member-physical-attribute {
-                                                    font-size: 10px;
-                                                    font-weight: 400;
-                                                    line-height: 12px;
-                                                    color: var(--white);
-                                                    padding: 3px 0;
-                                                    border-radius: 6px;
-                                                    backdrop-filter: blur(16px);
-                                                    font-family: var(--ff-hellix);
-                                                    background-color: #4a4b4e;
-                                                    display: flex;
-                                                    justify-content: center;
-                                                    width: 100%;
-                                                }
-                                            }
-
-                                            .member-info-btn {
-                                                padding: 4px 0;
-                                                border-radius: 7px;
-                                            }
-                                        }
-
-                                        .provider-pricing-list {
-                                            background: black;
-                                            border-radius: 8px;
-                                            margin-top: -32px;
-                                            margin-left: auto;
-
-                                            .provider-pricing-item {
-                                                padding: 5px 8px;
-
-                                                .pricing-head {
-                                                    min-width: max-content;
-                                                    max-width: max-content;
-                                                    font-size: 11px;
-                                                    line-height: 12px;
-                                                    color: var(--white);
-                                                    font-family: var(--ff-hellix);
-                                                    /* padding-bottom: 3px; */
-                                                }
-
-                                                .pricing-tag {
-                                                    align-items: center;
-                                                    display: flex;
-                                                    justify-content: space-between;
-                                                }
-                                            }
-
-                                            :nth-child(2).provider-pricing-item {
-                                                background-color: #2A221F;
-                                                margin-inline: 1px;
-
-                                                .pricing-head {}
-
-                                                .pricing-tag {
-                                                    display: flex;
-
-                                                    .pricing-tag-image {
-                                                        img {}
-                                                    }
-
-                                                    svg {}
-                                                }
-                                            }
-
-                                            :nth-child(3).provider-pricing-item {
-                                                margin: 1px;
-                                                border-bottom-left-radius: 8px;
-                                                border-bottom-right-radius: 8px;
-                                                background-color: #2A221F;
-
-                                                .pricing-head {}
-
-                                                .pricing-tag {
-                                                    display: flex;
-
-                                                    .pricing-tag-image {
-                                                        img {}
-                                                    }
-
-                                                    svg {}
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        :nth-child(2).search-provider-profile-card-wrapper {
-                            & .provider-card-header {
-                                & .provider-status-bedge {
-                                    border: 1px solid #FFD700;
-
-                                    span {
-                                        color: #FFD700;
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
 
