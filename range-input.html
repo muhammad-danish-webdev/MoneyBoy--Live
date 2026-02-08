@@ -3,75 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clickable SVG Heart Icon</title>
+    <title>CSS Grid Explanation</title>
     <style>
       body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #1a1a1a;
-        margin: 0;
         font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
       }
 
-      /* Heart Icon Wrapper Styling */
-      .heart-container {
-        width: 100px; /* Container ki width */
-        height: 100px; /* Container ki height */
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        background-color: #333; /* Background for visibility */
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      h2 {
+        text-align: center;
+        color: #333;
       }
 
-      /* SVG Heart Styling */
-      .heart-icon {
-        width: 60px; /* SVG ki actual width */
-        height: 60px; /* SVG ki actual height */
-        fill: #ccc; /* Default Grey color */
-        stroke: #999; /* Border color */
-        stroke-width: 2px;
-        transform-origin: center; /* Scale center se ho */
-        transition:
-          fill 0.3s ease,
-          transform 0.1s ease-out; /* Smooth transitions */
+      /* The Grid Container */
+      .container {
+        display: grid;
+        /* This is the magic line */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
       }
 
-      /* Jab heart par mouse hover kare (Optional) */
-      .heart-container:hover .heart-icon {
-        fill: #e0e0e0;
-        stroke: #bbb;
+      /* Grid Items (Cards) */
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-top: 5px solid #007bff;
       }
 
-      /* === Click Logic (No JS) === */
-      /* Jab heart ko click karein tab yeh styles apply honge */
-      .heart-container:active .heart-icon {
-        fill: #ff0000; /* Red color on click */
-        transform: scale(0.8); /* Scale down to 80% on click */
-        stroke: #cc0000; /* Darker red border */
+      .card h3 {
+        margin: 0;
+        color: #007bff;
       }
 
-      /* Text for demonstration */
-      p {
-        position: absolute;
-        bottom: 20px;
-        color: #888;
+      .card p {
+        color: #666;
         font-size: 14px;
       }
     </style>
   </head>
   <body>
-    <div class="heart-container">
-      <svg class="heart-icon" viewBox="0 0 24 24">
-        <path
-          d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
+    <h2>Amina & Rizwan's Gallery Project</h2>
+    <p style="text-align: center">Resize the window to see the magic!</p>
+
+    <div class="container">
+      <div class="card"><h3>Card 1</h3><p>I am at least 280px wide.</p></div>
+      <div class="card"><h3>Card 2</h3><p>I stretch to fill the space.</p></div>
+      <div class="card"><h3>Card 3</h3><p>I wrap automatically.</p></div>
+      <div class="card"><h3>Card 4</h3><p>No media queries needed!</p></div>
+      <div class="card"><h3>Card 5</h3><p>Perfect for portfolios.</p></div>
+      <div class="card"><h3>Card 6</h3><p>Try shrinking your screen.</p></div>
     </div>
-    <p>Click the heart icon!</p>
   </body>
 </html>

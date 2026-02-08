@@ -114,19 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Advanced Filter Wrapper Container JS Logic
-// const filterWrapper = document.querySelector(
-//   ".aside-bar-advanced-filter-wrapper",
-// );
-// const filterList = document.querySelector(
-//   ".aside-bar-advanced-filter-list-container",
-// );
-
-// filterWrapper.addEventListener("click", () => {
-//   // Ye line 'active' class ko add/remove karegi
-//   filterList.classList.toggle("active");
-// });
-
 const filterWrapper = document.querySelector(
   ".aside-bar-advanced-filter-wrapper",
 );
