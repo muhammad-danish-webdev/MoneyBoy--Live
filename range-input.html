@@ -3,59 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CSS Grid Explanation</title>
+    <title>Logic Tester</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        padding: 20px;
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+        background: #f4f4f4;
       }
-
-      h2 {
-        text-align: center;
-        color: #333;
-      }
-
-      /* The Grid Container */
-      .container {
-        display: grid;
-        /* This is the magic line */
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-      }
-
-      /* Grid Items (Cards) */
       .card {
         background: white;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        border-top: 5px solid #007bff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
       }
-
-      .card h3 {
-        margin: 0;
-        color: #007bff;
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
       }
-
-      .card p {
-        color: #666;
-        font-size: 14px;
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #333;
       }
     </style>
   </head>
   <body>
-    <h2>Amina & Rizwan's Gallery Project</h2>
-    <p style="text-align: center">Resize the window to see the magic!</p>
-
-    <div class="container">
-      <div class="card"><h3>Card 1</h3><p>I am at least 280px wide.</p></div>
-      <div class="card"><h3>Card 2</h3><p>I stretch to fill the space.</p></div>
-      <div class="card"><h3>Card 3</h3><p>I wrap automatically.</p></div>
-      <div class="card"><h3>Card 4</h3><p>No media queries needed!</p></div>
-      <div class="card"><h3>Card 5</h3><p>Perfect for portfolios.</p></div>
-      <div class="card"><h3>Card 6</h3><p>Try shrinking your screen.</p></div>
+    <div class="card">
+      <h3>Ticket Calculator</h3>
+      <input type="number" id="ageInput" placeholder="Enter your age" />
+      <button onclick="calculatePrice()">Check Price</button>
+      <div id="result"></div>
     </div>
+
+    <script>
+      function calculatePrice() {
+        const age = document.getElementById("ageInput").value;
+        const display = document.getElementById("result");
+        let price = 1000; // Base price
+
+        // 1. Multiple "if" (Checking multiple independent conditions)
+        // Yeh har condition check karega, chahe upar wali sahi ho ya nahi.
+        if (age < 18) {
+          price -= 200; // Minor discount
+        }
+        if (age > 60) {
+          price -= 300; // Senior discount
+        }
+
+        // 2. "if-else" (Choosing only one path)
+        // Is mein sirf ek hi block chalega.
+        let category = "";
+        if (age < 13) {
+          category = "Child";
+        } else if (age < 20) {
+          category = "Teenager";
+        } else {
+          category = "Adult";
+        }
+
+        display.innerHTML = `Category: ${category} <br> Final Price: Rs. ${price}`;
+      }
+    </script>
   </body>
 </html>

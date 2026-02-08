@@ -1105,12 +1105,23 @@
 
                     /* Provider Profile Cards Container :: LIST View Layout  */
                     .search-provider-profile-listview-container {
+                        padding-bottom: 100px;
+
                         .provider-listview-card {
                             display: flex;
 
                             .provider-card-image-wrapper {
                                 position: relative;
                                 background-color: pink;
+
+                                &::before {
+                                    content: "";
+                                    width: 100%;
+                                    height: 100%;
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0.092) 37.78%, rgba(0, 0, 0, 0.8) 100%);
+                                    position: absolute;
+                                    inset: 0;
+                                }
 
                                 .provider-listview-card-image {
                                     img {
@@ -1132,7 +1143,8 @@
 
                                 .provider-nameplate {
                                     position: absolute;
-                                    bottom: 0px;
+                                    bottom: 14px;
+                                    left: 12px;
 
                                     .provider-profile-badge {
                                         img {}
@@ -1144,56 +1156,7 @@
                                 }
                             }
 
-                            /* .provider-card-image-wrapper {
-                                position: relative;
-                                width: 100%;
-                                max-width: 290px;
-                                aspect-ratio: 290 / 313;
-                                overflow: hidden;
-                                border-radius: 12px;
-
-                                .provider-listview-card-image {
-                                    position: absolute;
-                                    inset: 0;
-                                    z-index: 1;
-
-                                    img {
-                                        width: 100%;
-                                        height: 100%;
-                                        object-fit: cover;
-                                        display: block;
-                                    }
-                                }
-
-                                .provider-status-bedge {
-                                    position: absolute;
-                                    top: 10px;
-                                    left: 10px;
-                                    z-index: 2;
-                                }
-
-                                .provider-nameplate {
-                                    position: absolute;
-                                    bottom: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    z-index: 3;
-                                    padding: 15px;
-                                    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-                                    display: flex;
-                                    align-items: center;
-                                    gap: 8px;
-
-                                    .provider-profile-badge {
-                                        img {
-                                            display: block;
-                                        }
-                                    }
-                                }
-                            } */
                             .provider-pricing-list {
-                                display: none;
-
                                 .provider-pricing-item {
                                     .pricing-head {}
 
