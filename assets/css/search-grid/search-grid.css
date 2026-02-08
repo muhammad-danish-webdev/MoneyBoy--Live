@@ -868,10 +868,6 @@
                                         transition: all .2s ease;
                                         cursor: pointer;
 
-                                        path {
-                                            /* transition: all 3s ease; */
-                                        }
-
                                         &:hover {
                                             transform: scale(1.1);
 
@@ -1096,6 +1092,113 @@
 
                                     span {
                                         color: #FFD700;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    /* Provider Profile Cards Container :: LIST View Layout  */
+                    .search-provider-profile-cards-container {
+                        .search-provider-profile-card-wrapper {
+                            .provider-card-image {
+                                img {}
+                            }
+
+                            .provider-card-header {
+                                .provider-status-bedge {
+                                    svg {}
+
+                                    span {}
+                                }
+
+                                .heart-icon {
+                                    svg {
+                                        &:hover {
+                                            path {}
+                                        }
+
+                                        &:active {}
+                                    }
+                                }
+                            }
+
+                            .provider-card-content-details {
+                                .provider-summary-details {
+                                    .provider-nameplate {
+                                        .provider-profile-badge {
+                                            img {}
+                                        }
+
+                                        .provider-name {}
+                                    }
+
+                                    .provider-card-personal-detail {
+                                        .provider-summary-content {
+                                            .member-location-travel-tags {
+                                                .location-text {}
+
+                                                .date-range {
+                                                    .travel-icon {
+                                                        img {}
+                                                    }
+
+                                                    .start-date {
+                                                        span {}
+                                                    }
+
+                                                    .end-date {
+                                                        span {}
+                                                    }
+                                                }
+                                            }
+
+                                            .member-physical-attributes-list {
+                                                .member-physical-attribute {}
+                                            }
+
+                                            .member-info-btn {}
+                                        }
+
+                                        .provider-pricing-list {
+                                            .provider-pricing-item {
+                                                .pricing-head {}
+
+                                                .pricing-tag {}
+
+                                                &:nth-child(2) {
+                                                    .pricing-head {}
+
+                                                    .pricing-tag {
+                                                        .pricing-tag-image {
+                                                            img {}
+                                                        }
+
+                                                        svg {}
+                                                    }
+                                                }
+
+                                                &:nth-child(3) {
+                                                    .pricing-head {}
+
+                                                    .pricing-tag {
+                                                        .pricing-tag-image {
+                                                            img {}
+                                                        }
+
+                                                        svg {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                .provider-card-header {
+                                    .provider-status-bedge {
+                                        span {}
                                     }
                                 }
                             }
