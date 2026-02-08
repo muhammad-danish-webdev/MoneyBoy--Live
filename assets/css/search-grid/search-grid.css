@@ -15,6 +15,7 @@
     align-items: center;
     gap: 2px;
     padding: 5px 13px;
+    max-width: max-content;
 
     svg {}
 
@@ -1103,6 +1104,104 @@
                     }
 
                     /* Provider Profile Cards Container :: LIST View Layout  */
+                    .search-provider-profile-listview-container {
+                        .provider-listview-card {
+                            display: flex;
+
+                            .provider-card-image-wrapper {
+                                position: relative;
+
+                                .provider-listview-card-image {
+                                    img {
+                                        width: 200px;
+                                        height: 200px;
+                                        object-fit: cover;
+                                    }
+                                }
+
+                                .provider-status-bedge {
+                                    position: absolute;
+                                    top: 10px;
+                                    left: 10px;
+
+                                    svg {}
+                                }
+
+                                .provider-nameplate {
+                                    position: absolute;
+                                    bottom: 10px;
+
+                                    .provider-profile-badge {
+                                        img {}
+                                    }
+
+                                    .provider-name {}
+
+                                    .status-indicator {}
+                                }
+                            }
+
+                            .provider-pricing-list {
+                                .provider-pricing-item {
+                                    .pricing-head {}
+
+                                    .pricing-tag {
+                                        .pricing-tag-image {
+                                            img {}
+                                        }
+
+                                        svg {}
+                                    }
+                                }
+                            }
+
+                            .listview-card-content-container {
+                                .member-location-travel-tags {
+                                    svg {}
+
+                                    .location-text {}
+
+                                    .date-range {
+                                        .travel-icon {
+                                            img {}
+                                        }
+
+                                        .start-date {
+                                            span {}
+                                        }
+
+                                        .end-date {
+                                            span {}
+                                        }
+                                    }
+                                }
+
+                                .listview-card-title {}
+
+                                .listview-card-desc {}
+
+                                .member-physical-attributes-list {
+                                    .member-physical-attribute {}
+                                }
+
+                                .member-info-btn {
+                                    span {}
+                                }
+
+                                .listview-card-footer-list {
+                                    display: flex;
+
+                                    .listview-card-item {
+                                        svg {}
+
+                                        p {}
+
+                                        span {}
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
