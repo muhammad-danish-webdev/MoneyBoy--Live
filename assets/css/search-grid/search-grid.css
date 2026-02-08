@@ -1110,12 +1110,15 @@
 
                             .provider-card-image-wrapper {
                                 position: relative;
+                                background-color: pink;
 
                                 .provider-listview-card-image {
                                     img {
-                                        width: 200px;
-                                        height: 200px;
+                                        aspect-ratio: 290/313;
+                                        max-width: 290px;
+                                        width: 100%;
                                         object-fit: cover;
+                                        display: block;
                                     }
                                 }
 
@@ -1129,7 +1132,7 @@
 
                                 .provider-nameplate {
                                     position: absolute;
-                                    bottom: 10px;
+                                    bottom: 0px;
 
                                     .provider-profile-badge {
                                         img {}
@@ -1141,7 +1144,56 @@
                                 }
                             }
 
+                            /* .provider-card-image-wrapper {
+                                position: relative;
+                                width: 100%;
+                                max-width: 290px;
+                                aspect-ratio: 290 / 313;
+                                overflow: hidden;
+                                border-radius: 12px;
+
+                                .provider-listview-card-image {
+                                    position: absolute;
+                                    inset: 0;
+                                    z-index: 1;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                        display: block;
+                                    }
+                                }
+
+                                .provider-status-bedge {
+                                    position: absolute;
+                                    top: 10px;
+                                    left: 10px;
+                                    z-index: 2;
+                                }
+
+                                .provider-nameplate {
+                                    position: absolute;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    z-index: 3;
+                                    padding: 15px;
+                                    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 8px;
+
+                                    .provider-profile-badge {
+                                        img {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            } */
                             .provider-pricing-list {
+                                display: none;
+
                                 .provider-pricing-item {
                                     .pricing-head {}
 
@@ -1156,6 +1208,8 @@
                             }
 
                             .listview-card-content-container {
+                                display: none;
+
                                 .member-location-travel-tags {
                                     svg {}
 
@@ -1185,11 +1239,14 @@
                                 }
 
                                 .member-info-btn {
+                                    width: 100px;
+
                                     span {}
                                 }
 
                                 .listview-card-footer-list {
                                     display: flex;
+                                    flex-direction: column;
 
                                     .listview-card-item {
                                         svg {}
